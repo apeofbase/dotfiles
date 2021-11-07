@@ -25,7 +25,6 @@
   # Normally you get two sections in a conflict, this provides a 3rd of the original before the merge
   conflictstyle = diff3
 [push]
-[push]
 	default = matching
 [pager]
   diff = diff-so-fancy | less --tabs=1,5 -RFX

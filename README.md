@@ -7,6 +7,10 @@
 - **Terminal multiplexer:** [tmux](https://github.com/tmux/tmux)
 - **Font:** [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
 
+## Addons
+
+- [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+
 ## TODO
 
 - Restore MacOS config
