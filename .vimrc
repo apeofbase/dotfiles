@@ -31,9 +31,6 @@ Plug 'adelarsq/vim-matchit'
 Plug 'ervandew/screen'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
-"Plug 'tomtom/tlib_vim'
-"Plug 'zaiste/tmux.vim'
-"Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -41,7 +38,6 @@ Plug 'tpope/vim-fugitive'
 "Plug 'sjl/vitality.vim' "MacOS only
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
-"Plug 'joonty/vdebug'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 
@@ -51,13 +47,11 @@ Plug 'othree/html5-syntax.vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'mxw/vim-jsx'
 Plug 'lumiliet/vim-twig'
-"Plug 'https://git.drupal.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 Plug 'w0rp/ale'
 Plug 'styled-components/vim-styled-components'
 Plug 'hail2u/vim-css3-syntax'
 
 " -Color
-"Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'mhartington/oceanic-next'
 
 call plug#end()
@@ -237,7 +231,8 @@ let g:gitgutter_grep = 'rg'
 "let g:CSApprox_verbose_level = 0
 
 " NERDTree
-"map <C-b> :NERDTreeToggle<CR>
+map <C-b> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " Airline settings
 let g:airline_symbols = {}

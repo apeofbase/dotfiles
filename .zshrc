@@ -27,6 +27,7 @@ alias gs='git status -sb'
 alias ga='git add'
 alias gp='git push'
 alias gc='git commit'
+alias gd='git diff'
 
 ## TMUX
 alias ta='tmux attach -t '
