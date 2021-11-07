@@ -24,8 +24,40 @@ endif
 
 call plug#begin('~/.config/vim/plugged')
 
+" -Utilities
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'adelarsq/vim-matchit'
+Plug 'ervandew/screen'
+Plug 'godlygeek/tabular'
+Plug 'tomtom/tcomment_vim'
+"Plug 'tomtom/tlib_vim'
+"Plug 'zaiste/tmux.vim'
+"Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+"Plug 'sjl/vitality.vim' "MacOS only
+Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
+"Plug 'joonty/vdebug'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+
+" -Syntax & Language
+Plug 'pangloss/vim-javascript'
+Plug 'othree/html5-syntax.vim'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'mxw/vim-jsx'
+Plug 'lumiliet/vim-twig'
+"Plug 'https://git.drupal.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
+Plug 'w0rp/ale'
+Plug 'styled-components/vim-styled-components'
+Plug 'hail2u/vim-css3-syntax'
+
 " -Color
-Plug 'dracula/vim', { 'as': 'dracula' }
+"Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'mhartington/oceanic-next'
 
 call plug#end()
@@ -35,11 +67,12 @@ syntax on
 
 " Color schemes
 set t_Co=256
+
 if has('gui_running')
   set background=dark
   colorscheme gruvbox
-elseif has('nvim') 
 
+elseif has('nvim') 
   " Only works well with certain colorschemes like gruvbox
   set termguicolors
   colorscheme OceanicNext
@@ -50,17 +83,20 @@ elseif has('nvim')
 
 else
   colorscheme badwolf
+
 endif
 
 if has("autocmd")
-
   " Check to see if filetype was automagically identified by Vim
+
   if exists("did_load_filetype")
     finish
+
   else
     augroup filetypedetect
       au! BufRead,BufNewFile *.m setfiletype objc
     augroup end
+
   endif
 
   " Alternate syntax highlights and indentation
@@ -182,3 +218,62 @@ vnoremap <s-tab> <`<V`>
 " Stop that stupid window from popping up 
 " @URL (http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/)
 map q: :q
+
+"=============================================================================
+"
+"  PLUGIN SETTINGS
+"
+"=============================================================================
+" ALE settings
+"let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+"let g:ale_sign_warning = '.'
+"let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+
+" GitGutter https://github.com/airblade/vim-gitgutter
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_grep = 'rg'
+
+" avoiding annoying CSApprox warning message
+"let g:CSApprox_verbose_level = 0
+
+" NERDTree
+"map <C-b> :NERDTreeToggle<CR>
+
+" Airline settings
+let g:airline_symbols = {}
+let g:airline_powerline_fonts=0
+let g:airline_symbols.linenr = '␤ '
+let g:airline_symbols.paste = 'ρ'
+let g:airline_section_y = ''
+let g:airline_section_z = ''
+
+" Allow gruvbox theme to use italics
+"let g:gruvbox_italic=1
+
+" Rg settings
+nmap <C-g> :Find<CR>
+" :Find use rg; pulled from https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
+" fzf settings
+set rtp+=system("which fzf")
+nmap ; :Files<CR>
+nmap <Leader>t :Tags<CR>
+nmap <Leader>b :Buffers<CR>
+
+" Screen settings
+let g:ScreenImpl = 'Tmux'
+let g:ScreenShellTmuxInitArgs = '-2'
+let g:ScreenShellInitialFocus = 'shell'
+let g:ScreenShellQuitOnVimExit = 0
+
+" vim-javascript settings
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+
+" vim-jsx
+let g:jsx_ext_required = 0
+
+" Vim-closetag
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx'
