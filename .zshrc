@@ -1,4 +1,18 @@
 # -------
+# Basic
+# -------
+
+# HISTSIZE should always be larger than SAVEHIST
+# Source: https://unix.stackexchange.com/a/595475
+SAVEHIST=3000
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+
+# Allows cd-less directory navigation
+setopt auto_cd
+export EDITOR='vim'
+
+# -------
 # Functions
 # -------
 
@@ -17,7 +31,6 @@ alias la='ls -a'
 alias ll='ls -1a'
 alias lah='ls -lah'
 alias h='cd ~'
-alias bat='batcat --theme=base16'
 
 ## Git
 alias g='git'
@@ -41,9 +54,10 @@ alias open='nautilus'
 
 # bat: https://github.com/sharkdp/bat
 if _has bat || _has batcat; then
+  alias bat='batcat --theme=base16'
   alias cat='bat'
 else
-  echo >&2 "NOTICE: bat is not installed run `brew install bat` or `apt install bat`"
+  echo >&2 "NOTICE: bat is not installed run `brew install bat` or `sudo apt-get install bat`"
 fi
 
 # neovim
@@ -57,6 +71,24 @@ fi
 # fzf 
 if _has fzf; then
   [ -f ~/.config/.fzf.zsh ] && source ~/.config/.fzf.zsh
+  
+  # Color scheme
+  # https://github.com/junegunn/fzf/wiki/Color-schemes
+  # Oceanic-next
+  local background="#1b2b33"
+  local foreground="#d8dee9"
+  local black="#29414f"
+  local red="#ec5f67"
+  local green="#99c794"
+  local yellow="#fac863"
+  local blue="#6699cc"
+  local magenta="#c594c5"
+  local cyan="#5fb3b3"
+  local white="#65737e"
+
+  export FZF_DEFAULT_OPTS="
+    --color=bg+:$black,pointer:$red,info:$cyan,hl:$magenta,hl+:$magenta
+  "
 
   ## fzf + vim: https://statico.github.io/vim3.html
   # Linux
@@ -76,6 +108,7 @@ fi
 
 ## fzf + ripgrep
 if _has fzf && _has rg; then
+
   export FZF_DEFAULT_COMMAND='rg --files --no-messages --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*"'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -93,7 +126,6 @@ source ~/.config/zsh-completions/zsh-completions.plugin.zsh
 #  echo >&2 "NOTICE: ${BIN_DIR}/tmuxinator.zsh is missing"
 #fi
 
-export EDITOR='vim'
 
 # Starship prompt initialize: https://starship.rs
 eval "$(starship init zsh)"
