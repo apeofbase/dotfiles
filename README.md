@@ -20,6 +20,5 @@
 ## TODO
 
 - Restore MacOS config
-- Migrate tmux config
-- Migrate tmuxinator config
+- Finalize vanilla tmux replacement script for tmuxinator
 - Setup GNU Stow
