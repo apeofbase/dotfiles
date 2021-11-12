@@ -22,3 +22,5 @@
 - Restore MacOS config
 - Finalize vanilla tmux replacement script for tmuxinator
 - Setup GNU Stow
+- Add scripts
+    - Set Capslock to CTRL/ESC on boot
