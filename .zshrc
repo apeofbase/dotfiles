@@ -40,6 +40,7 @@ alias gs='git status -sb'
 alias ga='git add'
 alias gp='git push'
 alias gc='git commit'
+alias gco='git checkout'
 alias gd='git diff'
 
 ## TMUX
@@ -47,7 +48,7 @@ alias ta='tmux attach -t '
 alias tl='tmux list-sessions'
 alias tn='tmux new -s '
 alias ts='tmux switch -t '
-alias tk='tmuxinator stop '
+alias tk='tmux kill-session -t '
 
 ## Linux
 alias open='nautilus'
