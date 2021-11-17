@@ -1,4 +1,4 @@
-# -------
+
 # Basic
 # -------
 
@@ -54,7 +54,9 @@ alias tk='tmux kill-session -t '
 alias open='nautilus'
 
 # bat: https://github.com/sharkdp/bat
-if _has bat || _has batcat; then
+if _has bat; then 
+  alias cat='bat'
+elif _has batcat; then
   alias bat='batcat --theme=base16'
   alias cat='bat'
 else

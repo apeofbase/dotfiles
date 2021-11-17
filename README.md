@@ -10,12 +10,16 @@
 
 ## Utilities
 
+- [vim-plug](https://github.com/junegunn/vim-plug)
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fzf](https://github.com/junegunn/fzf)
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+- [zsh-completions]()
 
 ## Apps
-
 - Pop_OS 20.04 Gnome
+- Fedora 35
 
 ## TODO
 
