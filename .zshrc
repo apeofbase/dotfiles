@@ -73,8 +73,6 @@ fi
 
 # fzf 
 if _has fzf; then
-  [ -f ~/.config/.fzf.zsh ] && source ~/.config/.fzf.zsh
-  
   # Color scheme
   # https://github.com/junegunn/fzf/wiki/Color-schemes
   # Oceanic-next
@@ -121,14 +119,9 @@ fi
 source ~/.config/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh-completions/zsh-completions.plugin.zsh
 
-# Load tmuxinator alias file
-#BIN_DIR="${HOME}/.bin"
-#if [ -f "$BIN_DIR/tmuxinator.zsh" ]; then
-#  source ${BIN_DIR}/tmuxinator.zsh
-#else
-#  echo >&2 "NOTICE: ${BIN_DIR}/tmuxinator.zsh is missing"
-#fi
-
 
 # Starship prompt initialize: https://starship.rs
 eval "$(starship init zsh)"
+
+# Initialize completions
+autoload -U compinit; compinit
