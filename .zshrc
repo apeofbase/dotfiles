@@ -95,9 +95,9 @@ if _has fzf; then
 
   ## fzf + vim: https://statico.github.io/vim3.html
   # Linux
-  if [ -e /usr/share/doc/fzf/examples/completion.zsh ]; then
-    source /usr/share/doc/fzf/examples/key-bindings.zsh
-    source /usr/share/doc/fzf/examples/completion.zsh
+  if [ -e  ~/.config/vim/plugged/fzf/shell/completion.zsh ]; then
+    source ~/.config/vim/plugged/fzf/shell/key-bindings.zsh
+    source ~/.config/vim/plugged/fzf/shell/completion.zsh
   fi
 
   # MacOS
