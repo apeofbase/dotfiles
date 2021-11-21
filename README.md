@@ -8,7 +8,7 @@
 - **Terminal multiplexer:** [tmux](https://github.com/tmux/tmux)
 - **Font:** [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
 
-## Utilities
+## Utilities & Tweaks
 
 - [vim-plug](https://github.com/junegunn/vim-plug)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
@@ -16,15 +16,20 @@
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - [zsh-completions]()
+- [caps2esc](https://gitlab.com/interception/linux/plugins/caps2esc) Swap CAPSLOCK with ESC and longpress CTRL_L 
+  - [walkthrough](http://nelsonware.com/blog/2019/04/30/how-to-map-caps-lock-to-escape-and-control-on-fedora-via-caps2esc.html)
+  - Set CAPSLOCK to ESC in Gnome Tweak Tools:
+    1. Keyboard & Mouse
+    2. Additional Layout Options
+    3. Capslock behavior
+    4. Make Caps Lock An Additiona Esc
 
-## Apps
+## Compatable OS
+
 - Pop_OS 20.04 Gnome
-- Fedora 35
+- Fedora 35 Gnome
 
 ## TODO
 
 - Restore MacOS config
-- Finalize vanilla tmux replacement script for tmuxinator
 - Setup GNU Stow
-- Add scripts
-    - Set Capslock to CTRL/ESC on boot
