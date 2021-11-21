@@ -46,7 +46,7 @@ alias gd='git diff'
 ## TMUX
 alias ta='tmux attach -t '
 alias tl='tmux list-sessions'
-alias tn='tmux new -s '
+alias tn='tmux new'
 alias ts='tmux switch -t '
 alias tk='tmux kill-session -t '
 

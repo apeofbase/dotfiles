@@ -8,10 +8,9 @@ else
   session_name=$1
 fi
 
-tmux new-session -s "$session_name" -n 'Main' -d \; \
-  send-keys "cd ${PWD}" C-m C-l \; \
-  split-window -v \; \
-  send-keys "cd ${PWD}" C-m C-l \; \
-  split-window -h \; \
-  send-keys "cd ${PWD}" C-m C-l \;
-tmux attach -t "$session_name"
+# Start New Session with our name
+tmux new-session -s "$session_name" -n 'Vim' -d \; \
+  send-keys -t 'Vim' 'vim' C-m C-l \; \
+  new-window -n 'Server' \; \
+  new-window -n 'Shell' \;
+tmux attach-session -t "$session_name:Vim"
