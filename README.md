@@ -34,5 +34,4 @@
 - Restore MacOS config
   - [Fix tmux prefix issues in MacOS](https://github.com/tmux/tmux/issues/1585#issuecomment-483861102)
 - Setup GNU Stow
-- [Remove ZSH history duplicates](https://leetschau.github.io/remove-duplicate-zsh-history.html)
 - Test out [Zellij](https://zellij.dev/) as a tmux replacement
