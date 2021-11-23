@@ -25,7 +25,14 @@ _has() {
 # -------
 # Aliases
 # -------
-alias ls='ls --color=auto'
+
+# MacOS specific aliases
+if [[ `uname` == "Darwin" ]]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=auto'
+fi
+
 alias l='ls'
 alias la='ls -a'
 alias ll='ls -1a'
