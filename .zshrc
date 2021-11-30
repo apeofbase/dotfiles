@@ -140,3 +140,12 @@ eval "$(starship init zsh)"
 
 # Initialize completions
 autoload -U compinit; compinit
+
+# Include OS specific and local only .zshrc overrides
+if [ -e ~/macos.zshrc ]; then
+  source ~/macos.zshrc
+fi
+
+if [ -e ~/local.zshrc ]; then
+  source ~/local.zshrc
+fi
