@@ -41,6 +41,7 @@ else
   alias ls='ls --color=auto'
 fi
 
+alias ls='ls --color=auto'
 alias l='ls'
 alias la='ls -a'
 alias ll='ls -1a'
@@ -107,16 +108,9 @@ if _has fzf; then
   "
 
   ## fzf + vim: https://statico.github.io/vim3.html
-  # Linux
   if [ -e  ~/.config/vim/plugged/fzf/shell/completion.zsh ]; then
     source ~/.config/vim/plugged/fzf/shell/key-bindings.zsh
     source ~/.config/vim/plugged/fzf/shell/completion.zsh
-  fi
-
-  # MacOS
-  if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
-    source /usr/local/opt/fzf/shell/key-bindings.zsh
-    source /usr/local/opt/fzf/shell/completion.zsh
   fi
 else
   echo >&2 "NOTICE: fzf is not installed, check `https://github.com/junegunn/fzf`" 
