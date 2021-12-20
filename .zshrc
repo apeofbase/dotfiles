@@ -75,16 +75,12 @@ if _has bat; then
 elif _has batcat; then
   alias bat='batcat --theme=base16'
   alias cat='bat'
-else
-  echo >&2 "NOTICE: bat is not installed run `brew install bat` or `sudo apt-get install bat`"
 fi
 
 # neovim
 if _has nvim; then
   alias vim='nvim'
   export EDITOR="nvim"
-else
-  echo >&2 "NOTICE: neovim is not installed"
 fi
 
 # fzf 
@@ -112,8 +108,6 @@ if _has fzf; then
     source ~/.config/vim/plugged/fzf/shell/key-bindings.zsh
     source ~/.config/vim/plugged/fzf/shell/completion.zsh
   fi
-else
-  echo >&2 "NOTICE: fzf is not installed, check `https://github.com/junegunn/fzf`" 
 fi
 
 ## fzf + ripgrep
