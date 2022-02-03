@@ -1,6 +1,6 @@
 # Dotfiles v2
 
-- **Compatability:** Linux, [TODO: MacOS]
+- **Compatability:** Linux, MacOS (Minus Alacritty prefix issues)
 - **Terminal:** [Alacrity](https://github.com/alacritty/alacritty)
 - **Shell:** zsh
 - **Prompt:** [Starship](https://starship.rs/)
@@ -18,6 +18,7 @@
 - [zsh-completions]()
 - [caps2esc](https://gitlab.com/interception/linux/plugins/caps2esc) Swap CAPSLOCK with ESC and longpress CTRL_L 
   - [walkthrough](http://nelsonware.com/blog/2019/04/30/how-to-map-caps-lock-to-escape-and-control-on-fedora-via-caps2esc.html)
+  - Config files to symlink are in `caps2esc` dir
   - Set CAPSLOCK to ESC in Gnome Tweak Tools:
     1. Keyboard & Mouse
     2. Additional Layout Options
@@ -26,12 +27,12 @@
 
 ## Compatable OS
 
-- Pop_OS 20.04 Gnome
+- Pop_OS 21.10 Gnome
 - Fedora 35 Gnome
 
 ## TODO
 
 - Restore MacOS config
-  - [Fix tmux prefix issues in MacOS](https://github.com/tmux/tmux/issues/1585#issuecomment-483861102)
+  - [Fix tmux prefix issues in MacOS for Alacritty](https://github.com/tmux/tmux/issues/1585#issuecomment-483861102)
 - Setup GNU Stow
 - Test out [Zellij](https://zellij.dev/) as a tmux replacement
