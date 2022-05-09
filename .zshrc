@@ -133,7 +133,3 @@ autoload -U compinit; compinit
 if [ -e ~/macos.zshrc ]; then
   source ~/macos.zshrc
 fi
-
-if [ -e ~/local.zshrc ]; then
-  source ~/local.zshrc
-fi
