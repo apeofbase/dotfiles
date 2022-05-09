@@ -1,7 +1,7 @@
 # Dotfiles v2
 
 - **Compatability:** Linux, MacOS (Minus Alacritty prefix issues)
-- **Terminal:** [Alacrity](https://github.com/alacritty/alacritty)
+- **Terminal:** [Alacrity](https://github.com/alacritty/alacritty) (Linux) [iTerm2](https://iterm2.com/) (Macos)
 - **Shell:** zsh
 - **Prompt:** [Starship](https://starship.rs/)
 - **Editor:** [NeoVim](https://neovim.io/)
@@ -15,7 +15,7 @@
 - [fzf](https://github.com/junegunn/fzf)
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-- [zsh-completions]()
+- [zsh-completions](https://github.com/zsh-users/zsh-completions)
 - [caps2esc](https://gitlab.com/interception/linux/plugins/caps2esc) Swap CAPSLOCK with ESC and longpress CTRL_L 
   - [walkthrough](http://nelsonware.com/blog/2019/04/30/how-to-map-caps-lock-to-escape-and-control-on-fedora-via-caps2esc.html)
   - Config files to symlink are in `caps2esc` dir
@@ -29,6 +29,7 @@
 
 - Pop_OS 21.10 Gnome
 - Fedora 35 Gnome
+- MacOS
 
 ## TODO
 
@@ -36,3 +37,7 @@
   - [Fix tmux prefix issues in MacOS for Alacritty](https://github.com/tmux/tmux/issues/1585#issuecomment-483861102)
 - Setup GNU Stow
 - Test out [Zellij](https://zellij.dev/) as a tmux replacement
+  - Adding basic prefix mappings to Alacritty solves Zellij issues
+  - Need to setup config for Zellij
+- Move to [zplug](https://github.com/zplug/zplug) to manage all ZSH plugins
+- Add [z](https://github.com/agkozak/zsh-z) command plugin
