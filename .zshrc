@@ -69,30 +69,6 @@ alias tk='tmux kill-session -t '
 ## Linux
 alias open='nautilus'
 
-## Plugins
-source ~/.zplug/init.zsh
-
-# z command
-zplug "agkozak/zsh-z"
-
-# Load autocompletions after compinit
-zplug "zsh-users/zsh-autosuggestions", defer:2
-zplug "zsh-users/zsh-completions", defer:2
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load
-
-## Utilities
-
 # bat: https://github.com/sharkdp/bat
 if _has bat; then 
   alias cat='bat'
@@ -107,7 +83,19 @@ if _has nvim; then
   export EDITOR="nvim"
 fi
 
-# fzf 
+# -------
+# zplug
+# -------
+source ~/.zplug/init.zsh
+
+### z command
+zplug "agkozak/zsh-z"
+
+### fzf
+zplug "junegunn/fzf", \
+  hook-build:"./install --bin && ln -frs $ZPLUG_REPOS/junegunn/fzf/bin/fzf* $ZPLUG_BIN", \
+  use:"shell/*.zsh"
+
 if _has fzf; then
   # Color scheme
   # https://github.com/junegunn/fzf/wiki/Color-schemes
@@ -126,30 +114,41 @@ if _has fzf; then
   export FZF_DEFAULT_OPTS="
     --color=bg+:$black,pointer:$red,info:$cyan,hl:$magenta,hl+:$magenta
   "
-
-  ## fzf + vim: https://statico.github.io/vim3.html
-  if [ -e  ~/.config/vim/plugged/fzf/shell/completion.zsh ]; then
-    source ~/.config/vim/plugged/fzf/shell/key-bindings.zsh
-    source ~/.config/vim/plugged/fzf/shell/completion.zsh
+  if _has rg; then
+    export FZF_DEFAULT_COMMAND='rg --files --no-messages --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*"'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
   fi
+
 fi
 
-## fzf + ripgrep
-if _has fzf && _has rg; then
+# Load autocompletions after compinit
+zplug "zsh-users/zsh-autosuggestions", defer:2
+zplug "zsh-users/zsh-completions", defer:2
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
-  export FZF_DEFAULT_COMMAND='rg --files --no-messages --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*"'
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
 fi
 
+# Then, source plugins and add commands to $PATH
+zplug load
 
-# Starship prompt initialize: https://starship.rs
-eval "$(starship init zsh)"
+# -------
+# Final inits
+# -------
 
 # Include OS specific and local only .zshrc overrides
 if [ -e ~/macos.zshrc ]; then
   source ~/macos.zshrc
 fi
+
+# Starship prompt initialize: https://starship.rs
+eval "$(starship init zsh)"
 
 # Initialize completions
 autoload -U compinit; compinit
