@@ -69,6 +69,30 @@ alias tk='tmux kill-session -t '
 ## Linux
 alias open='nautilus'
 
+## Plugins
+source ~/.zplug/init.zsh
+
+# z command
+zplug "agkozak/zsh-z"
+
+# Load autocompletions after compinit
+zplug "zsh-users/zsh-autosuggestions", defer:2
+zplug "zsh-users/zsh-completions", defer:2
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load
+
+## Utilities
+
 # bat: https://github.com/sharkdp/bat
 if _has bat; then 
   alias cat='bat'
@@ -118,18 +142,14 @@ if _has fzf && _has rg; then
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
-## zsh-autosuggestions
-source ~/.config/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh-completions/zsh-completions.plugin.zsh
-
 
 # Starship prompt initialize: https://starship.rs
 eval "$(starship init zsh)"
-
-# Initialize completions
-autoload -U compinit; compinit
 
 # Include OS specific and local only .zshrc overrides
 if [ -e ~/macos.zshrc ]; then
   source ~/macos.zshrc
 fi
+
+# Initialize completions
+autoload -U compinit; compinit
