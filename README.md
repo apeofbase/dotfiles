@@ -33,11 +33,16 @@
 
 ## TODO
 
+- [IN PROGRESS] Move to [zplug](https://github.com/zplug/zplug) to manage all plugins and commands
+  - [ ] vim-plug
+  - [ ] ripgrep
+  - [ ] fzf
+  - [ ] diff-so-fancy
+  - [x] zsh-autosuggestions
+  - [x] zsh-completions
 - Restore MacOS config
   - [Fix tmux prefix issues in MacOS for Alacritty](https://github.com/tmux/tmux/issues/1585#issuecomment-483861102)
 - Setup GNU Stow
 - Test out [Zellij](https://zellij.dev/) as a tmux replacement
-  - Adding basic prefix mappings to Alacritty solves Zellij issues
+  - ~~Adding basic prefix mappings to Alacritty solves Zellij issues~~
   - Need to setup config for Zellij
-- Move to [zplug](https://github.com/zplug/zplug) to manage all ZSH plugins
-- Add [z](https://github.com/agkozak/zsh-z) command plugin
