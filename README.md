@@ -10,6 +10,7 @@
 
 ## Utilities & Tweaks
 
+- [zplug](https://github.com/zplug/zplug) (Note: [fg issue fix](https://github.com/zplug/zplug/issues/509))
 - [vim-plug](https://github.com/junegunn/vim-plug)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fzf](https://github.com/junegunn/fzf)
