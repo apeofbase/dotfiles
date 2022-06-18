@@ -1,4 +1,4 @@
-local opts = { noremap = true, silent = true }
+local opts = { noremap = true, silent = false }
 
 local term_opts = { silent = true }
 
@@ -43,8 +43,8 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
--- Press jk fast to enter
-keymap("i", "jj", "<ESC>", opts)
+-- Press jj fast to enter
+keymap("i", "jj", "<Esc>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -62,3 +62,17 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 -- keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 -- keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+-- NvimTree
+keymap("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
+
+-- Telescope
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
+keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+
+-- Legacy keymaps
+keymap("n", ";", ":Telescope find_files<CR>", opts)
+keymap("n", "<C-g>", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>b", ":Telescope buffers<CR>", opts)
