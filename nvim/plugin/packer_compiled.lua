@@ -77,17 +77,17 @@ _G.packer_plugins = {
   ["DAPInstall.nvim"] = {
     loaded = true,
     path = "/home/justin/.local/share/nvim/site/pack/packer/start/DAPInstall.nvim",
-    url = "https://github.com/Pocco81/DAPInstall.nvim"
-  },
-  ["FixCursorHold.nvim"] = {
-    loaded = true,
-    path = "/home/justin/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
-    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
+    url = "https://github.com/ravenxrz/DAPInstall.nvim"
   },
   LuaSnip = {
     loaded = true,
     path = "/home/justin/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["alpha-nvim"] = {
+    loaded = true,
+    path = "/home/justin/.local/share/nvim/site/pack/packer/start/alpha-nvim",
+    url = "https://github.com/goolord/alpha-nvim"
   },
   ["bufferline.nvim"] = {
     loaded = true,
@@ -98,16 +98,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/justin/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
-  },
-  ["cmp-cmdline"] = {
-    loaded = true,
-    path = "/home/justin/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
-    url = "https://github.com/hrsh7th/cmp-cmdline"
-  },
-  ["cmp-emoji"] = {
-    loaded = true,
-    path = "/home/justin/.local/share/nvim/site/pack/packer/start/cmp-emoji",
-    url = "https://github.com/hrsh7th/cmp-emoji"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
@@ -128,11 +118,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/justin/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
-  },
-  colorschemes = {
-    loaded = true,
-    path = "/home/justin/.local/share/nvim/site/pack/packer/start/colorschemes",
-    url = "https://github.com/lunarvim/colorschemes"
   },
   ["darkplus.nvim"] = {
     loaded = true,
@@ -158,11 +143,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/justin/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
-  },
-  ["kanagawa.nvim"] = {
-    loaded = true,
-    path = "/home/justin/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
-    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -194,11 +174,6 @@ _G.packer_plugins = {
     path = "/home/justin/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
   },
-  ["nvim-dap-virtual-text"] = {
-    loaded = true,
-    path = "/home/justin/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
-    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
-  },
   ["nvim-lsp-installer"] = {
     loaded = true,
     path = "/home/justin/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
@@ -218,6 +193,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/justin/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = true,
+    path = "/home/justin/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -239,20 +219,10 @@ _G.packer_plugins = {
     path = "/home/justin/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["popup.nvim"] = {
-    loaded = true,
-    path = "/home/justin/.local/share/nvim/site/pack/packer/start/popup.nvim",
-    url = "https://github.com/nvim-lua/popup.nvim"
-  },
   ["project.nvim"] = {
     loaded = true,
     path = "/home/justin/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
-  },
-  ["telescope-file-browser.nvim"] = {
-    loaded = true,
-    path = "/home/justin/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
-    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

@@ -35,8 +35,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Naviagate buffers
-keymap("n", "<A-S-h>", ":bnext<CR>", opts)
-keymap("n", "<A-S-l>", ":bprevious<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":bnext<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -51,24 +51,21 @@ keymap("i", "jj", "<Esc>", opts)
 keymap("v", "<Tab>", ">`<V`>", opts)
 keymap("v", "<S-Tab>", "<`<V`>", opts)
 
--- Move text up and down
--- keymap("v", "<A-j>", ":m .+1<CR>==", opts)
--- keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+-- Prevents deleted text from overwriting yank buffer
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
--- keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
--- keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- NvimTree
 keymap("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fi", ":Telescope find_files find_command=rg,--ignore,--no-ignore-vcs,--hidden,--files<CR>", opts)
+keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
