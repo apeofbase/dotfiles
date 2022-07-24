@@ -6,7 +6,9 @@
 - **Prompt:** [Starship](https://starship.rs/)
 - **Editor:** [NeoVim](https://neovim.io/)
 - **Terminal multiplexer:** [tmux](https://github.com/tmux/tmux)
-- **Font:** [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
+- **Font(s):** 
+  - [DankMono](https://philpl.gumroad.com/l/dank-mono)
+  - [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
 
 ## Utilities & Tweaks
 
@@ -28,19 +30,20 @@
 
 ## Compatable OS
 
-- Pop_OS 21.10 Gnome
+- Pop_OS 22.04 Gnome
 - Fedora 35 Gnome
 - MacOS
 
 ## TODO
 
 - [IN PROGRESS] Move to [zplug](https://github.com/zplug/zplug) to manage all plugins and commands
-  - [ ] vim-plug
+  - [ ] ~vim-plug~ no longer using
   - [ ] ripgrep
   - [ ] fzf
   - [ ] diff-so-fancy
   - [x] zsh-autosuggestions
   - [x] zsh-completions
+  - Move to LUA based NeoVim configuration
 - Restore MacOS config
   - [Fix tmux prefix issues in MacOS for Alacritty](https://github.com/tmux/tmux/issues/1585#issuecomment-483861102)
 - Setup GNU Stow
