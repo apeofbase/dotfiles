@@ -64,7 +64,9 @@ keymap("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>fi", ":Telescope find_files find_command=rg,--ignore,--no-ignore-vcs,--hidden,--files<CR>", opts)
+-- keymap("n", "<leader>fi", ":Telescope find_files find_command=rg,--ignore,--no-ignore-vcs,--hidden,--files<CR>", opts)
+-- keymap("n", "<leader>fi", ":Telescope find_files find_command=rg,--column,--line-number,--no-heading,--fixed-strings,--ignore-case,--hidden,--follow,--glob \"!.git/*\" --glob \"!node_modules/*\" --color \"always\" <CR>", opts)
+keymap("n", "<leader>fi", ":Telescope find_files find_command=rg,--column,--line-number,--no-heading,--fixed-strings,--ignore-case,--hidden,--follow<CR>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
