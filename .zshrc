@@ -58,6 +58,9 @@ alias gp='git push'
 alias gc='git commit'
 alias gco='git checkout'
 alias gd='git diff'
+alias gb='git branch'
+alias gsw='git switch -'
+alias glo='git log --oneline --first-parent'
 
 ## TMUX
 alias ta='tmux attach -t '
