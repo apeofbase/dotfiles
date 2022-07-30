@@ -87,18 +87,25 @@ if _has nvim; then
 fi
 
 # -------
-# zplug
+# zinit
 # -------
-source ~/.zplug/init.zsh
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [ ! -d "$ZINIT_HOME" ]
+then
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+source "${ZINIT_HOME}/zinit.zsh"
 
-### z command
-zplug "agkozak/zsh-z"
+# Load autocompletions after compinit
+zinit load "agkozak/zsh-z"
+zinit load "zsh-users/zsh-autosuggestions"
+zinit load "zsh-users/zsh-completions"
+zinit load "zsh-users/zsh-syntax-highlighting"
 
-### fzf
-zplug "junegunn/fzf", \
-  hook-build:"./install --bin && ln -frs $ZPLUG_REPOS/junegunn/fzf/bin/fzf* $ZPLUG_BIN", \
-  use:"shell/*.zsh"
-
+# -------
+# FZF settings
+# -------
 if _has fzf; then
   # Color scheme
   # https://github.com/junegunn/fzf/wiki/Color-schemes
@@ -124,22 +131,6 @@ if _has fzf; then
   fi
 
 fi
-
-# Load autocompletions after compinit
-zplug "zsh-users/zsh-autosuggestions", defer:2
-zplug "zsh-users/zsh-completions", defer:2
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load
 
 # -------
 # Final inits
