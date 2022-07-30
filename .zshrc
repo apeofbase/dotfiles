@@ -61,6 +61,7 @@ alias gd='git diff'
 alias gb='git branch'
 alias gsw='git switch -'
 alias glo='git log --oneline --first-parent'
+alias lg='lazygit'
 
 ## TMUX
 alias ta='tmux attach -t '
@@ -101,7 +102,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit load "agkozak/zsh-z"
 zinit load "zsh-users/zsh-autosuggestions"
 zinit load "zsh-users/zsh-completions"
-zinit load "zsh-users/zsh-syntax-highlighting"
+zinit load "zdharma-continuum/fast-syntax-highlighting"
 
 # -------
 # FZF settings
