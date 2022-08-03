@@ -103,6 +103,16 @@ zinit load "agkozak/zsh-z"
 zinit load "zsh-users/zsh-autosuggestions"
 zinit load "zsh-users/zsh-completions"
 zinit load "zdharma-continuum/fast-syntax-highlighting"
+zinit load "zdharma-continuum/history-search-multi-word"
+
+# diff-so-fancy
+zplugin ice as"program" pick"bin/git-dsf"
+zplugin light zdharma-continuum/zsh-diff-so-fancy
+
+# Binary release in archive, from GitHub-releases page.
+# After automatic unpacking it provides program "fzf".
+zinit ice from"gh-r" as"program"
+zinit light junegunn/fzf
 
 # -------
 # FZF settings
