@@ -108,6 +108,10 @@ zinit load "zsh-users/zsh-completions"
 zinit load "zdharma-continuum/fast-syntax-highlighting"
 # zinit load "zdharma-continuum/history-search-multi-word"
 
+# Linux specific
+# if [[ `uname` == "Linux" ]]; then
+# fi
+
 # bat
 zinit ice nocompletions from"gh-r" bpick"*-musl*" \
   as"program" mv"bat-*/bat -> bat" pick"bat"

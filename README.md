@@ -10,12 +10,11 @@
   - [DankMono](https://philpl.gumroad.com/l/dank-mono)
   - [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
 
-## Utilities & Tweaks
+## Utilities
 
 - [zinit](https://github.com/zdharma-continuum/zinit)
 - zsh-autosuggestions
 - zsh-completions
-- zdharma-continuum/fast-syntax-highlighting
 - [fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting)
 - [bat](https://github.com/sharkdp/bat)
 - [z](https://github.com/agkozak/zsh-z)
@@ -23,6 +22,11 @@
 - [fzf](https://github.com/junegunn/fzf)
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 - [lazygit](https://github.com/jesseduffield/lazygit)
+- [neofetch](https://github.com/dylanaraps/neofetch)
+- [trash-cli](https://github.com/andreafrancia/trash-cli) # MacOS `brew install trash`
+
+## Rebinding CAPSLOCK
+
 - [caps2esc](https://gitlab.com/interception/linux/plugins/caps2esc) Swap CAPSLOCK with ESC and longpress CTRL_L 
   - [walkthrough](http://nelsonware.com/blog/2019/04/30/how-to-map-caps-lock-to-escape-and-control-on-fedora-via-caps2esc.html)
   - Config files to symlink are in `caps2esc` dir
