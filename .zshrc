@@ -39,6 +39,7 @@ if [[ `uname` == "Darwin" ]]; then
   alias ls='ls -G'
 else
   alias ls='ls --color=auto'
+  alias open='nautilus'
 fi
 
 alias ls='ls --color=auto'
@@ -70,9 +71,6 @@ alias tn='tmux new'
 alias ts='tmux switch -t '
 alias tk='tmux kill-session -t '
 
-## Linux
-alias open='nautilus'
-
 # bat: https://github.com/sharkdp/bat
 if _has bat; then 
   alias cat='bat'
@@ -89,6 +87,7 @@ fi
 
 # -------
 # zinit
+# https://github.com/zdharma-continuum/zinit/wiki/Recipes-for-popular-programs#fzf-completion-and-key-bindings
 # -------
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d "$ZINIT_HOME" ]
@@ -106,6 +105,11 @@ zinit load "zsh-users/zsh-completions"
 zinit load "zdharma-continuum/fast-syntax-highlighting"
 # zinit load "zdharma-continuum/history-search-multi-word"
 
+# bat
+zinit ice nocompletions from"gh-r" bpick"*-musl*" \
+  as"program" mv"bat-*/bat -> bat" pick"bat"
+zinit load sharkdp/bat
+  
 # fzf
 zinit ice from"gh-r" lbin"!fzf"
 zinit load junegunn/fzf
