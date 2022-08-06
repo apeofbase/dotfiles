@@ -109,6 +109,10 @@ zinit load "zdharma-continuum/history-search-multi-word"
 zplugin ice as"program" pick"bin/git-dsf"
 zplugin light zdharma-continuum/zsh-diff-so-fancy
 
+# lazygit
+zinit ice from="gh-r" as"program"
+zinit light jesseduffield/lazygit
+
 # Binary release in archive, from GitHub-releases page.
 # After automatic unpacking it provides program "fzf".
 zinit ice from"gh-r" as"program"
