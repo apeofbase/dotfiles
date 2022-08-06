@@ -99,28 +99,36 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Load autocompletions after compinit
+zinit load "zdharma-continuum/zinit-annex-binary-symlink" # for auto symlinks
 zinit load "agkozak/zsh-z"
 zinit load "zsh-users/zsh-autosuggestions"
 zinit load "zsh-users/zsh-completions"
 zinit load "zdharma-continuum/fast-syntax-highlighting"
-zinit load "zdharma-continuum/history-search-multi-word"
+# zinit load "zdharma-continuum/history-search-multi-word"
+
+# fzf
+zinit ice from"gh-r" lbin"!fzf"
+zinit load junegunn/fzf
+
+zi for \
+    https://github.com/junegunn/fzf/raw/master/shell/{'completion','key-bindings'}.zsh
 
 # diff-so-fancy
-zplugin ice as"program" pick"bin/git-dsf"
-zplugin light zdharma-continuum/zsh-diff-so-fancy
+zinit ice as"program" pick"bin/git-dsf"
+zinit light zdharma-continuum/zsh-diff-so-fancy
 
 # lazygit
 zinit ice from="gh-r" as"program"
 zinit light jesseduffield/lazygit
 
-# Binary release in archive, from GitHub-releases page.
-# After automatic unpacking it provides program "fzf".
-zinit ice from"gh-r" as"program"
-zinit light junegunn/fzf
+# -------
+# Utility settings
+# -------
+if _has rg; then
+else
+  echo "rg not installed: https://github.com/BurntSushi/ripgrep"
+fi
 
-# -------
-# FZF settings
-# -------
 if _has fzf; then
   # Color scheme
   # https://github.com/junegunn/fzf/wiki/Color-schemes
@@ -145,6 +153,8 @@ if _has fzf; then
     export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
   fi
 
+else
+  echo "fzf not installed: https://github.com/junegunn/fzf"
 fi
 
 # -------
