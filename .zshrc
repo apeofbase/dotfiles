@@ -39,7 +39,6 @@ if [[ `uname` == "Darwin" ]]; then
   alias ls='ls -G'
 else
   alias ls='ls --color=auto'
-  alias open='nautilus'
 fi
 
 alias ls='ls --color=auto'
@@ -70,6 +69,10 @@ alias tl='tmux list-sessions'
 alias tn='tmux new'
 alias ts='tmux switch -t '
 alias tk='tmux kill-session -t '
+
+if _has nautilus; then
+  alias open='nautilus'
+fi
 
 # bat: https://github.com/sharkdp/bat
 if _has bat; then 

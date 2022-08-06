@@ -13,9 +13,12 @@
 ## Utilities & Tweaks
 
 - [zinit](https://github.com/zdharma-continuum/zinit)
-  - zsh-autosuggestions
-  - zsh-completions
-  - [fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting)
+- zsh-autosuggestions
+- zsh-completions
+- zdharma-continuum/fast-syntax-highlighting
+- [fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting)
+- [bat](https://github.com/sharkdp/bat)
+- [z](https://github.com/agkozak/zsh-z)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fzf](https://github.com/junegunn/fzf)
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
@@ -33,11 +36,10 @@
 
 - Pop_OS 22.04 Gnome
 - Fedora 35 Gnome
-- MacOS
+- MacOS (partially)
 
 ## TODO
 
-- Move to LUA based NeoVim configuration
+- Make zinit work for MacOS
 - Restore MacOS config
   - [Fix tmux prefix issues in MacOS for Alacritty](https://github.com/tmux/tmux/issues/1585#issuecomment-483861102)
-- Setup GNU Stow
