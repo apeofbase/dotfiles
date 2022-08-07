@@ -132,6 +132,10 @@ zinit light zdharma-continuum/zsh-diff-so-fancy
 zinit ice from="gh-r" as"program"
 zinit light jesseduffield/lazygit
 
+# glow (markdown TUI)
+zinit ice from"gh-r" as"program"
+zinit light charmbracelet/glow
+
 # -------
 # Utility settings
 # -------
