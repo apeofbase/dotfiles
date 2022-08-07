@@ -119,7 +119,7 @@ zinit load sharkdp/bat
   
 # fzf
 zinit ice from"gh-r" lbin"!fzf"
-zinit load junegunn/fzf
+zinit load junegunn/fzf-bin
 
 zi for \
     https://github.com/junegunn/fzf/raw/master/shell/{'completion','key-bindings'}.zsh
