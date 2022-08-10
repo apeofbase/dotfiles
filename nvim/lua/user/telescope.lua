@@ -10,7 +10,7 @@ telescope.setup {
 
     prompt_prefix = " ",
     selection_caret = " ",
-    path_display = { "smart" },
+    -- path_display = { "smart" }, -- "smart is slooooooow"
     file_ignore_patterns = { ".git/", "node_modules/" },
 
     mappings = {
