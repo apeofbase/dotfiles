@@ -41,7 +41,6 @@ else
   alias ls='ls --color=auto'
 fi
 
-alias ls='ls --color=auto'
 alias l='ls'
 alias la='ls -a'
 alias ll='ls -1a'
