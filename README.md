@@ -45,6 +45,10 @@
 
 ## TODO
 
-- Make zinit work for MacOS
 - Restore MacOS config
   - [Fix tmux prefix issues in MacOS for Alacritty](https://github.com/tmux/tmux/issues/1585#issuecomment-483861102)
+- Resolve all missing components for neovim
+  - [ ] [Twig highlighting](https://github.com/eirabben/tree-sitter-twig) w/ Treesitter
+  - [ ] Install [twigcs](https://github.com/friendsoftwig/twigcs)
+  - [ ] Zinit to install PHP, Composer, Cargo, [LuaRocks](https://luarocks.org/#quick-start)
+  - [ ] Remove Java, Swift junk from configs
