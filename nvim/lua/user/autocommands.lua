@@ -45,5 +45,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   end,
 })
 
--- Highlighting for Twig files
+-- Syntax highlighting for Drupal
 vim.cmd "autocmd BufNewFile,BufRead *.twig set filetype=htmldjango.twig"
+vim.cmd "autocmd BufNewFile,BufRead *.theme set filetype=php"
+vim.cmd "autocmd BufNewFile,BufRead *.module set filetype=php"
