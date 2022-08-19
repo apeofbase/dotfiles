@@ -44,3 +44,6 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
   end,
 })
+
+-- Highlighting for Twig files
+vim.cmd "autocmd BufNewFile,BufRead *.twig set filetype=htmldjango.twig"
