@@ -90,6 +90,12 @@ return packer.startup(function(use)
     commit = "518e27589c0463af15463c9d675c65e464efc2fe",
   }
 
+  -- Syntax
+  -- use { "othree/html5.vim" }
+  -- use { "lumiliet/vim-twig" }
+  -- use { "nelsyeung/twig.vim" }
+  use { "qbbr/vim-twig" }
+
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" }
 
