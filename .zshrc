@@ -41,7 +41,6 @@ else
   alias ls='ls --color=auto'
 fi
 
-alias ls='ls --color=auto'
 alias l='ls'
 alias la='ls -a'
 alias ll='ls -1a'
@@ -58,6 +57,10 @@ alias gp='git push'
 alias gc='git commit'
 alias gco='git checkout'
 alias gd='git diff'
+alias gb='git branch'
+alias gsw='git switch -'
+alias glo='git log --oneline --first-parent'
+alias lg='lazygit'
 
 ## TMUX
 alias ta='tmux attach -t '
@@ -66,8 +69,9 @@ alias tn='tmux new'
 alias ts='tmux switch -t '
 alias tk='tmux kill-session -t '
 
-## Linux
-alias open='nautilus'
+if _has nautilus; then
+  alias open='nautilus'
+fi
 
 # bat: https://github.com/sharkdp/bat
 if _has bat; then 
@@ -84,17 +88,60 @@ if _has nvim; then
 fi
 
 # -------
-# zplug
+# zinit
+# https://github.com/zdharma-continuum/zinit/wiki/Recipes-for-popular-programs#fzf-completion-and-key-bindings
 # -------
-source ~/.zplug/init.zsh
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [ ! -d "$ZINIT_HOME" ]
+then
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+source "${ZINIT_HOME}/zinit.zsh"
 
-### z command
-zplug "agkozak/zsh-z"
+# Load autocompletions after compinit
+zinit load "zdharma-continuum/zinit-annex-binary-symlink" # for auto symlinks
+zinit load "agkozak/zsh-z"
+zinit load "zsh-users/zsh-autosuggestions"
+zinit load "zsh-users/zsh-completions"
+zinit load "zdharma-continuum/fast-syntax-highlighting"
+# zinit load "zdharma-continuum/history-search-multi-word"
 
-### fzf
-zplug "junegunn/fzf", \
-  hook-build:"./install --bin && ln -frs $ZPLUG_REPOS/junegunn/fzf/bin/fzf* $ZPLUG_BIN", \
-  use:"shell/*.zsh"
+# Linux specific
+# if [[ `uname` == "Linux" ]]; then
+# fi
+
+# bat
+zinit ice nocompletions from"gh-r" bpick"*-musl*" \
+  as"program" mv"bat-*/bat -> bat" pick"bat"
+zinit load sharkdp/bat
+  
+# fzf
+zinit ice from"gh-r" lbin"!fzf"
+zinit load junegunn/fzf
+
+zi for \
+    https://github.com/junegunn/fzf/raw/master/shell/{'completion','key-bindings'}.zsh
+
+# diff-so-fancy
+zinit ice as"program" pick"bin/git-dsf"
+zinit light zdharma-continuum/zsh-diff-so-fancy
+
+# lazygit
+zinit ice from="gh-r" as"program"
+zinit light jesseduffield/lazygit
+
+# glow (markdown TUI)
+zinit ice from"gh-r" as"program"
+zinit light charmbracelet/glow
+
+# -------
+# Utility settings
+# -------
+if _has rg; then
+else
+  echo "rg not installed: https://github.com/BurntSushi/ripgrep"
+fi
 
 if _has fzf; then
   # Color scheme
@@ -120,23 +167,9 @@ if _has fzf; then
     export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
   fi
 
+else
+  echo "fzf not installed: https://github.com/junegunn/fzf"
 fi
-
-# Load autocompletions after compinit
-zplug "zsh-users/zsh-autosuggestions", defer:2
-zplug "zsh-users/zsh-completions", defer:2
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load
 
 # -------
 # Final inits
