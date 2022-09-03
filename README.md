@@ -6,13 +6,13 @@
 - **Prompt:** [Starship](https://starship.rs/)
 - **Editor:** [NeoVim](https://neovim.io/) (v0.7.2 build from source)
 - **Terminal multiplexer:** [tmux](https://github.com/tmux/tmux)
+- **Plugin manager:** [zinit](https://github.com/zdharma-continuum/zinit)
 - **Font(s):** 
   - [DankMono](https://philpl.gumroad.com/l/dank-mono)
   - [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
 
 ## Utilities
 
-- [zinit](https://github.com/zdharma-continuum/zinit)
 - zsh-autosuggestions
 - zsh-completions
 - [fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting)
@@ -39,8 +39,8 @@
 
 ## Compatable OS
 
-- Pop_OS 22.04 Gnome
-- Fedora 35 Gnome
+- Pop_OS 22.04+
+- Fedora 35+
 - MacOS (partially)
 
 ## TODO
