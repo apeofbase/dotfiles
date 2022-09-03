@@ -18,6 +18,9 @@ ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 behind = "⇣${count}"
 
+[aws]
+disabled = true
+
 [php]
 disabled = true
 

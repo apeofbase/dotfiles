@@ -2,21 +2,32 @@
 
 - **Compatability:** Linux, MacOS (Minus Alacritty prefix issues)
 - **Terminal:** [Alacrity](https://github.com/alacritty/alacritty) (Linux) [iTerm2](https://iterm2.com/) (Macos)
-- **Shell:** zsh
+- **Shell:** ZSH
 - **Prompt:** [Starship](https://starship.rs/)
-- **Editor:** [NeoVim](https://neovim.io/)
+- **Editor:** [NeoVim](https://neovim.io/) (v0.7.2 build from source)
 - **Terminal multiplexer:** [tmux](https://github.com/tmux/tmux)
-- **Font:** [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
+- **Plugin manager:** [zinit](https://github.com/zdharma-continuum/zinit)
+- **Font(s):** 
+  - [DankMono](https://philpl.gumroad.com/l/dank-mono)
+  - [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
 
-## Utilities & Tweaks
+## Utilities
 
-- [zplug](https://github.com/zplug/zplug) (Note: [fg issue fix](https://github.com/zplug/zplug/issues/509))
-- [vim-plug](https://github.com/junegunn/vim-plug)
+- zsh-autosuggestions
+- zsh-completions
+- [fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting)
+- [bat](https://github.com/sharkdp/bat)
+- [z](https://github.com/agkozak/zsh-z)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fzf](https://github.com/junegunn/fzf)
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
-- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-- [zsh-completions](https://github.com/zsh-users/zsh-completions)
+- [lazygit](https://github.com/jesseduffield/lazygit)
+- [neofetch](https://github.com/dylanaraps/neofetch)
+- [trash-cli](https://github.com/andreafrancia/trash-cli) # MacOS `brew install trash`
+- [glow](https://github.com/) # TUI Markdown reader
+
+## Rebinding CAPSLOCK (Linux)
+
 - [caps2esc](https://gitlab.com/interception/linux/plugins/caps2esc) Swap CAPSLOCK with ESC and longpress CTRL_L 
   - [walkthrough](http://nelsonware.com/blog/2019/04/30/how-to-map-caps-lock-to-escape-and-control-on-fedora-via-caps2esc.html)
   - Config files to symlink are in `caps2esc` dir
@@ -28,22 +39,16 @@
 
 ## Compatable OS
 
-- Pop_OS 21.10 Gnome
-- Fedora 35 Gnome
-- MacOS
+- Pop_OS 22.04+
+- Fedora 35+
+- MacOS (partially)
 
 ## TODO
 
-- [IN PROGRESS] Move to [zplug](https://github.com/zplug/zplug) to manage all plugins and commands
-  - [ ] vim-plug
-  - [ ] ripgrep
-  - [ ] fzf
-  - [ ] diff-so-fancy
-  - [x] zsh-autosuggestions
-  - [x] zsh-completions
 - Restore MacOS config
   - [Fix tmux prefix issues in MacOS for Alacritty](https://github.com/tmux/tmux/issues/1585#issuecomment-483861102)
-- Setup GNU Stow
-- Test out [Zellij](https://zellij.dev/) as a tmux replacement
-  - ~~Adding basic prefix mappings to Alacritty solves Zellij issues~~
-  - Need to setup config for Zellij
+- Resolve all missing components for neovim
+  - [ ] [Twig highlighting](https://github.com/eirabben/tree-sitter-twig) w/ Treesitter
+  - [ ] Install [twigcs](https://github.com/friendsoftwig/twigcs)
+  - [ ] Zinit to install PHP, Composer, Cargo, [LuaRocks](https://luarocks.org/#quick-start)
+  - [ ] Remove Java, Swift junk from configs
