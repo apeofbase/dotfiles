@@ -62,14 +62,7 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 -- NvimTree
 keymap("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
 
--- Telescope
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>fi", ":Telescope find_files find_command=rg,--ignore,--no-ignore-vcs,--hidden,--files<CR>", opts)
-keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-
--- Legacy keymaps
-keymap("n", ";", ":Telescope find_files find_command=rg,--ignore,--no-ignore-vcs,--hidden,--files<CR>", opts)
-keymap("n", "<C-g>", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>b", ":Telescope buffers<CR>", opts)
+-- FzfLua
+keymap("n", ";", ":FzfLua files<CR>", opts)
+keymap("n", "<C-g>", ":FzfLua live_grep_glob<CR>", opts)
+keymap("n", "<leader>b", ":FzfLua buffers<CR>", opts)
