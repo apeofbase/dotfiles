@@ -56,6 +56,7 @@ return packer.startup(function(use)
   use { "lewis6991/impatient.nvim", commit = "969f2c5c90457612c09cf2a13fee1adaa986d350" }
   use { "lukas-reineke/indent-blankline.nvim", commit = "6177a59552e35dfb69e1493fd68194e673dc3ee2" }
   use { "goolord/alpha-nvim", commit = "ef27a59e5b4d7b1c2fe1950da3fe5b1c5f3b4c94" }
+  use { "tpope/vim-surround", commit = "bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea" }
 
   -- Colorschemes
   use { "mhartington/oceanic-next", commit = "5ef31a34204f84714885ae9036f66a626036c3dc" }
@@ -80,16 +81,13 @@ return packer.startup(function(use)
   use { "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" } -- for formatters and linters
   use { "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
 
-  -- fzf-lua
+  -- Fzf-lua
   use { 'ibhagwan/fzf-lua', requires = { 'kyazdani42/nvim-web-devicons' }, commit = "0944e1e85fc74c7c006c696b74b7af3acf345d8b" }
 
   -- Treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    commit = "518e27589c0463af15463c9d675c65e464efc2fe",
-  }
+  use { "nvim-treesitter/nvim-treesitter", commit = "518e27589c0463af15463c9d675c65e464efc2fe", }
 
-  -- Syntax
+  -- syntax
   use { "othree/html5.vim" }
   use { "lumiliet/vim-twig" }
   -- use { "nelsyeung/twig.vim" }
