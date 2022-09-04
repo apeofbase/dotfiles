@@ -9,7 +9,7 @@ fzf_lua.setup {
 
   files = {
     previewer         = "bat",          -- set to 'false' to disable
-    prompt            = 'Files❯ ',
+    prompt            = ' ❯ ',
     multiprocess      = true,           -- run command in a separate process
     git_icons         = true,           -- show git icons?
     file_icons        = true,           -- show file icons?
@@ -32,7 +32,31 @@ fzf_lua.setup {
     }
   },
 
+  git = {
+    files = {
+      prompt = " ❯ "
+    },
+    status = {
+      prompt = " ❯"
+    },
+    commits = {
+      prompt = " ❯"
+    },
+    branches = {
+      prompt = " ❯"
+    },
+  },
+
+  oldfiles = {
+    prompt = " ❯"
+  },
+
+  buffers = {
+    prompt = " ❯"
+  },
+
   grep = {
+    prompt = " ❯",
     rg_opts = "--ignore --no-ignore-vcs --hidden --column --line-number --no-heading --color=always --smart-case --max-columns=512 -g '!.git'"
   }
 }
