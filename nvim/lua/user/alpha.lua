@@ -15,11 +15,11 @@ dashboard.section.header.val = {
 dashboard.section.buttons.val = {
   dashboard.button("f", "  Find file", ":FzfLua files<CR>"),
   dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-  dashboard.button("r", " Recent files", ":FzfLua oldfiles <CR>"),
-  dashboard.button("t", " Find text", ":FzfLua live_grep_glob <CR>"),
+  dashboard.button("r", "  Recent files", ":FzfLua oldfiles <CR>"),
+  dashboard.button("t", "  Find text", ":FzfLua live_grep_glob <CR>"),
   dashboard.button("c", "  Config", ":e ~/.config/nvim/init.lua <CR>"),
   dashboard.button("u", "  Update", ":PackerSync<CR>"),
-  dashboard.button("q", " Quit", ":qa<CR>"),
+  dashboard.button("q", "  Quit", ":qa<CR>"),
 }
 local function footer()
   -- NOTE: requires the fortune-mod package to work
