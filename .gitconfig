@@ -8,7 +8,7 @@
   showUntrackedFiles = all
 	ui = true
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.global_gitignore
 [alias]
   s = status
   b = branch
