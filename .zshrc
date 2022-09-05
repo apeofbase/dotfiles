@@ -135,6 +135,10 @@ zinit light jesseduffield/lazygit
 zinit ice from"gh-r" as"program"
 zinit light charmbracelet/glow
 
+# asdf
+zinit ice wait lucid
+zinit load redxtech/zsh-asdf-direnv
+
 # -------
 # Utility settings
 # -------
