@@ -88,10 +88,11 @@ return packer.startup(function(use)
   use { "nvim-treesitter/nvim-treesitter", commit = "518e27589c0463af15463c9d675c65e464efc2fe", }
 
   -- syntax
-  use { "othree/html5.vim" }
-  use { "lumiliet/vim-twig" }
-  -- use { "nelsyeung/twig.vim" }
+  -- use { "othree/html5.vim" }
   -- use { "qbbr/vim-twig" }
+  -- use { "lumiliet/vim-twig" }
+  -- use { "nelsyeung/twig.vim" }
+  -- use { 'dbt-labs/tree-sitter-jinja2' }
 
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" }
