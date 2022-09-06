@@ -45,10 +45,14 @@
 
 ## TODO
 
+- Review and update Null-LS
+- Review and update DAP
+- Setup XDebug and test
 - Restore MacOS config
   - [Fix tmux prefix issues in MacOS for Alacritty](https://github.com/tmux/tmux/issues/1585#issuecomment-483861102)
 - Resolve all missing components for neovim
   - [ ] [Twig highlighting](https://github.com/eirabben/tree-sitter-twig) w/ Treesitter
   - [ ] Install [twigcs](https://github.com/friendsoftwig/twigcs)
   - [ ] Zinit to install PHP, Composer, Cargo, [LuaRocks](https://luarocks.org/#quick-start)
+    - [ ] alternative, script to install on Debian-based, Fedora and MacOS (Homebrew) ... or Nix on all?
   - [ ] Remove Java, Swift junk from configs
