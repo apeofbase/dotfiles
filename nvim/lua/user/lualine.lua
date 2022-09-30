@@ -18,14 +18,14 @@ local diagnostics = {
 
 local diff = {
   "diff",
-  colored = false,
-  symbols = { added = "", modified = "", removed = "" }, -- changes diff symbols
+  colored = true,
+  symbols = { added = " ", modified = " ", removed = " " },
   cond = hide_in_width,
 }
 
 local filetype = {
   "filetype",
-  icons_enabled = false,
+  icons_enabled = true,
 }
 
 local location = {
@@ -34,7 +34,7 @@ local location = {
 }
 
 local spaces = function()
-  return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+  return " " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
 lualine.setup {
