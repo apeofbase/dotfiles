@@ -5,10 +5,10 @@ local term_opts = { silent = true }
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
---Remap comma as leader key
-keymap("", ",", "<Nop>", opts)
-vim.g.mapleader = ","
-vim.g.maplocalleader = ","
+--Remap Space as leader key
+keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Modes
 --   normal_mode = "n",
@@ -19,7 +19,7 @@ vim.g.maplocalleader = ","
 --   command_mode = "c",
 
 -- Start commands with Space
-keymap("n", "<SPACE>", ":", opts)
+-- keymap("n", "<SPACE>", ":", opts)
 
 -- Normal --
 -- Better window navigation
@@ -66,4 +66,7 @@ keymap("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
 keymap("n", ";", ":FzfLua files<CR>", opts)
 keymap("n", "<C-g>", ":FzfLua live_grep_glob<CR>", opts)
 keymap("n", "<leader>b", ":FzfLua buffers<CR>", opts)
-keymap("n", "<leader>g", ":FzfLua git_status<CR>", opts)
+keymap("n", "<leader>gs", ":FzfLua git_status<CR>", opts)
+
+-- Gitsigns
+keymap("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", opts)

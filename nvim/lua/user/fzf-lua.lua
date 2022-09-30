@@ -22,6 +22,7 @@ fzf_lua.setup {
     -- cmd            = "find . -type f -printf '%P\n'",
     find_opts         = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
     rg_opts           = "--ignore --no-ignore-vcs --smart-case --color=never --files --hidden --follow -g '!.git'",
+    -- rg_opts           = "--ignore --no-ignore-vcs --column --line-number --no-heading --smart-case --color=always --max-columns=512 --hidden -g '!.git'",
     fd_opts           = "--color=never --type f --hidden --follow --exclude .git",
     actions = {
       -- inherits from 'actions.files', here we can override
