@@ -26,7 +26,15 @@
 - [trash-cli](https://github.com/andreafrancia/trash-cli) # MacOS `brew install trash`
 - [glow](https://github.com/) # TUI Markdown reader
 
-## Rebinding CAPSLOCK (Linux)
+## Rebinding CAPSLOCK
+
+**Debian/Ubuntu/Pop_OS!**
+
+- Add included script to cron
+- `crontab -e`
+- `@reboot /HOME/USER/dotfiles/scripts/capslock-to-ctrl-esc.sh`
+
+**Fedora/RHEL**
 
 - [caps2esc](https://gitlab.com/interception/linux/plugins/caps2esc) Swap CAPSLOCK with ESC and longpress CTRL_L 
   - [walkthrough](http://nelsonware.com/blog/2019/04/30/how-to-map-caps-lock-to-escape-and-control-on-fedora-via-caps2esc.html)
