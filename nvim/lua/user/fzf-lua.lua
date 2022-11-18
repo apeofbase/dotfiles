@@ -23,7 +23,7 @@ fzf_lua.setup {
     find_opts         = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
     rg_opts           = "--ignore --no-ignore-vcs --smart-case --color=never --files --hidden --follow -g '!.git'",
     -- rg_opts           = "--ignore --no-ignore-vcs --column --line-number --no-heading --smart-case --color=always --max-columns=512 --hidden -g '!.git'",
-    fd_opts           = "--color=never --type f --hidden --follow --exclude .git",
+    fd_opts           = "--no-ignore --color=never --type f --hidden --follow --exclude .git",
     actions = {
       -- inherits from 'actions.files', here we can override
       -- or set bind to 'false' to disable a default action
@@ -58,6 +58,6 @@ fzf_lua.setup {
 
   grep = {
     prompt = " ❯",
-    rg_opts = "--ignore --no-ignore-vcs --hidden --column --line-number --no-heading --color=always --smart-case --max-columns=512 -g '!.git'"
+    rg_opts = "--no-ignore --no-ignore-vcs --hidden --column --line-number --no-heading --color=always --smart-case --max-columns=512 -g '!.git'"
   }
 }
