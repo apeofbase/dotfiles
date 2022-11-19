@@ -25,6 +25,7 @@
 - [neofetch](https://github.com/dylanaraps/neofetch)
 - [trash-cli](https://github.com/andreafrancia/trash-cli) # MacOS `brew install trash`
 - [glow](https://github.com/) # TUI Markdown reader
+- [fd](https://github.com/sharkdp/fd)
 
 ## Rebinding CAPSLOCK
 
