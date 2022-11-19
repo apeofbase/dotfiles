@@ -73,10 +73,6 @@ if _has nautilus; then
   alias open='nautilus'
 fi
 
-if _has fdfind; then
-  alias fd='fdfind'
-fi
-
 # bat: https://github.com/sharkdp/bat
 if _has bat; then 
   alias cat='bat'
@@ -142,6 +138,11 @@ zinit light charmbracelet/glow
 # asdf
 zinit ice wait lucid
 zinit load redxtech/zsh-asdf-direnv
+
+# fd
+zinit ice nocompletions from"gh-r" \
+  as"program" mv"fd*/fd -> fd" pick"fd"
+zinit light sharkdp/fd
 
 # -------
 # Utility settings
