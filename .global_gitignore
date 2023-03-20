@@ -3,3 +3,4 @@
 *.swo
 .platformsh.env
 .rgignore
+*.code-workspace
