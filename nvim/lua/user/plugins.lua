@@ -81,6 +81,7 @@ return packer.startup(function(use)
   use { "williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" } -- simple to use language server installer
   use { "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" } -- for formatters and linters
   use { "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
+  use { "yaegassy/coc-intelephense" }
 
   -- Fzf-lua
   use { 'ibhagwan/fzf-lua', requires = { 'kyazdani42/nvim-web-devicons' }, commit = "0944e1e85fc74c7c006c696b74b7af3acf345d8b" }

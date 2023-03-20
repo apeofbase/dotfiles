@@ -49,3 +49,6 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 vim.cmd "autocmd BufNewFile,BufRead *.twig set filetype=htmldjango.twig"
 vim.cmd "autocmd BufNewFile,BufRead *.theme set filetype=php"
 vim.cmd "autocmd BufNewFile,BufRead *.module set filetype=php"
+
+-- Syntax highlighting for Jenkins
+vim.cmd "autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy"
