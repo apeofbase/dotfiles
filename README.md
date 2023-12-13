@@ -65,3 +65,5 @@
   - [ ] Zinit to install PHP, Composer, Cargo, [LuaRocks](https://luarocks.org/#quick-start)
     - [ ] alternative, script to install on Debian-based, Fedora and MacOS (Homebrew) ... or Nix on all?
   - [ ] Remove Java, Swift junk from configs
+- Setup `bob` (Bob Version Manager for Neovim)
+- Setup stable neovim config and updated less stable version
