@@ -69,16 +69,21 @@ alias tn='tmux new'
 alias ts='tmux switch -t '
 alias tk='tmux kill-session -t '
 
+## OSX-like open command
 if _has nautilus; then
   alias open='nautilus'
+elif _has dolphin; then
+  alias open='dolphin'
 fi
 
 # bat: https://github.com/sharkdp/bat
 if _has bat; then 
   alias cat='bat'
+  export BAT_THEME="ansi"
 elif _has batcat; then
-  alias bat='batcat --theme=base16'
+  alias bat='batcat'
   alias cat='bat'
+  export BAT_THEME="ansi"
 fi
 
 # neovim
@@ -131,6 +136,10 @@ zinit light zdharma-continuum/zsh-diff-so-fancy
 zinit ice from="gh-r" as"program"
 zinit light jesseduffield/lazygit
 
+# bob
+zinit ice from="gh-r" as"program"
+zinit light MordechaiHadad/bob 
+
 # glow (markdown TUI)
 zinit ice from"gh-r" as"program"
 zinit light charmbracelet/glow
@@ -150,6 +159,26 @@ zinit light sharkdp/fd
 if _has rg; then
 else
   echo "rg not installed: https://github.com/BurntSushi/ripgrep"
+fi
+
+if [ -d "$HOME/.nvm" ]; then
+	[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+	source /usr/share/nvm/nvm.sh
+	source /usr/share/nvm/bash_completion
+	source /usr/share/nvm/install-nvm-exec
+fi
+
+# Include Neovim binaries
+if _has bob; then
+  path+=("$HOME/.local/share/bob/nvim-bin")
+fi
+
+# Include gem binaries
+if _has gem; then
+  IFS=':' read -rA GPATH <<< "$(gem env gempath)"
+  for i in "${GPATH[@]}"; do
+    path+=("$i/bin")
+  done 
 fi
 
 if _has fzf; then
@@ -194,3 +223,6 @@ eval "$(starship init zsh)"
 
 # Initialize completions
 autoload -U compinit; compinit
+
+export PATH
+

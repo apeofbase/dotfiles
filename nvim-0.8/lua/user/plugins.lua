@@ -87,7 +87,7 @@ return packer.startup(function(use)
   use { 'ibhagwan/fzf-lua', requires = { 'kyazdani42/nvim-web-devicons' }, commit = "0944e1e85fc74c7c006c696b74b7af3acf345d8b" }
 
   -- Treesitter
-  use { "nvim-treesitter/nvim-treesitter", commit = "518e27589c0463af15463c9d675c65e464efc2fe", }
+  use { "nvim-treesitter/nvim-treesitter", commit = "518e27589c0463af15463c9d675c65e464efc2fe" }
 
   -- syntax
   -- use { "othree/html5.vim" }
