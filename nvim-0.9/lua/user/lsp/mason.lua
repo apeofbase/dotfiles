@@ -1,3 +1,5 @@
+local lspconfig = require 'lspconfig'
+
 local status_ok, mason = pcall(require, "mason")
 if not status_ok then
   return
@@ -12,3 +14,8 @@ mason.setup({
     }
   }
 })
+
+-- Setup language servers
+lspconfig.intelephense.setup {}
+
+require "user.lsp.handlers"
