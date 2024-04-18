@@ -18,7 +18,8 @@ require("lazy").setup({
 
   -- Colorschemes
   { "mhartington/oceanic-next", priority = 1000 },
-  { "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" },
+  { "Mofiqul/dracula.nvim", priority = 999 },
+  { "folke/tokyonight.nvim", commit = "e330187" },
   { "lunarvim/darkplus.nvim", commit = "2584cdeefc078351a79073322eb7f14d7fbb1835" },
 
   -- Libraries
@@ -50,7 +51,7 @@ require("lazy").setup({
 
   -- Treesitter
   { "nvim-treesitter/nvim-treesitter", version = "v0.9.*" },
-  { "eirabben/tree-sitter-twig", commit = "992ca33b4131e1067b5b3ff366da9cded5428100" },
+  { "kaermorchen/tree-sitter-twig", version = "v0.4.*" },
   
   -- Snippets NOTE: On the chopping block
   { "L3MON4D3/LuaSnip", version = "v2.0", dependencies = 
@@ -63,18 +64,15 @@ require("lazy").setup({
   { "hrsh7th/cmp-path", commit = "466b6b8270f7ba89abd59f402c73f63c7331ff6e" }, -- path completions
   { "saadparwaiz1/cmp_luasnip", commit = "05a9ab28b53f71d1aece421ef32fee2cb857a843" }, -- snippet completions
   { "hrsh7th/cmp-nvim-lua", commit = "f12408bdb54c39c23e67cab726264c10db33ada8" }, -- Source for neovim Lua API
+  { "hrsh7th/cmp-calc", commit = "ce91d14d2e7a8b3f6ad86d85e34d41c1ae6268d9" },
 
-  -- LSP & DAP
-  { "williamboman/mason.nvim", version = "v1.8.*" }, -- LSP & DAP manager
-  { "yaegassy/coc-intelephense", version = "v0.28.*" }, -- PHP language server extension
+  -- LSP
+  -- { "williamboman/mason.nvim", version = "v1.10.*" }, -- LSP & DAP manager
+  -- { "yaegassy/coc-intelephense", version = "v0.28.*" }, -- PHP LSP
+  -- { "hashicorp/terraform-ls", version = "v0.32.*" }, -- Terraform LSP
+  -- { "neovim/nvim-lspconfig", version = "v0.1.7" }, -- enable LSP
 
   -- TODO: Switch to https://github.com/williamboman/mason.nvim
-  -- LSP
-  --{ "hrsh7th/cmp-nvim-lsp", commit = "44b16d11215dce86f253ce0c30949813c0a90765" }, -- Source for neovim's built-in language server client
-  --{ "neovim/nvim-lspconfig", commit = "148c99bd09b44cf3605151a06869f6b4d4c24455" }, -- enable LSP
-  --{ "williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" }, -- simple to use language server installer
-  --{ "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" }, -- for formatters and linters
---
 --  -- DAP
 --  use { "mfussenegger/nvim-dap", commit = "014ebd53612cfd42ac8c131e6cec7c194572f21d" }
 --  use { "rcarriga/nvim-dap-ui", commit = "d76d6594374fb54abf2d94d6a320f3fd6e9bb2f7" }

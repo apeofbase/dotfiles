@@ -4,7 +4,7 @@
 - **Terminal:** [Alacrity](https://github.com/alacritty/alacritty) (Linux) [iTerm2](https://iterm2.com/) (Macos)
 - **Shell:** ZSH
 - **Prompt:** [Starship](https://starship.rs/)
-- **Editor:** [NeoVim](https://neovim.io/) (v0.7.2 build from source)
+- **Editor:** [NeoVim](https://neovim.io/) (v0.7 & v0.9.4 supported)
 - **Terminal multiplexer:** [tmux](https://github.com/tmux/tmux)
 - **Plugin manager:** [zinit](https://github.com/zdharma-continuum/zinit)
 - **Font(s):** 
@@ -27,43 +27,17 @@
 - [glow](https://github.com/) # TUI Markdown reader
 - [fd](https://github.com/sharkdp/fd)
 
-## Rebinding CAPSLOCK
-
-**Debian/Ubuntu/Pop_OS!**
-
-- Add included script to cron
-- `crontab -e`
-- `@reboot /HOME/USER/dotfiles/scripts/capslock-to-ctrl-esc.sh`
-
-**Fedora/RHEL**
-
-- [caps2esc](https://gitlab.com/interception/linux/plugins/caps2esc) Swap CAPSLOCK with ESC and longpress CTRL_L 
-  - [walkthrough](http://nelsonware.com/blog/2019/04/30/how-to-map-caps-lock-to-escape-and-control-on-fedora-via-caps2esc.html)
-  - Config files to symlink are in `caps2esc` dir
-  - Set CAPSLOCK to ESC in Gnome Tweak Tools:
-    1. Keyboard & Mouse
-    2. Additional Layout Options
-    3. Capslock behavior
-    4. Make Caps Lock An Additiona Esc
-
 ## Compatable OS
 
+- Arch Linux [Setup instructions](./arch-readme.md)
 - Pop_OS 22.04+
 - Fedora 35+
-- MacOS (partially)
+- MacOS (minus Alacritty)
 
 ## TODO
 
-- Review and update Null-LS
-- Review and update DAP
+- Install script or instructions
+- Migrate Neovim LSP and DAP management to Mason
 - Setup XDebug and test
-- Restore MacOS config
-  - [Fix tmux prefix issues in MacOS for Alacritty](https://github.com/tmux/tmux/issues/1585#issuecomment-483861102)
 - Resolve all missing components for neovim
-  - [ ] [Twig highlighting](https://github.com/eirabben/tree-sitter-twig) w/ Treesitter
-  - [ ] Install [twigcs](https://github.com/friendsoftwig/twigcs)
   - [ ] Zinit to install PHP, Composer, Cargo, [LuaRocks](https://luarocks.org/#quick-start)
-    - [ ] alternative, script to install on Debian-based, Fedora and MacOS (Homebrew) ... or Nix on all?
-  - [ ] Remove Java, Swift junk from configs
-- Setup `bob` (Bob Version Manager for Neovim)
-- Setup stable neovim config and updated less stable version
