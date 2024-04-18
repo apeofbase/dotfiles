@@ -4,24 +4,24 @@ if not status_ok then
 end
 
 -- change the highlight style
-vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#0E171C"})
-vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#0E171C"})
-vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#0E171C"})
+vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#191A21"})
+vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#191A21"})
+vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#191A21"})
 
 --- auto update the highlight style on colorscheme change
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
   pattern = { "*" },
   callback = function(ev)
-    vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#0E171C"})
-    vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#0E171C"})
-    vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#0E171C"})
+    vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#191A21"})
+    vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#191A21"})
+    vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#191A21"})
   end
 })
 
 illuminate.configure({
   providers = {
     --'lsp',
-    'treesitter',
+    -- 'treesitter',
     'regex',
   },
   delay = 100,

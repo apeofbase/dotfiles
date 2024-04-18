@@ -46,9 +46,24 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 -- Syntax highlighting for Drupal
-vim.cmd "autocmd BufNewFile,BufRead *.twig set filetype=htmldjango.twig"
+vim.cmd "autocmd BufNewFile,BufRead *.twig set filetype=twig"
 vim.cmd "autocmd BufNewFile,BufRead *.theme set filetype=php"
 vim.cmd "autocmd BufNewFile,BufRead *.module set filetype=php"
 
 -- Syntax highlighting for Jenkins
 vim.cmd "autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy"
+
+-- Terraform-ls setup
+-- require'lspconfig'.terraformls.setup{}
+-- vim.api.nvim_create_autocmd({"BufWritePre"}, {
+--   pattern = {"*.tf", "*.tfvars"},
+--   callback = function()
+--     vim.lsp.buf.format()
+--   end,
+-- })
+
+vim.cmd "silent! autocmd! filetypedetect BufRead,BufNewFile *.tf"
+vim.cmd "autocmd BufRead,BufNewFile *.hcl set filetype=hcl"
+vim.cmd "autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl"
+vim.cmd "autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform"
+vim.cmd "autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json"

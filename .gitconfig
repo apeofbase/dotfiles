@@ -16,9 +16,16 @@
   cam = commit -am
   co = checkout
   a = add
-  stash-all = stash save --include-untracked
   df = diff
   l = log
+  lo = log --oneline
+  lop = log --oneline --first-parent
+  st = stash
+  stu = stash -u
+  sa = stash apply
+  rset = remote set-url origin
+  radd = remote add origin
+  sup = branch --set-upstream-to
 [merge]
   # Ensures that you get an error unless every merge is fast-forward. No merge commits, no joining together of two histories, just a smooth progression from commit to commit.
   # ff = only
