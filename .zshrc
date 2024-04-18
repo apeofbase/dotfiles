@@ -156,11 +156,6 @@ zinit light sharkdp/fd
 # -------
 # Utility settings
 # -------
-if _has rg; then
-else
-  echo "rg not installed: https://github.com/BurntSushi/ripgrep"
-fi
-
 if [ -d "$HOME/.nvm" ]; then
 	[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
 	source /usr/share/nvm/nvm.sh
@@ -197,6 +192,7 @@ if _has fzf; then
   local white="#65737e"
 
   export FZF_DEFAULT_OPTS="
+    --preview='bat --style=numbers --color=always {}'
     --color=bg+:$black,pointer:$red,info:$cyan,hl:$magenta,hl+:$magenta
   "
   if _has rg; then
@@ -204,6 +200,8 @@ if _has fzf; then
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
   fi
+
+  alias fvim="fzf | xargs -n 1 nvim"
 
 else
   echo "fzf not installed: https://github.com/junegunn/fzf"
@@ -214,8 +212,8 @@ fi
 # -------
 
 # Include OS specific and local only .zshrc overrides
-if [ -e ~/macos.zshrc ]; then
-  source ~/macos.zshrc
+if [ -e ~/.custom.zshrc ]; then
+  source ~/.custom.zshrc
 fi
 
 # Starship prompt initialize: https://starship.rs

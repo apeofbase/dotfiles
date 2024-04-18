@@ -17,8 +17,5 @@ require "user.treesitter"
 require "user.cmp"
 require "user.illuminate"
 require "user.tree-sitter-twig"
-require "user.mason"
---require "user.dap"
-
--- TODO
---require "user.lsp"
+-- require "user.lsp.mason"
+-- require "user.dap"
