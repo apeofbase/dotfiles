@@ -50,7 +50,7 @@ nvim_tree.setup {
     enable = true,
     show_on_dirs = true,
     icons = {
-      hint = "",
+      hint = "",
       info = "",
       warning = "",
       error = "",
@@ -71,3 +71,6 @@ nvim_tree.setup {
   },
 }
 
+-- Keymaps
+local opts = { noremap = true, silent = false }
+vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>", opts)

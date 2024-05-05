@@ -51,4 +51,4 @@ vim.api.nvim_set_hl(0, "GitSignsChangeNr", { fg="#e0af68" })
 
 -- Keymaps
 local opts = { noremap = true, silent = false }
-vim.api.nvim_set_keymap("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", opts)
+vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", opts)

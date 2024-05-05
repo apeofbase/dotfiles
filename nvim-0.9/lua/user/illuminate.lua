@@ -31,3 +31,8 @@ illuminate.configure({
     'NvimTree',
   },
 })
+
+-- Keymaps
+local opts = { noremap = true, silent = false }
+vim.keymap.set("n", "<a-f>", '<cmd>lua require("illuminate").goto_next_reference{wrap=true}<cr>', opts)
+vim.keymap.set("n", "<Sa-f>", '<cmd>lua require("illuminate").goto_prev_reference{reverse=true,wrap=true}<cr>', opts)
