@@ -69,13 +69,3 @@ keymap("v", "p", '"_dP', opts)
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-
--- NvimTree
-keymap("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
-
--- Gitsigns
-keymap("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", opts)
-
--- illuminate
-keymap("n", "<a-f>", '<cmd>lua require("illuminate").goto_next_reference{wrap=true}<cr>', opts)
-keymap("n", "<Sa-f>", '<cmd>lua require("illuminate").goto_prev_reference{reverse=true,wrap=true}<cr>', opts)
