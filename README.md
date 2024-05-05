@@ -37,9 +37,6 @@
 ## TODO
 
 - Install script or instructions
-- Add new commands tools
-    - `eza` to replace `ls`
-    - `zoxide` to replace `z`
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
     - `fzf-tab` completion

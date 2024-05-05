@@ -41,10 +41,6 @@ else
   alias ls='ls --color=auto'
 fi
 
-alias l='ls'
-alias la='ls -a'
-alias ll='ls -1a'
-alias lah='ls -lah'
 alias h='cd ~'
 
 ## Git
@@ -92,6 +88,22 @@ if _has nvim; then
   export EDITOR="nvim"
 fi
 
+# eza-community/eza
+if _has eza; then
+  alias ls='eza --icons=always'
+  alias l='eza --icons=always'
+  alias la='eza --icons=always --all'
+  alias ll='eza --icons=always --all --oneline'
+  alias lah='eza --icons=always --long --all --total-size --header --group'
+  alias tree='eza --icons=always --tree'
+else
+  echo 'You should install `eza`'
+  alias l='ls'
+  alias la='ls -a'
+  alias ll='ls -1a'
+  alias lah='ls -lah'
+fi
+
 # -------
 # zinit
 # https://github.com/zdharma-continuum/zinit/wiki/Recipes-for-popular-programs#fzf-completion-and-key-bindings
@@ -106,7 +118,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # Load autocompletions after compinit
 zinit load "zdharma-continuum/zinit-annex-binary-symlink" # for auto symlinks
-zinit load "agkozak/zsh-z"
 zinit load "zsh-users/zsh-autosuggestions"
 zinit load "zsh-users/zsh-completions"
 zinit load "zdharma-continuum/fast-syntax-highlighting"
@@ -221,6 +232,12 @@ eval "$(starship init zsh)"
 
 # Initialize completions
 autoload -U compinit; compinit
+
+# Initialize ajeetdsouza/zoxide
+if _has zoxide; then
+  eval "$(zoxide init zsh)"
+  alias cd='z'
+fi
 
 export PATH
 
