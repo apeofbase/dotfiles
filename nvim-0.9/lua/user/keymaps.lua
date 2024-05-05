@@ -73,12 +73,6 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 -- NvimTree
 keymap("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
 
--- FzfLua
-keymap("n", ";", ":FzfLua files<CR>", opts)
-keymap("n", "<a-;>", ":FzfLua live_grep_glob<CR>", opts)
-keymap("n", "<leader>bf", ":FzfLua buffers<CR>", opts)
-keymap("n", "<leader>gs", ":FzfLua git_status<CR>", opts)
-
 -- Gitsigns
 keymap("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", opts)
 
