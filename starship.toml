@@ -31,4 +31,4 @@ disabled = true
 command = "echo -n $( grep -A1 '\"name\": \"drupal/core\"' composer.lock | awk '{ print $2 }' | tail -1 | sed 's/[^0-9.]*//g' )"
 files = ["composer.lock"]
 directories = ["web/core"]
-format = "via [](bold cyan) [v$output](bold cyan) "
+format = "via [](bold cyan) [v$output](bold cyan) "
