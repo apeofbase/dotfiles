@@ -22,13 +22,13 @@ require("lazy").setup({
   { "folke/tokyonight.nvim", commit = "e330187" },
   { "lunarvim/darkplus.nvim", commit = "2584cdeefc078351a79073322eb7f14d7fbb1835" },
 
-  -- Libraries
-  { "nvim-lua/plenary.nvim", tag = "v0.1.4" }, -- Useful lua functions used by lots of plugins
-
   -- UI
-  { 'ibhagwan/fzf-lua', commit = "1fa0252f760cec028709e02f7473a5156d1ad040", dependencies = 
-    { 'kyazdani42/nvim-web-devicons', commit = "5efb8bd06841f91f97c90e16de85e96d57e9c862" },
-  }, -- Fuzzy file search
+  { 'nvim-tree/nvim-web-devicons', commit = '794bba734ec95eaff9bb82fbd112473be2087283' },
+  { 'nvim-telescope/telescope.nvim', tag = '0.1.6', dependencies = { 
+      'nvim-telescope/telescope-live-grep-args.nvim', version = '^1.0.0',  -- grep with arguments
+      'nvim-lua/plenary.nvim', tag = "v0.1.4", -- Useful lua functions used by lots of plugins
+    },
+  },
   { "kyazdani42/nvim-tree.lua", commit = "bdb6d4a25410da35bbf7ce0dbdaa8d60432bc243" }, -- File browser
   { "akinsho/bufferline.nvim", commit = "9e8d2f695dd50ab6821a6a53a840c32d2067a78a" }, -- Top tabs
   { "goolord/alpha-nvim", commit = "29074eeb869a6cbac9ce1fbbd04f5f5940311b32" }, -- Custom start pages
