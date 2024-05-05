@@ -200,7 +200,7 @@
 
 ## Other utilities & tweaks
 
-- `sudo pacman -S jq yq htmlq gwenview autorandr blanket` Image viewer, Auto-monitor arranger
+- `sudo pacman -S eza zoxide jq yq htmlq gwenview autorandr blanket` Image viewer, Auto-monitor arranger
 - `flatpak flatseal spotify savedesktop joplin localsend signal`
 - Pacman modifications
     - `\vim /etc/pacman.conf`
