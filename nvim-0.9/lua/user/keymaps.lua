@@ -1,5 +1,4 @@
 local opts = { noremap = true, silent = false }
-local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -30,9 +29,9 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Fix * search word behavior stay on first word
 vim.keymap.set("n", "*", function()
-    fn.setreg("/", [[\V\<]] .. fn.escape(fn.expand("<cword>"), [[/\]]) .. [[\>]])
-    fn.histadd("/", fn.getreg("/"))
-    vim.o.hlsearch = true
+  fn.setreg("/", [[\V\<]] .. fn.escape(fn.expand("<cword>"), [[/\]]) .. [[\>]])
+  fn.histadd("/", fn.getreg("/"))
+  vim.o.hlsearch = true
 end)
 
 -- Change all occurance of words under cursor
