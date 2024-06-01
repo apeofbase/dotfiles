@@ -1,4 +1,16 @@
+# -------
+# zinit setup
+# https://github.com/zdharma-continuum/zinit/wiki/Recipes-for-popular-programs#fzf-completion-and-key-bindings
+# -------
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [ ! -d "$ZINIT_HOME" ]
+then
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+source "${ZINIT_HOME}/zinit.zsh"
 
+# -------
 # Basic
 # -------
 
@@ -7,6 +19,7 @@
 SAVEHIST=3000
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
+HISTDUP=erase
 
 # Allows cd-less directory navigation
 setopt auto_cd
@@ -17,6 +30,8 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
+setopt SHAREHISTORY
+setopt APPENDHISTORY
 setopt HIST_BEEP
 export EDITOR='vim'
 
@@ -34,11 +49,21 @@ _has() {
 # Aliases
 # -------
 
-# MacOS specific aliases
+# MacOS specific aliases & default Homebrew paths
 if [[ `uname` == "Darwin" ]]; then
   alias ls='ls -G'
+  # Check if Homebrew is installed
+  if [ -d /opt/homebrew ]; then
+    export PATH=$HOME/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+  fi
 else
   alias ls='ls --color=auto'
+fi
+
+# Add pbcopy and pbpaste functionality to Linux
+if _has xsel; then
+  alias pbpaste='xsel --output --clipboard'
+  alias pbcopy='xsel --input --clipboard'
 fi
 
 alias h='cd ~'
@@ -82,6 +107,13 @@ elif _has batcat; then
   export BAT_THEME="ansi"
 fi
 
+# yazi TUI file manager: https://yazi-rs.github.io
+if _has yazi; then
+  alias y='yazi'
+else
+  echo 'You should install `yazi`'
+fi
+
 # neovim
 if _has nvim; then
   alias vim='nvim'
@@ -105,23 +137,15 @@ else
 fi
 
 # -------
-# zinit
-# https://github.com/zdharma-continuum/zinit/wiki/Recipes-for-popular-programs#fzf-completion-and-key-bindings
+# zinit configs
 # -------
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-if [ ! -d "$ZINIT_HOME" ]
-then
-  mkdir -p "$(dirname $ZINIT_HOME)"
-  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
-source "${ZINIT_HOME}/zinit.zsh"
 
 # Load autocompletions after compinit
-zinit load "zdharma-continuum/zinit-annex-binary-symlink" # for auto symlinks
-zinit load "zsh-users/zsh-autosuggestions"
-zinit load "zsh-users/zsh-completions"
-zinit load "zdharma-continuum/fast-syntax-highlighting"
 # zinit load "zdharma-continuum/history-search-multi-word"
+zinit light "zdharma-continuum/zinit-annex-binary-symlink" # for auto symlinks
+zinit light "zsh-users/zsh-autosuggestions"
+zinit light "zsh-users/zsh-completions"
+zinit light "zdharma-continuum/fast-syntax-highlighting"
 
 # Linux specific
 # if [[ `uname` == "Linux" ]]; then
@@ -189,18 +213,17 @@ fi
 
 if _has fzf; then
   # Color scheme
-  # https://github.com/junegunn/fzf/wiki/Color-schemes
-  # Oceanic-next
-  local background="#1b2b33"
-  local foreground="#d8dee9"
-  local black="#29414f"
-  local red="#ec5f67"
-  local green="#99c794"
-  local yellow="#fac863"
-  local blue="#6699cc"
-  local magenta="#c594c5"
-  local cyan="#5fb3b3"
-  local white="#65737e"
+  # - Tokyo Night
+  local background="#1a1b26"
+  local foreground="#a9b1d6"
+  local black="#32344a"
+  local blue="#7aa2f7"
+  local cyan="#449dab"
+  local green="#9ece6a"
+  local magenta="#ad8ee6"
+  local red="#f7768e"
+  local white="#787c99"
+  local yellow="#e0af68"
 
   export FZF_DEFAULT_OPTS="
     --preview='bat --style=numbers --color=always {}'

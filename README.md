@@ -17,7 +17,7 @@
 - zsh-completions
 - [fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting)
 - [bat](https://github.com/sharkdp/bat)
-- [z](https://github.com/agkozak/zsh-z)
+- [zoxide](https://github.com/ajeetdsouza/zoxide)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fzf](https://github.com/junegunn/fzf)
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
@@ -26,6 +26,7 @@
 - [trash-cli](https://github.com/andreafrancia/trash-cli) # MacOS `brew install trash`
 - [glow](https://github.com/) # TUI Markdown reader
 - [fd](https://github.com/sharkdp/fd)
+- [eza](https://github.com/eza-community/eza)
 
 ## Compatable OS
 
@@ -37,6 +38,7 @@
 ## TODO
 
 - Install script or instructions
+- Add `yazi` for TUI file browser
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
     - `fzf-tab` completion
@@ -44,12 +46,13 @@
     - fzf
     - bat
 - Neovim
-    - Set LSP (start with Javascript and/or Lua and then do PHP)
+    - Set LSP (Javascript, PHP, Terraform)
     - Setup DAP [instructions](https://www.youtube.com/watch?v=oYzZxi3SSnM)
         - Setup XDebug and test
     - [Add noice Plugin](https://github.com/folke/noice.nvim)
     - Add cmp-command-line
     - [Add vim tmux navigator](https://github.com/alexghergh/nvim-tmux-navigation)
+    - Move to newer NvimTree (keymaps different and broken)
 - Test migration from Zinit to Zap
 - Resolve all missing components for neovim
   - `zinit` or `asdf` to install PHP, Composer, Cargo, [LuaRocks](https://luarocks.org/#quick-start)

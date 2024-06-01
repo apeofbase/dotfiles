@@ -1,26 +1,23 @@
-local status_ok, illuminate = pcall(require, "illuminate")
-if not status_ok then
-  return
-end
+local illuminate = require("illuminate")
 
 -- change the highlight style
-vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#191A21"})
-vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#191A21"})
-vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#191A21"})
+vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#232434" })
+vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#232434" })
+vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#232434" })
 
 --- auto update the highlight style on colorscheme change
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
   pattern = { "*" },
-  callback = function(ev)
-    vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#191A21"})
-    vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#191A21"})
-    vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#191A21"})
+  callback = function()
+    vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#232434" })
+    vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#232434" })
+    vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#232434" })
   end
 })
 
 illuminate.configure({
   providers = {
-    --'lsp',
+    'lsp',
     -- 'treesitter',
     'regex',
   },
