@@ -15,7 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Install all plugins
 require("lazy").setup({
-
   -- Colorschemes
   { "mhartington/oceanic-next", priority = 1000 },
   { "Mofiqul/dracula.nvim", priority = 999 },
@@ -24,17 +23,18 @@ require("lazy").setup({
 
   -- UI
   { 'nvim-tree/nvim-web-devicons', commit = '794bba734ec95eaff9bb82fbd112473be2087283' },
-  { 'nvim-telescope/telescope.nvim', tag = '0.1.6', dependencies = { 
+  { 'nvim-telescope/telescope.nvim', tag = '0.1.6', dependencies = {
       'nvim-telescope/telescope-live-grep-args.nvim', version = '^1.0.0',  -- grep with arguments
+      'nvim-telescope/telescope-ui-select.nvim', commit = '6e51d7da30bd139a6950adf2a47fda6df9fa06d26e51d7da30bd139a6950adf2a47fda6df9fa06d2', --  Use telescope for UI
       'nvim-lua/plenary.nvim', tag = "v0.1.4", -- Useful lua functions used by lots of plugins
     },
   },
   { "kyazdani42/nvim-tree.lua", commit = "bdb6d4a25410da35bbf7ce0dbdaa8d60432bc243" }, -- File browser
-  { "akinsho/bufferline.nvim", commit = "9e8d2f695dd50ab6821a6a53a840c32d2067a78a" }, -- Top tabs
+  { "akinsho/bufferline.nvim", commit = "73540cb95f8d95aa1af3ed57713c6720c78af915" }, -- Top tabs
   { "goolord/alpha-nvim", commit = "29074eeb869a6cbac9ce1fbbd04f5f5940311b32" }, -- Custom start pages
   { "nvim-lualine/lualine.nvim", commit = "3362b28f917acc37538b1047f187ff1b5645ecdd" }, -- Custom status line at bottom
-  { "akinsho/toggleterm.nvim", commit = "6b334b9d1266b0f58ab1b6965c1e5b7eb5c34523" }, -- Built-in terminal access
   { "xiyaowong/transparent.nvim", commit = "fd35a46f4b7c1b244249266bdcb2da3814f01724" }, -- Transparent background
+  { "rubiin/fortune.nvim", version = "v1.6.*" }, -- Messages on startup page
 
   -- Utilities & Text
   { "tpope/vim-surround", commit = "bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea" },
@@ -52,9 +52,9 @@ require("lazy").setup({
   -- Treesitter
   { "nvim-treesitter/nvim-treesitter", version = "v0.9.*" },
   { "kaermorchen/tree-sitter-twig", version = "v0.4.*" },
-  
+
   -- Snippets NOTE: On the chopping block
-  { "L3MON4D3/LuaSnip", version = "v2.0", dependencies = 
+  { "L3MON4D3/LuaSnip", version = "v2.0", dependencies =
     { "rafamadriz/friendly-snippets", commit = "53d3df271d031c405255e99410628c26a8f0d2b0" },
   }, -- Snippet engine
 
@@ -67,10 +67,11 @@ require("lazy").setup({
   { "hrsh7th/cmp-calc", commit = "ce91d14d2e7a8b3f6ad86d85e34d41c1ae6268d9" },
 
   -- LSP
-  -- { "williamboman/mason.nvim", version = "v1.10.*" }, -- LSP & DAP manager
-  -- { "yaegassy/coc-intelephense", version = "v0.28.*" }, -- PHP LSP
+  { "williamboman/mason.nvim", version = "v1.10.*" }, -- LSP & DAP manager
+  { "williamboman/mason-lspconfig.nvim", version = "v1.28.*" }, -- middle man for mason and lspconfig
+  { "neovim/nvim-lspconfig", version = "v0.1.7" }, -- enable LSP
   -- { "hashicorp/terraform-ls", version = "v0.32.*" }, -- Terraform LSP
-  -- { "neovim/nvim-lspconfig", version = "v0.1.7" }, -- enable LSP
+  -- { "yaegassy/coc-intelephense", version = "v0.28.*" }, -- PHP LSP
 
   -- TODO: Switch to https://github.com/williamboman/mason.nvim
 --  -- DAP
