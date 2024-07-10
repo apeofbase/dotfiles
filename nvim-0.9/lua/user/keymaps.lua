@@ -17,9 +17,6 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
--- Start commands with Space
--- keymap("n", "<SPACE>", ":", opts)
-
 -- Normal --
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -51,6 +48,9 @@ keymap("n", "<leader>bc", ":BufferLinePickClose<CR>", opts)
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+
+-- Folds
+keymap("n", "<C-f>", ":fold<CR>", opts)
 
 -- Insert --
 -- Press jj fast to enter
