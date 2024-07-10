@@ -48,3 +48,4 @@ vim.keymap.set('n', '<leader>fs', builtin.git_status, opts)
 vim.keymap.set("n", "<leader>fw", builtin.grep_string, opts) -- Find word under cursor
 vim.keymap.set("n", "<leader>fk", builtin.keymaps, opts)     -- Find keymaps
 vim.keymap.set("n", "<leader>fr", builtin.registers, opts)   -- Find keymaps
+vim.keymap.set("n", "<leader>fo", ":ObsidianSearch<CR>", opts)

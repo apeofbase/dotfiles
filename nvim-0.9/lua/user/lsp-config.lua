@@ -23,7 +23,7 @@ mason_lspconfig.setup({
 
 -- Setup language servers
 lspconfig.lua_ls.setup {}
-lspconfig.phpactor.setup {}
+-- lspconfig.phpactor.setup {}
 lspconfig.tsserver.setup {}
 lspconfig.terraformls.setup {}
 
