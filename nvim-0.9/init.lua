@@ -9,7 +9,7 @@ require "user.comment"
 require "user.nvim-tree"
 require "user.bufferline"
 require "user.fortune"
--- require "user.lualine" -- Insert mode display is broken
+require "user.lualine" -- Insert mode display is broken
 require "user.indentline"
 require "user.alpha"
 require "user.autopairs"
@@ -19,4 +19,6 @@ require "user.cmp"
 require "user.tree-sitter-twig"
 require "user.lsp-config" -- mason, lsp-config
 require "user.illuminate"
+require "user.obsidian"
+require "user.pencil"
 -- require "user.dap"
