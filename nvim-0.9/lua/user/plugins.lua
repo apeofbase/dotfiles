@@ -44,6 +44,8 @@ require("lazy").setup({
   { "JoosepAlviste/nvim-ts-context-commentstring", commit = "b8ff464f2afc2000f6c72fa331a8fc090cb46b39" },
   { "RRethy/vim-illuminate", commit = "3bd2ab64b5d63b29e05691e624927e5ebbf0fb86" }, -- Highlight other uses of words under cursor
   { "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" }, -- Buffer management
+  { "epwalsh/obsidian.nvim", version = "v3.7.*" }, -- Obsidian notes
+  { "preservim/vim-pencil", commit = "6d70438a8886eaf933c38a7a43a61adb0a7815ed" },
 
   -- Git
   { "lewis6991/gitsigns.nvim", commit = "6ef8c54fb526bf3a0bc4efb0b2fe8e6d9a7daed2" },

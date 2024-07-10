@@ -41,5 +41,6 @@ vim.g.loaded_netrwPlugin = 0                    -- Disable netrw
 vim.opt.fillchars.eob = " "
 vim.opt.shortmess:append "c"
 vim.opt.iskeyword:append("-")
+vim.opt.foldmethod = "marker"
 -- vim.opt.relativenumber = true                  -- set relative numbered lines
 -- vim.opt.mouse = "a"                             -- allow the mouse to be used in neovim
