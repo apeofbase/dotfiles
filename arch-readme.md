@@ -200,7 +200,8 @@
 
 ## Other utilities & tweaks
 
-- `sudo pacman -S wl-clipboard xsel eza zoxide jq yq htmlq gwenview autorandr blanket poppler` Image viewer, Auto-monitor arranger
+Image viewer, Auto-monitor arranger
+- `sudo pacman -S kscreen-doctor yazi wl-clipboard xsel eza zoxide jq yq htmlq gwenview autorandr blanket poppler`
 - `flatpak flatseal spotify savedesktop joplin localsend signal`
 - Pacman modifications
     - `\vim /etc/pacman.conf`
