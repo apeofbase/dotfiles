@@ -242,6 +242,17 @@ else
 fi
 
 # -------
+# Rails
+# -------
+if [ -d ~/.rvm ]; then
+  path+=(~/.rvm/bin)
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+fi
+
+if _has rails; then
+fi
+
+# -------
 # Final inits
 # -------
 
