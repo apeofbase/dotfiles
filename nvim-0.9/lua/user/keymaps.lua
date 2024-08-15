@@ -64,6 +64,9 @@ keymap("v", "<S-Tab>", "<`<V`>", opts)
 -- Prevents deleted text from overwriting yank buffer
 keymap("v", "p", '"_dP', opts)
 
+-- Close current buffer and focus previous
+keymap("n", "<leader>q", ":b#|bd#<CR>", opts)
+
 -- Visual Block --
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
