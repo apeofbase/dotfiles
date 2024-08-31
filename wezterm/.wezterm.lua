@@ -18,9 +18,9 @@ config = {
 
   -- Fonts
   font = wezterm.font 'DankMono Nerd Font',
-  font_size = 16.0,
+  font_size = 15.0,
   line_height = 1.1,
-  cell_width = 0.9,
+  cell_width = 1.0,
   bold_brightens_ansi_colors = "BrightAndBold",
 
   -- Window
