@@ -26,7 +26,7 @@ config = {
   -- Window
   enable_tab_bar = false,
   window_decorations = "RESIZE",
-  window_background_opacity = 0.97,
+  window_background_opacity = 1.0,
   window_padding = {
     top = '1cell',
     right = '2cell',
