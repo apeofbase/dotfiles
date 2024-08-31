@@ -13,8 +13,37 @@ local config = wezterm.config_builder()
 
 config = {
 
-  -- Color scheme
-  color_scheme = 'Tokyo Night',
+  -- Colors
+  colors = {
+    cursor_bg = '#acb0d0',
+    cursor_fg = 'black',
+
+    selection_bg = '#e0af68',
+    selection_fg = 'black',
+
+    background = '#1a1b26',
+    foreground = '#a9b1d6',
+    ansi = {
+      '#32344a', -- black
+      '#f7768e', -- red
+      '#9ece6a', -- green
+      '#e0af68', -- yellow
+      '#7aa2f7', -- blue
+      '#ad8ee6', -- magenta
+      '#449dab', -- cyan
+      '#787c99', -- white
+    },
+    brights = {
+      '#444b6a', -- black
+      '#ff7a93', -- red
+      '#b9f27c', -- green
+      '#ff9e64', -- yellow
+      '#7da6ff', -- blue
+      '#bb9af7', -- magenta
+      '#0db9d7', -- cyan
+      '#acb0d0', -- white
+    },
+  },
 
   -- Fonts
   font = wezterm.font 'DankMono Nerd Font',
