@@ -83,7 +83,7 @@
     - `echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab`
 - (Optional) Install Desktop Manager
     - KDE:
-    - `pacman -S xorg plasma plasma-wayland-session kde-applications`
+    - `pacman -S xorg plasma kde-applications`
     - `sudo systemctl enable sddm`
     - Gnome
         - `sudo pacman -S gnome gnome-tweaks`
