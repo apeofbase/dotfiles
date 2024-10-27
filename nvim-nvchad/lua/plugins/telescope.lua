@@ -13,22 +13,6 @@ return {
       },
     },
 
-    keys = {
-      { ";", require('telescope.builtin').find_files, desc = "NvimTree Toggle" },
-      { "<a-;>", require('telescope.builtin').live_grep },
-      { "<leader>ff", require('telescope.builtin').find_files, desc = "Find files" },
-      { "<leader>fi", ":Telescope find_files no_ignore=true<CR>", desc = "Find all files" },
-      { "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>" },
-      { "<leader>fb", require('telescope.builtin').buffers, desc = "Find buffers" },
-      { "<leader>fh", require('telescope.builtin').help_tags, desc = "Find help tags" },
-      { "<leader>fq", require('telescope.builtin').quickfix, desc = "Find quickfix" },
-      { "<leader>fs", require('telescope.builtin').git_status, desc = "Find Git status files" },
-      { "<leader>fw", require('telescope.builtin').grep_string, desc = "Find word under cursor" },
-      { "<leader>fk", require('telescope.builtin').keymaps, desc = "Find keymaps" },
-      { "<leader>fr", require('telescope.builtin').registers, desc = "Find registers" },
-      { "<leader>fo", ":ObsidianSearch<CR>" }
-    },
-
     opts = function(_, conf)
       conf.defaults.mappings.i = {
         ["<C-k>"] = require("telescope.actions").move_selection_previous,
@@ -53,7 +37,6 @@ return {
 
       require("telescope").load_extension("live_grep_args")
       require("telescope").load_extension("ui-select")
-
 
       return conf
     end,

@@ -1,52 +1,65 @@
 require "nvchad.mappings"
 
--- add yours here
-
 local opts = { noremap = true, silent = false }
-local keymap = vim.keymap.set
+local map = vim.keymap.set
 local fn = vim.fn
+local nomap = vim.keymap.del
+
+--
+-- Core
+--
+
+-- Resize with arrows
+map("n", "<C-Up>", ":resize -2<CR>", opts)
+map("n", "<C-Down>", ":resize +2<CR>", opts)
+map("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+
+-- Naviagate buffers
+map("n", "<S-h>", ":bprevious<CR>", opts)
+map("n", "<S-l>", ":bnext<CR>", opts)
+map("n", "<leader>bc", ":BufferLinePickClose<CR>", opts)
+
+-- Move text up and down
+map("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
+map("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+
+-- Folds
+map("n", "<C-f>", ":fold<CR>", opts)
+
+-- Insert --
+-- Press jj fast to enter
+map("i", "jj", "<Esc>", opts)
+
+-- Visual --
+-- Stay in indent mode
+map("v", "<Tab>", ">`<V`>", opts)
+map("v", "<S-Tab>", "<`<V`>", opts)
+
+-- Prevents deleted text from overwriting yank buffer
+map("v", "p", '"_dP', opts)
+
+-- Visual Block --
+-- Move text up and down
+map("x", "J", ":move '>+1<CR>gv-gv", opts)
+map("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- Fix * search word behavior stay on first word
-vim.keymap.set("n", "*", function()
+map("n", "*", function()
   fn.setreg("/", [[\V\<]] .. fn.escape(fn.expand("<cword>"), [[/\]]) .. [[\>]])
   fn.histadd("/", fn.getreg("/"))
   vim.o.hlsearch = true
 end)
 
--- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+--
+-- Plugins
+--
 
--- Naviagate buffers
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<leader>bc", ":BufferLinePickClose<CR>", opts)
-
--- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
-
--- Folds
-keymap("n", "<C-f>", ":fold<CR>", opts)
-
--- Insert --
--- Press jj fast to enter
-keymap("i", "jj", "<Esc>", opts)
-
--- Visual --
--- Stay in indent mode
-keymap("v", "<Tab>", ">`<V`>", opts)
-keymap("v", "<S-Tab>", "<`<V`>", opts)
-
--- Prevents deleted text from overwriting yank buffer
-keymap("v", "p", '"_dP', opts)
-
--- Close current buffer and focus previous
-keymap("n", "<leader>q", ":b#|bd#<CR>", opts)
-
--- Visual Block --
--- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+-- Telescope
+nomap("n", "<leader>fo")
+map("n", "<leader>fq", require('telescope.builtin').quickfix, { desc = "Find quickfix" } )
+map("n", "<leader>fs", require('telescope.builtin').git_status, { desc = "Find Git status files" } )
+map("n", "<leader>fw", require('telescope.builtin').grep_string, { desc = "Find word under cursor" } )
+map("n", "<leader>fk", require('telescope.builtin').keymaps, { desc = "Find keymaps" } )
+map("n", "<leader>fr", require('telescope.builtin').registers, { desc = "Find registers" } )
+map("n", "<leader>fo", ":ObsidianSearch<CR>", { desc = "Obsidian Search" })
