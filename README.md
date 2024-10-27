@@ -23,10 +23,11 @@
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 - [lazygit](https://github.com/jesseduffield/lazygit)
 - [neofetch](https://github.com/dylanaraps/neofetch)
-- [trash-cli](https://github.com/andreafrancia/trash-cli) # MacOS `brew install trash`
-- [glow](https://github.com/) # TUI Markdown reader
-- [fd](https://github.com/sharkdp/fd)
-- [eza](https://github.com/eza-community/eza)
+- [trash-cli](https://github.com/andreafrancia/trash-cli) MacOS `brew install trash`
+- [glow](https://github.com/) TUI Markdown reader
+- [fd](https://github.com/sharkdp/fd) Replacement for `find`
+- [eza](https://github.com/eza-community/eza) replacement for `ls`
+- [yazi](https://github.com/sxyazi/yazi) TUI file browser
 
 ## Compatable OS
 
@@ -38,13 +39,9 @@
 ## TODO
 
 - Install script or instructions
-- Add `yazi` for TUI file browser
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
     - `fzf-tab` completion
-- Better coverage for TokyoNight theme
-    - fzf
-    - bat
 - Neovim
     - Set LSP (Javascript, PHP, Terraform)
     - Setup DAP [instructions](https://www.youtube.com/watch?v=oYzZxi3SSnM)
@@ -53,6 +50,5 @@
     - Add cmp-command-line
     - [Add vim tmux navigator](https://github.com/alexghergh/nvim-tmux-navigation)
     - Move to newer NvimTree (keymaps different and broken)
-- Test migration from Zinit to Zap
 - Resolve all missing components for neovim
   - `zinit` or `asdf` to install PHP, Composer, Cargo, [LuaRocks](https://luarocks.org/#quick-start)

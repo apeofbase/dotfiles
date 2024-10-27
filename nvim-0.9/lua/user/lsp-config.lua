@@ -17,13 +17,23 @@ mason_lspconfig.setup({
     "lua_ls",
     "phpactor",
     "tsserver",
+    -- "intelephense",
     "terraformls",
   }
 })
 
 -- Setup language servers
 lspconfig.lua_ls.setup {}
--- lspconfig.phpactor.setup {}
+lspconfig.phpactor.setup {
+  on_attach = on_attach,
+  init_options = {
+    ["language_server_phpstan.enabled"] = false,
+    ["language_server_psalm.enabled"] = false,
+    ["indexer.supported_extensions"] = {"php", "inc", "module"},
+    ["indexer.include_patterns"] = {"/**/*.php", "/**/*.inc", "/**/*.module"},
+  }
+}
+-- lspconfig.intelephense.setup {}
 lspconfig.tsserver.setup {}
 lspconfig.terraformls.setup {}
 
