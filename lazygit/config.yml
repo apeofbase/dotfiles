@@ -1,0 +1,13 @@
+notARepository: 'quit'
+gui:
+  mouseEvents: false
+  theme:
+    activeBorderColor:
+      - magenta
+      - bold
+    inactiveBorderColor:
+      - white
+    selectedLineBgColor:
+      - black
+  nerdfontversions: '2'
+  showFileIcons: true

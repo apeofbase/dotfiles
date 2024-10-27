@@ -83,7 +83,7 @@
     - `echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab`
 - (Optional) Install Desktop Manager
     - KDE:
-    - `pacman -S xorg plasma plasma-wayland-session kde-applications`
+    - `pacman -S xorg plasma kde-applications`
     - `sudo systemctl enable sddm`
     - Gnome
         - `sudo pacman -S gnome gnome-tweaks`
@@ -120,7 +120,9 @@
     - `archinstall`
 - For alternate packages, allow multilib
 - Set additional packages
-    - `linux-headers linux-lts-headers vim base-devel amd-ucode neofetch openssh git go tldr wget less flatpak zsh ripgrep tmux rsync p7zip unrar tar htop bind partitionmanager dosfstools vlc`
+    - `linux-headers linux-lts-headers vim base-devel amd-ucode wezterm
+      neofetch openssh git go tldr wget less flatpak zsh ripgrep tmux
+      rsync p7zip unrar tar htop bind partitionmanager dosfstools vlc`
     - (if installing KDE) `packagekit-qt5`
 - Make sure each field is filled out and run install
 - After installation use chroot to install some desktop apps
@@ -188,10 +190,6 @@
 - `sudo usermod -a -G docker $(whoami)`
 - `reboot`
 
-## Install Lando
-
-- `yay -S lando`
-
 ## Gaming
 
 - `sudo pacman -S mesa discord jre17-openjdk`
@@ -200,7 +198,8 @@
 
 ## Other utilities & tweaks
 
-- `sudo pacman -S wl-clipboard xsel eza zoxide jq yq htmlq gwenview autorandr blanket poppler` Image viewer, Auto-monitor arranger
+Image viewer, Auto-monitor arranger
+- `sudo pacman -S kscreen-doctor yazi wl-clipboard xsel eza zoxide jq yq htmlq gwenview autorandr blanket poppler`
 - `flatpak flatseal spotify savedesktop joplin localsend signal`
 - Pacman modifications
     - `\vim /etc/pacman.conf`
@@ -220,7 +219,10 @@ ILoveCandy
 
 ### Configuration of VIA compatible keyboards
 
-VIA is a program to remap keys directly into compatible keyboards. In case you have one of those, in order for the keyboard to be picked up by the browser and configure it online, you need to add a custom udev rule changing the permissions of devices accessed through the hidraw driver.
+VIA is a program to remap keys directly into compatible keyboards. In
+case you have one of those, in order for the keyboard to be picked up by
+the browser and configure it online, you need to add a custom udev rule
+changing the permissions of devices accessed through the hidraw driver.
 Note: This method might pose a security risk.
 
 Create the following udev rule:
