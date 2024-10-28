@@ -1,5 +1,8 @@
 require "nvchad.options"
 
+vim.g.loaded_netrw = 0                          -- Disable netrw
+vim.g.loaded_netrwPlugin = 0                    -- Disable netrw
+
 local o = vim.opt
 
 o.backup = false                          -- creates a backup file
@@ -40,8 +43,6 @@ o.wrap = false                            -- display lines as one long line
 o.scrolloff = 8                           -- is one of my fav
 o.sidescrolloff = 8
 o.guifont = "monospace:h17"               -- the font used in graphical neovim applications
-vim.g.loaded_netrw = 0                          -- Disable netrw
-vim.g.loaded_netrwPlugin = 0                    -- Disable netrw
 o.fillchars.eob = " "
 o.shortmess:append "c"
 o.iskeyword:append("-")
