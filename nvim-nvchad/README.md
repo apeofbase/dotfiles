@@ -20,7 +20,7 @@
 - [x] colorscheme.lua
 - [x] comment.lua
 - [x] fortune.lua
-- [ ] gitsigns.lua
+- [x] gitsigns.lua
 - [ ] illuminate.lua
 - [x] indentline.lua
 - [x] keymaps.lua
