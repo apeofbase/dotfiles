@@ -6,6 +6,11 @@ local fn = vim.fn
 local nomap = vim.keymap.del
 
 --
+-- Fix mappings
+--
+nomap("n", "<leader>h")
+
+--
 -- Core
 --
 
