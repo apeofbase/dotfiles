@@ -7,3 +7,37 @@
 # Credits
 
 1) Lazyvim starter https://github.com/LazyVim/starter as nvchad's starter was inspired by Lazyvim's . It made a lot of things easier!
+
+## Migration
+
+### Plugin configs
+
+- [x] alpha.lua
+- [x] autocommands.lua
+- [x] autopairs.lua
+- [x] bufferline.lua
+- [ ] cmp.lua
+- [x] colorscheme.lua
+- [x] comment.lua
+- [x] fortune.lua
+- [ ] gitsigns.lua
+- [ ] illuminate.lua
+- [x] indentline.lua
+- [x] keymaps.lua
+- [ ] lsp-config.lua
+- [x] lualine.lua
+- [x] nvim-tree.lua
+- [x] nvim-web-devicons.lua
+- [x] obsidian.lua
+- [x] options.lua
+- [ ] pencil.lua
+- [ ] plugins.lua
+- [x] telescope.lua
+- [x] tree-sitter-twig.lua
+- [x] treesitter.lua
+
+### Other todo
+
+1. Migrate other plugins
+    - List
+2. Configure NvChad Statusline
