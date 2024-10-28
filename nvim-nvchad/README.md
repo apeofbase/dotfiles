@@ -21,7 +21,7 @@
 - [x] comment.lua
 - [x] fortune.lua
 - [x] gitsigns.lua
-- [ ] illuminate.lua
+- [x] illuminate.lua
 - [x] indentline.lua
 - [x] keymaps.lua
 - [ ] lsp-config.lua
@@ -30,14 +30,14 @@
 - [x] nvim-web-devicons.lua
 - [x] obsidian.lua
 - [x] options.lua
-- [ ] pencil.lua
-- [ ] plugins.lua
+- [x] pencil.lua
+- [x] plugins.lua
 - [x] telescope.lua
 - [x] tree-sitter-twig.lua
 - [x] treesitter.lua
 
 ### Other todo
 
-1. Migrate other plugins
+1. [x] Migrate other plugins
     - List
 2. Configure NvChad Statusline
