@@ -14,4 +14,15 @@ M.base46 = {
 	-- },
 }
 
+M.ui = {
+  statusline = {
+    theme = "vscode_colored", -- default/vscode/vscode_colored/minimal
+    -- default/round/block/arrow separators work only for default statusline theme
+    -- round and block will work for minimal theme only
+    separator_style = "block",
+    order = nil,
+    modules = nil,
+  },
+}
+
 return M
