@@ -57,9 +57,13 @@ end)
 
 -- Telescope
 nomap("n", "<leader>fo")
+map('n', "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = "Find Live Grep" })
 map("n", "<leader>fq", require('telescope.builtin').quickfix, { desc = "Find quickfix" } )
 map("n", "<leader>fs", require('telescope.builtin').git_status, { desc = "Find Git status files" } )
 map("n", "<leader>fw", require('telescope.builtin').grep_string, { desc = "Find word under cursor" } )
 map("n", "<leader>fk", require('telescope.builtin').keymaps, { desc = "Find keymaps" } )
 map("n", "<leader>fr", require('telescope.builtin').registers, { desc = "Find registers" } )
 map("n", "<leader>fo", ":ObsidianSearch<CR>", { desc = "Obsidian Search" })
+
+-- NvimTree
+map("n", "<C-b>", ":NvimTreeToggle<CR>", { desc = "NvimTree Toggle" } )
