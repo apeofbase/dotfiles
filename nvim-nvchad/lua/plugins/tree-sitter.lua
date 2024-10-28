@@ -2,7 +2,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      "kaermorchen/tree-sitter-twig", version = "v0.4.*",
+      "kaermorchen/tree-sitter-twig",
     },
     opts = {
       ensure_installed = "all",
