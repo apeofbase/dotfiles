@@ -40,4 +40,4 @@
 
 1. [x] Migrate other plugins
     - List
-2. Configure NvChad Statusline
+2. [x] Configure NvChad Statusline
