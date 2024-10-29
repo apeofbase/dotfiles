@@ -23,7 +23,6 @@ map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Naviagate buffers
 map("n", "<S-h>", ":bprevious<CR>", opts)
 map("n", "<S-l>", ":bnext<CR>", opts)
-map("n", "<leader>bc", ":BufferLinePickClose<CR>", opts)
 
 -- Move text up and down
 map("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -31,6 +30,9 @@ map("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Folds
 map("n", "<C-f>", ":fold<CR>", opts)
+
+-- Highlight search toggle
+map("n", "<leader>ho", ":nohlsearch<CR>", opts)
 
 -- Insert --
 -- Press jj fast to enter
