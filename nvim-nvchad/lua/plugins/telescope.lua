@@ -14,6 +14,10 @@ return {
     },
 
     opts = function(_, conf)
+      conf.defaults.path_display = {
+        "truncate"
+      }
+
       conf.defaults.mappings.i = {
         ["<C-k>"] = require("telescope.actions").move_selection_previous,
         ["<C-j>"] = require("telescope.actions").move_selection_next,
