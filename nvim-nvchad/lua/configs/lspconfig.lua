@@ -6,6 +6,7 @@ local lspconfig = require "lspconfig"
 local servers = {
   "html",
   "cssls",
+  "phpactor",
 }
 
 local nvlsp = require "nvchad.configs.lspconfig"
