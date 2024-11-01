@@ -47,5 +47,6 @@ o.fillchars.eob = " "
 o.shortmess:append "c"
 o.iskeyword:append("-")
 o.foldmethod = "marker"
+o.spelllang = 'en_us'
 -- o.relativenumber = true                  -- set relative numbered lines
 -- o.mouse = "a"                             -- allow the mouse to be used in neovim
