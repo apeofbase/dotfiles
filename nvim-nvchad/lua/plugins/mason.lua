@@ -6,6 +6,7 @@ return {
         "css-lsp",
         "eslint-lsp",
         "html-lsp",
+        "json-lsp",
         "lua-language-server",
         "phpactor",
         "prettier",
