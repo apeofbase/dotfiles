@@ -7,7 +7,6 @@ local servers = {
   "cssls",
   "eslint",
   "html",
-  "phpactor",
   "jsonls",
 }
 
@@ -23,20 +22,38 @@ for _, lsp in ipairs(servers) do
 end
 
 -- Eslint
--- npm i -g eslint@8
-lspconfig.eslint.setup({
+-- Install: npm i -g eslint@8
+lspconfig.eslint.setup {
   --- ...
-  on_attach = function(client, bufnr)
+  on_attach = function(bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,
       command = "EslintFixAll",
     })
   end,
-})
+}
 
-
+-- Intelephense
+-- Install: npm i -g intelephense
+-- Add license key to $HOME/intelephense/licence.txt
+lspconfig.intelephense.setup{
+  capabilities = capabilities,
+  settings = {
+    intelephense = {
+      telemetry = {
+        enabled = false,
+      },
+      completion = {
+        fullyQualifyGlobalConstantsAndFunctions = false
+      },
+      phpdoc = {
+        returnVoid = false,
+      }
+    },
+  }
+}
 -- Twiggy
--- npm install -g twiggy-language-server
+-- Install: npm install -g twiggy-language-server
 lspconfig.twiggy_language_server.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -49,23 +66,12 @@ lspconfig.twiggy_language_server.setup {
   },
 }
 
+-- Yaml Language Server
 lspconfig.yamlls.setup {
-  -- other configuration for setup {}
   settings = {
     yaml = {
-      -- other settings. note this overrides the lspconfig defaults.
       schemas = {
-        -- ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-        -- ["../path/relative/to/file.yml"] = "/.github/workflows/*",
-        -- ["/path/from/root/of/project"] = "/.github/workflows/*",
       },
     },
   },
 }
-
--- configuring single server, example: typescript
--- lspconfig.ts_ls.setup {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
--- }
