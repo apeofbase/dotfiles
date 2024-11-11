@@ -48,8 +48,17 @@ lspconfig.intelephense.setup{
       },
       phpdoc = {
         returnVoid = false,
+      },
+      files = {
+        associations = {
+          "*.php",
+          "*.phtml",
+          "*.module",
+          "*.theme",
+          "*.inc"
+        }
       }
-    },
+    }
   }
 }
 -- Twiggy

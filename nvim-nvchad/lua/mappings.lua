@@ -54,6 +54,8 @@ map("n", "<leader>sc", ":set spell!<CR>", {desc = "Toggle Spell Check"});
 map("x", "J", ":move '>+1<CR>gv-gv", opts)
 map("x", "K", ":move '<-2<CR>gv-gv", opts)
 
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" });
+
 -- Fix * search word behavior stay on first word
 map("n", "*", function()
   fn.setreg("/", [[\V\<]] .. fn.escape(fn.expand("<cword>"), [[/\]]) .. [[\>]])
