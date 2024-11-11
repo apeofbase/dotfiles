@@ -54,7 +54,11 @@ map("n", "<leader>sc", ":set spell!<CR>", {desc = "Toggle Spell Check"});
 map("x", "J", ":move '>+1<CR>gv-gv", opts)
 map("x", "K", ":move '<-2<CR>gv-gv", opts)
 
+-- LSP
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" });
+
+-- Other
+map("n", "<leader>dc", ':!ddev drush cr<CR>', { desc = "DDEV Drush Clear Cache" });
 
 -- Fix * search word behavior stay on first word
 map("n", "*", function()
