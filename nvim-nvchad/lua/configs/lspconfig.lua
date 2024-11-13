@@ -25,7 +25,7 @@ end
 -- Install: npm i -g eslint@8
 lspconfig.eslint.setup {
   --- ...
-  on_attach = function(bufnr)
+  on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,
       command = "EslintFixAll",
@@ -84,3 +84,6 @@ lspconfig.yamlls.setup {
     },
   },
 }
+
+-- LSP Mappings
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" });
