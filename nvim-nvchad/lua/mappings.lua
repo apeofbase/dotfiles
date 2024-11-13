@@ -1,3 +1,8 @@
+-- Mappings
+--
+--  These mappsings should only cover base Neovim keymaps.
+--  For plugin related keymaps, place inside plugin config file.
+
 require "nvchad.mappings"
 
 local opts = { noremap = true, silent = false }
@@ -5,14 +10,8 @@ local map = vim.keymap.set
 local fn = vim.fn
 local nomap = vim.keymap.del
 
---
 -- Fix mappings
---
 nomap("n", "<leader>h")
-
---
--- Core
---
 
 -- Resize with arrows
 map("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -47,18 +46,15 @@ map("v", "<S-Tab>", "<`<V`>", opts)
 map("v", "p", '"_dP', opts)
 
 -- Spell check toggle
-map("n", "<leader>sc", ":set spell!<CR>", {desc = "Toggle Spell Check"});
+map("n", "<leader>sc", ":set spell!<CR>", {desc = "Toggle Spell Check"})
 
 -- Visual Block --
 -- Move text up and down
 map("x", "J", ":move '>+1<CR>gv-gv", opts)
 map("x", "K", ":move '<-2<CR>gv-gv", opts)
 
--- LSP
-map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" });
-
 -- Other
-map("n", "<leader>dc", ':!ddev drush cr<CR>', { desc = "DDEV Drush Clear Cache" });
+map("n", "<leader>dc", ':!ddev drush cr<CR>', { desc = "DDEV Drush Clear Cache" })
 
 -- Fix * search word behavior stay on first word
 map("n", "*", function()
