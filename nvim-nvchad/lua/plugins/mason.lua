@@ -10,6 +10,8 @@ return {
         "json-lsp",
         "lua-language-server",
         "prettier",
+        "stylelint",
+        "stylelint-lsp",
         "stylua",
         "twiggy-language-server",
         "yaml-language-server",

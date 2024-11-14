@@ -21,6 +21,20 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- Stylelint
+lspconfig.stylelint_lsp.setup {
+  filetypes = { "css", "scss" },
+  root_dir = lspconfig.util.root_pattern("package.json", ".git"),
+  settings = {
+    stylelintplus = {
+      -- see options in stylelint-lsp documentation
+    },
+  },
+  on_attach = function(client)
+    client.server_capabilities.document_formatting = false
+  end
+}
+
 -- Eslint
 -- Install: npm i -g eslint@8
 lspconfig.eslint.setup {
@@ -36,7 +50,7 @@ lspconfig.eslint.setup {
 -- Intelephense
 -- Install: npm i -g intelephense
 -- Add license key to $HOME/intelephense/licence.txt
-lspconfig.intelephense.setup{
+lspconfig.intelephense.setup {
   capabilities = capabilities,
   settings = {
     intelephense = {
@@ -44,7 +58,7 @@ lspconfig.intelephense.setup{
         enabled = false,
       },
       completion = {
-        fullyQualifyGlobalConstantsAndFunctions = false
+        fullyQualifyGlobalConstantsAndFunctions = false,
       },
       phpdoc = {
         returnVoid = false,
@@ -55,11 +69,11 @@ lspconfig.intelephense.setup{
           "*.phtml",
           "*.module",
           "*.theme",
-          "*.inc"
-        }
-      }
-    }
-  }
+          "*.inc",
+        },
+      },
+    },
+  },
 }
 -- Twiggy
 -- Install: npm install -g twiggy-language-server
@@ -79,11 +93,10 @@ lspconfig.twiggy_language_server.setup {
 lspconfig.yamlls.setup {
   settings = {
     yaml = {
-      schemas = {
-      },
+      schemas = {},
     },
   },
 }
 
 -- LSP Mappings
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" });
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
