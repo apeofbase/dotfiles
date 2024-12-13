@@ -238,4 +238,22 @@ In order for this to take effect you need to reload udev with:
 ```
 # udevadm control --reload
 ```
+## Browser font fixes
 
+- Install replacement fonts: `sudo pacman -S tex-gyre-fonts`
+- `sudo vim /etc/fonts/local.conf`
+- Add to the file:
+```
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+  <alias>
+    <family>Helvetica</family>
+    <prefer><family>Nimbus Sans</family></prefer>
+  </alias>
+  <alias>
+    <family>Arial</family>
+    <prefer><family>TeX Gyre Heros</family></prefer>
+  </alias>
+</fontconfig>
+```
