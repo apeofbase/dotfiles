@@ -9,6 +9,7 @@ M.base46 = {
 	theme = "tokyonight",
 
 	hl_override = {
+    Normal = { bg="#151824" },
 		Comment = { italic = true },
 		["@comment"] = { italic = true },
 	},
