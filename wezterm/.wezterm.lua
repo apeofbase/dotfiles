@@ -5,16 +5,16 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 config = {
-
   -- Colors
   colors = {
     cursor_bg = '#acb0d0',
+    -- cursor_bg = '#151824'
     cursor_fg = 'black',
 
     selection_bg = '#e0af68',
     selection_fg = 'black',
 
-    background = '#1a1b26',
+    background = '#151824',
     foreground = '#a9b1d6',
     ansi = {
       '#32344a', -- black
@@ -37,6 +37,7 @@ config = {
       '#acb0d0', -- white
     },
   },
+
 
   -- Fonts
   font = wezterm.font 'DankMono Nerd Font',
