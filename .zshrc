@@ -197,6 +197,14 @@ if [ -d "$HOME/.nvm" ]; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
+# User bin dir for custom scripts
+if [ -d "$HOME/bin" ]; then
+  path+=("$HOME/bin")
+else
+  mkdir ~/bin
+  path+=("$HOME/bin")
+fi
+
 # Include Neovim binaries
 if _has bob; then
   path+=("$HOME/.local/share/bob/nvim-bin")
