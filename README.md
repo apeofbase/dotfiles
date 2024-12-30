@@ -3,8 +3,8 @@
 ## Setup
 
 - Install required packages:
-    - MacOS: `brew install ripgrep stow fastfetch`
-    - Arch (BTW): `pacman -S ripgrep stow fastfetch`
+    - MacOS: `brew install ripgrep stow`
+    - Arch (BTW): `pacman -S ripgrep stow`
 - `git clone git@gitlab.com:justgable/dotfiles.git ~/dotfiles`
 - `cd ~/dotfiles`
 - `stow .`
@@ -47,7 +47,7 @@
 - [fzf](https://github.com/junegunn/fzf)
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 - [lazygit](https://github.com/jesseduffield/lazygit)
-- [neofetch](https://github.com/dylanaraps/neofetch)
+- [fastfetch](https://github.com/fastfetch-cli/fastfetch)
 - [trash-cli](https://github.com/andreafrancia/trash-cli) MacOS `brew install trash`
 - [glow](https://github.com/) TUI Markdown reader
 - [fd](https://github.com/sharkdp/fd) Replacement for `find`
