@@ -1,10 +1,29 @@
-# Dotfiles v3
+# Dotfiles v4
+
+## Setup
+
+- Install `ripgrep`
+- Clone to `~/dotfiles`
+- `cd ~/dotfiles`
+- `stow .`
+
+### Scripts
+
+#### Kscreen (KDE Only)
+
+- Settings > Keyboard > Shortcuts
+- Add each script file under `~/dotfiles/scripts/kscreen/` as a custom command
+    - `all-active` bound to `Meta+p`
+    - `center-active` bound to `Meta+i`
+    - `outside-active` bound to `Meta+o`
+
+## Overview
 
 - **Compatability:** Linux, MacOS (Minus Alacritty prefix issues)
-- **Terminal:** [Alacrity](https://github.com/alacritty/alacritty) (Linux)
-- **Shell:** ZSH
+- **Terminal:** [Wezterm](https://wezfurlong.org/wezterm/) or [Alacrity](https://github.com/alacritty/alacritty)
+- **Shell:** zsh
 - **Prompt:** [Starship](https://starship.rs/)
-- **Editor:** [NeoVim](https://neovim.io/) (v0.9.x & 0.10.x supported)
+- **Editor:** [NeoVim](https://neovim.io/) + [NvChad](https://nvchad.com/) (0.10.x supported)
 - **Terminal multiplexer:** [tmux](https://github.com/tmux/tmux)
 - **Plugin manager:** [zinit](https://github.com/zdharma-continuum/zinit)
 - **Font(s):** 
@@ -31,14 +50,12 @@
 
 ## Compatable OS
 
-- Arch Linux [Setup instructions](./arch-readme.md)
-- Pop_OS 22.04+
-- Fedora 35+
+- Linux
 - MacOS
 
 ## TODO
 
-- Install script or instructions
+- Add `ghostty` configs
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
     - `fzf-tab` completion
