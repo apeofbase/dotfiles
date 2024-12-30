@@ -2,12 +2,14 @@
 
 ## Setup
 
-- Install `ripgrep`
-- Clone to `~/dotfiles`
+- Install required packages:
+    - MacOS: `brew install ripgrep stow fastfetch`
+    - Arch (BTW): `pacman -S ripgrep stow fastfetch`
+- `git clone git@gitlab.com:justgable/dotfiles.git ~/dotfiles`
 - `cd ~/dotfiles`
 - `stow .`
 
-### Scripts
+### Manual Steps
 
 #### Kscreen (KDE Only)
 
@@ -17,10 +19,14 @@
     - `center-active` bound to `Meta+i`
     - `outside-active` bound to `Meta+o`
 
+#### Fonts
+
+- Install Dank Mono v3 Nerd Font: `./fonts/DankMonoNerdFont-*-v3.otf`
+
 ## Overview
 
 - **Compatability:** Linux, MacOS (Minus Alacritty prefix issues)
-- **Terminal:** [Wezterm](https://wezfurlong.org/wezterm/) or [Alacrity](https://github.com/alacritty/alacritty)
+- **Terminal:** [Ghostty](https://ghostty.org/) or [Wezterm](https://wezfurlong.org/wezterm/) or [Alacrity](https://github.com/alacritty/alacritty)
 - **Shell:** zsh
 - **Prompt:** [Starship](https://starship.rs/)
 - **Editor:** [NeoVim](https://neovim.io/) + [NvChad](https://nvchad.com/) (0.10.x supported)
@@ -55,9 +61,9 @@
 
 ## TODO
 
-- Add `ghostty` configs
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
     - `fzf-tab` completion
 - Resolve all missing components for neovim
   - `zinit` or `asdf` to install PHP, Composer, Cargo, [LuaRocks](https://luarocks.org/#quick-start)
+- Add basic Bash support

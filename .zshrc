@@ -67,6 +67,11 @@ if _has xsel; then
 fi
 
 alias h='cd ~'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
 
 ## Git
 alias g='git'
