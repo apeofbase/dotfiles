@@ -8,6 +8,6 @@ gui:
     inactiveBorderColor:
       - white
     selectedLineBgColor:
-      - black
+      - reverse
   nerdfontversions: '2'
   showFileIcons: true
