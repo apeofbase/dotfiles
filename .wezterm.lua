@@ -8,7 +8,6 @@ config = {
   -- Colors
   colors = {
     cursor_bg = '#acb0d0',
-    -- cursor_bg = '#151824'
     cursor_fg = 'black',
 
     selection_bg = '#e0af68',

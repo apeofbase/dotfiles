@@ -1,0 +1,16 @@
+# Colors
+theme = tokyonight
+background = 151824
+foreground = a9b1d6
+bold-is-bright = true
+
+# Fonts
+font-family = "DankMono Nerd Font"
+font-size = 16
+adjust-cell-height = 12%
+
+# Window
+window-padding-x = 15
+window-padding-y = 15,0
+window-decoration = false
+macos-titlebar-style = hidden
