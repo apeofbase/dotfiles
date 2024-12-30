@@ -4,7 +4,7 @@
 - **Terminal:** [Alacrity](https://github.com/alacritty/alacritty) (Linux)
 - **Shell:** ZSH
 - **Prompt:** [Starship](https://starship.rs/)
-- **Editor:** [NeoVim](https://neovim.io/) (v0.7 & v0.9.4 supported)
+- **Editor:** [NeoVim](https://neovim.io/) (v0.9.x & 0.10.x supported)
 - **Terminal multiplexer:** [tmux](https://github.com/tmux/tmux)
 - **Plugin manager:** [zinit](https://github.com/zdharma-continuum/zinit)
 - **Font(s):** 
@@ -42,13 +42,5 @@
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
     - `fzf-tab` completion
-- Neovim
-    - Set LSP (Javascript, PHP, Terraform)
-    - Setup DAP [instructions](https://www.youtube.com/watch?v=oYzZxi3SSnM)
-        - Setup XDebug and test
-    - [Add noice Plugin](https://github.com/folke/noice.nvim)
-    - Add cmp-command-line
-    - [Add vim tmux navigator](https://github.com/alexghergh/nvim-tmux-navigation)
-    - Move to newer NvimTree (keymaps different and broken)
 - Resolve all missing components for neovim
   - `zinit` or `asdf` to install PHP, Composer, Cargo, [LuaRocks](https://luarocks.org/#quick-start)
