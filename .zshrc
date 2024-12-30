@@ -225,7 +225,6 @@ if _has fzf; then
   local yellow="#e0af68"
 
   export FZF_DEFAULT_OPTS="
-    --preview='bat --style=numbers --color=always {}'
     --color=bg+:$black,pointer:$red,info:$cyan,hl:$magenta,hl+:$magenta
   "
   if _has rg; then
@@ -270,6 +269,10 @@ autoload -U compinit; compinit
 if _has zoxide; then
   eval "$(zoxide init zsh)"
   alias cd='z'
+fi
+
+if _has ddev; then
+  alias drush="ddev drush"
 fi
 
 export PATH
