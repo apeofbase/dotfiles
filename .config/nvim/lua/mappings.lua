@@ -62,3 +62,15 @@ map("n", "*", function()
   fn.histadd("/", fn.getreg("/"))
   vim.o.hlsearch = true
 end)
+
+-- gitsigns
+map('n', '<leader>hs', require('gitsigns').stage_hunk, { desc = "Stage hunk" })
+map('n', '<leader>hr', require('gitsigns').reset_hunk, { desc = "Reset hunk" })
+map('v', '<leader>hs', function() require('gitsigns').stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { desc = "Stage hunk" })
+map('v', '<leader>hr', function() require('gitsigns').reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { desc = "Reset hunk" })
+map('n', '<leader>hb', require('gitsigns').blame, { desc = "Blame file" })
+map('n', '<leader>ht', require('gitsigns').toggle_current_line_blame, { desc = "Toggle current blame line" })
+map('n', '<leader>hd', require('gitsigns').toggle_deleted, { desc = "Toggle deleted" })
+
+-- telescope
+map('n', '<leader>fw', ':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>', { silent = true, noremap = true, desc = "Telescope grep"})

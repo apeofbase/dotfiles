@@ -61,7 +61,6 @@
 
 ## TODO
 
-- Add `<leader>fg` for full ripgrep w/ `--hidden --no-ignore` but still ignore `node_modules`
 - Add `kevinhwang91/nvim-bqf` for better QuickFix experience
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
