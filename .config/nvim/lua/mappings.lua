@@ -74,3 +74,21 @@ map('n', '<leader>hd', require('gitsigns').toggle_deleted, { desc = "Toggle dele
 
 -- telescope
 map('n', '<leader>fw', ':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>', { silent = true, noremap = true, desc = "Telescope grep"})
+
+-- dap
+map('n', '<leader>cc', function() require('dap').continue() end, { noremap = true, desc = "DAP continue" })
+map('n', '<leader>b', function() require('dap').toggle_breakpoint() end, { noremap = true, desc = "DAP toggle breakpoint" })
+map({'n', 'v'}, '<Leader>dh', function()
+  require('dap.ui.widgets').hover()
+end)
+map({'n', 'v'}, '<Leader>dp', function()
+  require('dap.ui.widgets').preview()
+end)
+map('n', '<Leader>df', function()
+  local widgets = require('dap.ui.widgets')
+  widgets.centered_float(widgets.frames)
+end)
+map('n', '<Leader>ds', function()
+  local widgets = require('dap.ui.widgets')
+  widgets.centered_float(widgets.scopes)
+end)

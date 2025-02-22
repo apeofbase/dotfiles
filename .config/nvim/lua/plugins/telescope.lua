@@ -10,6 +10,8 @@ return {
         'nvim-telescope/telescope-ui-select.nvim', commit = '6e51d7da30bd139a6950adf2a47fda6df9fa06d26e51d7da30bd139a6950adf2a47fda6df9fa06d2',
         -- Useful lua functions used by lots of plugins
         'nvim-lua/plenary.nvim', tag = "v0.1.4",
+        -- DAP
+        'nvim-telescope/telescope-dap.nvim',
       },
     },
 
@@ -40,6 +42,7 @@ return {
       },
 
       on_attach = function()
+        require('telescope').load_extension('dap');
         require("telescope").load_extension("live_grep_args");
         require("telescope").load_extension("ui-select");
       end
