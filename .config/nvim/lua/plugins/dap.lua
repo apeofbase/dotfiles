@@ -10,6 +10,16 @@ return {
     config = function()
       local dap = require('dap')
 
+      vim.api.nvim_set_hl(0, "DapBreakpoint", { link = 'Title' })
+      vim.api.nvim_set_hl(0, "DapLogPoint", { link = 'DiagnosticInfo' })
+      vim.api.nvim_set_hl(0, "DapStopped", { link = 'DiagnosticError' })
+
+      vim.fn.sign_define('DapBreakpoint', { text='', texthl='DapBreakpoint', numhl='DapBreakpoint' })
+      vim.fn.sign_define('DapBreakpointCondition', { text='󰋗', texthl='DapBreakpoint', numhl='DapBreakpoint' })
+      vim.fn.sign_define('DapBreakpointRejected', { text='', texthl='DapBreakpoint', numhl= 'DapBreakpoint' })
+      vim.fn.sign_define('DapLogPoint', { text='', texthl='DapLogPoint', numhl= 'DapLogPoint' })
+      vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', numhl= 'DapStopped' })
+
       dap.adapters.php = {
         type = "executable",
         command = "node",
