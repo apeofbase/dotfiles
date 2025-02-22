@@ -54,7 +54,7 @@ map("x", "J", ":move '>+1<CR>gv-gv", opts)
 map("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- Other
-map("n", "<leader>dc", ':!ddev drush cr<CR>', { desc = "DDEV Drush Clear Cache" })
+map("n", "<leader>cc", ':silent !ddev drush cr<CR>', { desc = "DDEV Drush Clear Cache" })
 
 -- Fix * search word behavior stay on first word
 map("n", "*", function()
@@ -76,12 +76,13 @@ map('n', '<leader>hd', require('gitsigns').toggle_deleted, { desc = "Toggle dele
 map('n', '<leader>fw', ':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>', { silent = true, noremap = true, desc = "Telescope grep"})
 
 -- dap
-map('n', '<leader>cc', function() require('dap').continue() end, { noremap = true, desc = "Dap continue" })
+map('n', '<leader>dc', function() require('dap').continue() end, { noremap = true, desc = "Dap continue" })
 map('n', '<leader>b', function() require('dap').toggle_breakpoint() end, { noremap = true, desc = "Dap toggle breakpoint" })
 map('n', '<Leader>dr', function() require('dap').repl.open() end, { desc = "Dap repl"})
-map({'n', 'v'}, '<Leader>dh', function() require('dap.ui.widgets').hover() end, { desc = "Dap hover"})
-map({'n', 'v'}, '<Leader>dp', function() require('dap.ui.widgets').preview() end, { desc = "Dap preview"})
--- map('n', '<Leader>df', function() local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.frames) end, { desc = "Dap frames"})
 map('n', '<Leader>df', ':Telescope dap frames<CR>', { desc = "Dap frames"})
 map('n', '<Leader>ds', function() local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.scopes) end, { desc = "Dap scopes"})
 map('n', '<Leader>dl', ':Telescope dap list_breakpoints<CR>', { desc = "Dap list breakpoints"})
+map({'n', 'v'}, '<Leader>dh', function() require('dap.ui.widgets').hover() end, { desc = "Dap hover"})
+map({'n', 'v'}, '<Leader>dp', function() require('dap.ui.widgets').preview() end, { desc = "Dap preview"})
+map({'n', 'v'}, '<Leader>dx', ':DapTerminate<CR>', { desc = "Dap terminate session"})
+map({'n', 'v'}, '<Leader>db', ':DapClearBreakpoints<CR>', { desc = "Dap clear breakpoints"})
