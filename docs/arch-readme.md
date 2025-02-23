@@ -121,7 +121,7 @@
 - For alternate packages, allow multilib
 - Set additional packages
     - `linux-headers linux-lts-headers vim base-devel amd-ucode wezterm
-      neofetch openssh git go tldr wget less flatpak zsh ripgrep tmux
+      fastfetch openssh git go tldr wget less flatpak zsh ripgrep tmux
       rsync p7zip unrar tar htop bind partitionmanager dosfstools vlc`
     - (if installing KDE) `packagekit-qt5`
 - Make sure each field is filled out and run install
