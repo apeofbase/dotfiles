@@ -67,6 +67,11 @@ if _has xsel; then
 fi
 
 alias h='cd ~'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
 
 ## Git
 alias g='git'
@@ -221,7 +226,7 @@ fi
 if _has fzf; then
   # Color scheme
   # - Tokyo Night
-  local background="#1a1b26"
+  local background="#151824"
   local foreground="#a9b1d6"
   local black="#32344a"
   local blue="#7aa2f7"

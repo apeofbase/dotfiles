@@ -54,7 +54,7 @@ map("x", "J", ":move '>+1<CR>gv-gv", opts)
 map("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- Other
-map("n", "<leader>dc", ':!ddev drush cr<CR>', { desc = "DDEV Drush Clear Cache" })
+map("n", "<leader>cc", ':silent !ddev drush cr<CR>', { desc = "DDEV Drush Clear Cache" })
 
 -- Fix * search word behavior stay on first word
 map("n", "*", function()
@@ -62,3 +62,27 @@ map("n", "*", function()
   fn.histadd("/", fn.getreg("/"))
   vim.o.hlsearch = true
 end)
+
+-- gitsigns
+map('n', '<leader>hs', require('gitsigns').stage_hunk, { desc = "Stage hunk" })
+map('n', '<leader>hr', require('gitsigns').reset_hunk, { desc = "Reset hunk" })
+map('v', '<leader>hs', function() require('gitsigns').stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { desc = "Stage hunk" })
+map('v', '<leader>hr', function() require('gitsigns').reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { desc = "Reset hunk" })
+map('n', '<leader>hb', require('gitsigns').blame, { desc = "Blame file" })
+map('n', '<leader>ht', require('gitsigns').toggle_current_line_blame, { desc = "Toggle current blame line" })
+map('n', '<leader>hd', require('gitsigns').toggle_deleted, { desc = "Toggle deleted" })
+
+-- telescope
+map('n', '<leader>fw', ':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>', { silent = true, noremap = true, desc = "Telescope grep"})
+
+-- dap
+map('n', '<leader>dc', function() require('dap').continue() end, { noremap = true, desc = "Dap continue" })
+map('n', '<leader>b', function() require('dap').toggle_breakpoint() end, { noremap = true, desc = "Dap toggle breakpoint" })
+map('n', '<Leader>dr', function() require('dap').repl.open() end, { desc = "Dap repl"})
+map('n', '<Leader>df', ':Telescope dap frames<CR>', { desc = "Dap frames"})
+map('n', '<Leader>ds', function() local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.scopes) end, { desc = "Dap scopes"})
+map('n', '<Leader>dl', ':Telescope dap list_breakpoints<CR>', { desc = "Dap list breakpoints"})
+map({'n', 'v'}, '<Leader>dh', function() require('dap.ui.widgets').hover() end, { desc = "Dap hover"})
+map({'n', 'v'}, '<Leader>dp', function() require('dap.ui.widgets').preview() end, { desc = "Dap preview"})
+map({'n', 'v'}, '<Leader>dx', ':DapTerminate<CR>', { desc = "Dap terminate session"})
+map({'n', 'v'}, '<Leader>db', ':DapClearBreakpoints<CR>', { desc = "Dap clear breakpoints"})
