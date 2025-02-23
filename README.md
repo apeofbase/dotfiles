@@ -61,7 +61,7 @@
 
 ## TODO
 
-- Add `kevinhwang91/nvim-bqf` for better QuickFix experience
+- Setup notify plugin for Neovim
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
     - `fzf-tab` completion
