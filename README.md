@@ -61,6 +61,7 @@
 
 ## TODO
 
+Plugins to try neoformat , mini.nvim
 - Setup notify plugin for Neovim
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
