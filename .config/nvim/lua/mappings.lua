@@ -43,7 +43,7 @@ map("v", "<Tab>", ">`<V`>", opts)
 map("v", "<S-Tab>", "<`<V`>", opts)
 
 -- Prevents deleted text from overwriting yank buffer
-map("v", "p", '"_dP', opts)
+-- map("v", "p", '"_dP', opts)
 
 -- Spell check toggle
 map("n", "<leader>sc", ":set spell!<CR>", {desc = "Toggle Spell Check"})

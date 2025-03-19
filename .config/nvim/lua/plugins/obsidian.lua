@@ -9,10 +9,11 @@ return {
         "BufReadPre " .. vim.fn.expand "~" .. "/Vaults/**.md",
         "BufNewFile " .. vim.fn.expand "~" .. "/Vaults/**.md",
       },
+      -- Automatically return list of directories in ~/Vaults as workspaces
       workspaces = {
         {
           name = "personal",
-          path = "~/Vaults/personal"
+          path = "~/Vaults/personal",
         },
         -- {
         --   name = "work",
@@ -25,17 +26,17 @@ return {
       note_id_func = function(title)
         local prefix = ""
         local suffix = ""
-        if string.find(title, 'worklog') then
+        if string.find(title, "worklog") then
           -- If title starts with "worklog" include week number
-          prefix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower() .. "--" .. tostring(os.date('%V--'))
+          prefix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower() .. "--" .. tostring(os.date "%V--")
         elseif title ~= nil then
           -- If title is given, transform it into valid file name.
           prefix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower() .. "-"
         else
           -- If title is nil, just add time to end
-          suffix = tostring(os.date('--%H:%M:%S'))
+          suffix = tostring(os.date "--%H:%M:%S")
         end
-        return prefix .. tostring(os.date('%Y-%m-%d')) .. suffix
+        return prefix .. tostring(os.date "%Y-%m-%d") .. suffix
       end,
 
       picker = {
@@ -50,16 +51,15 @@ return {
       mappings = {
         ["<leader>on"] = {
           action = ":ObsidianNew<CR>",
-          opts = { buffer = true, noremap = true, silent = false, desc = "Obsidian New" }
+          opts = { buffer = true, noremap = true, silent = false, desc = "Obsidian New" },
         },
         ["<leader>ot"] = {
           action = function()
             return require("obsidian").util.toggle_checkbox()
           end,
-          opts = { buffer = true, noremap = true, silent = false, desc = "Obsidian Toggle Checkbox" }
+          opts = { buffer = true, noremap = true, silent = false, desc = "Obsidian Toggle Checkbox" },
         },
-      }
-
-    }
+      },
+    },
   },
 }

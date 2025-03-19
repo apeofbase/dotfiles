@@ -61,8 +61,9 @@
 
 ## TODO
 
-Plugins to try neoformat , mini.nvim
-- Setup notify plugin for Neovim
+- Future Neovim improvements
+    - neoformat
+    - Add AI
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
     - `fzf-tab` completion

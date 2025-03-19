@@ -122,6 +122,7 @@ fi
 # neovim
 if _has nvim; then
   alias vim='nvim'
+  alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
   export EDITOR="nvim"
 fi
 
