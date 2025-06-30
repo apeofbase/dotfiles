@@ -12,7 +12,12 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
-      'github/copilot.vim',
+      {
+        'github/copilot.vim',
+        init = function()
+          vim.g.copilot_enabled = 0
+        end,
+      },
     },
     config = function()
       local codecompanion = require 'codecompanion'
