@@ -42,7 +42,7 @@ return {
         require('dap.ui.widgets').preview()
       end, { desc = '[D]ap [P]review' })
       vim.keymap.set({ 'n', 'v' }, '<Leader>dx', ':DapTerminate<CR>', { desc = '[D]ap E[x]terminate session' })
-      vim.keymap.set({ 'n', 'v' }, '<Leader>db', ':DapClearBreakpoints<CR>', { desc = '[D]ap Clear [B]reakpoints' })
+      vim.keymap.set({ 'n', 'v' }, '<Leader>dB', ':DapClearBreakpoints<CR>', { desc = '[D]ap Clear [B]reakpoints' })
 
       dap.adapters.php = {
         type = 'executable',
