@@ -9,6 +9,7 @@ then
   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 source "${ZINIT_HOME}/zinit.zsh"
+source "${HOME}/.env"
 
 # -------
 # Basic
@@ -20,6 +21,12 @@ SAVEHIST=3000
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 HISTDUP=erase
+
+# Enable zsh modules for history and directory navigation
+zmodload zsh/parameter
+zmodload zsh/complist
+zmodload zsh/regex
+zmodload zsh/zle
 
 # Allows cd-less directory navigation
 setopt auto_cd
