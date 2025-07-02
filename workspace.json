@@ -1,0 +1,112 @@
+{
+  "name": "Dotfiles Workspace",
+  "version": "1.0.0",
+  "system_prompt": "You are an expert in Unix dotfiles and configuration management. Provide clear, concise, and accurate answers about the user's dotfiles project.",
+  "groups": [
+    {
+      "name": "ZSH Configuration",
+      "system_prompt": "Focus on ZSH shell configuration, plugins, and customization.",
+      "data": [
+        "zshrc"
+      ]
+    },
+    {
+      "name": "Tmux Configuration",
+      "system_prompt": "Focus on Tmux configuration and session management.",
+      "data": [
+        "tmux_conf"
+      ]
+    },
+    {
+      "name": "Neovim Configuration",
+      "system_prompt": "Focus on Neovim configuration, plugins, and Lua scripts.",
+      "data": [
+        "nvim_init",
+        "nvim_lua"
+      ]
+    },
+    {
+      "name": "Wezterm Configuration",
+      "system_prompt": "Focus on Wezterm terminal emulator configuration.",
+      "data": [
+        "wezterm_conf"
+      ]
+    },
+    {
+      "name": "Yazi Configuration",
+      "system_prompt": "Focus on Yazi file manager configuration.",
+      "data": [
+        "yazi_conf"
+      ]
+    },
+    {
+      "name": "Stow Setup",
+      "system_prompt": "Focus on the organization of dotfiles for GNU Stow and installation scripts.",
+      "data": [
+        "readme",
+        "install_sh"
+      ]
+    },
+    {
+      "name": "Cross-Platform Support",
+      "system_prompt": "Focus on Linux and MacOS compatibility in configuration files.",
+      "data": [
+        "zshrc",
+        "tmux_conf",
+        "nvim_lua",
+        "wezterm_conf",
+        "yazi_conf",
+        "lazygit_conf",
+        "starship_conf",
+        "custom_scripts"
+      ]
+    }
+  ],
+  "data": {
+    "zshrc": {
+      "type": "file",
+      "path": ".zshrc",
+      "description": "Main ZSH shell configuration file."
+    },
+    "tmux_conf": {
+      "type": "file",
+      "path": ".tmux.conf",
+      "description": "Main Tmux configuration file."
+    },
+    "nvim_lua": {
+      "type": "file",
+      "path": ".config/nvim/",
+      "description": "Lua scripts and plugin configurations for Neovim."
+    },
+    "wezterm_conf": {
+      "type": "file",
+      "path": ".wezterm.lua",
+      "description": "Wezterm terminal emulator configuration."
+    },
+    "yazi_conf": {
+      "type": "file",
+      "path": ".config/yazi/yazi.toml",
+      "description": "Yazi file manager configuration."
+    },
+    "readme": {
+      "type": "file",
+      "path": "README.md",
+      "description": "Project overview and setup instructions."
+    },
+    "lazygit_conf": {
+      "type": "file",
+      "path": ".config/lazygit",
+      "description": "Lazygit configuration directory."
+    },
+    "starship_conf": {
+      "type": "file",
+      "path": ".config/starship.toml",
+      "description": "Starship prompt configuration file."
+    },
+    "custom_scripts": {
+      "type": "file",
+      "path": "bin/",
+      "description": "Custom scripts for various utilities and automation."
+    }
+  }
+}
