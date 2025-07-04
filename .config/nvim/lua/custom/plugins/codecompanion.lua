@@ -1,6 +1,7 @@
 return {
   {
     'olimorris/codecompanion.nvim',
+    version = '^16.0.0',
     opts = {
       strategies = {
         -- Change the default chat adapter
