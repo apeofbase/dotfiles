@@ -1,5 +1,33 @@
--- You can add your own plugins here or in other files in this directory!
---  I promise not to create any merge conflicts in this directory :)
---
--- See the kickstart.nvim README for more information
-return {}
+-- Simple plugin includes
+return {
+
+  -- Detect tabstop and shiftwidth automatically
+  'NMAC427/guess-indent.nvim',
+
+  -- Detect tabstop and shiftwidth automatically
+  -- https://github.com/tpope/vim-sleuth
+  'tpope/vim-sleuth',
+
+  -- Highlight todo, notes, etc in comments
+  -- https://github.com/folke/todo-comments.nvim
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { signs = false },
+  },
+
+  {
+    -- Autopair plugin that supports multiple characters
+    -- https://github.com/windwp/nvim-autopairs
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+  },
+
+  {
+    -- Better Quickfix
+    -- https://github.com/kevinhwang91/nvim-bqf
+    'kevinhwang91/nvim-bqf',
+    lazy = false,
+  },
+}
