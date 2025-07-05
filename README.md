@@ -64,9 +64,9 @@
 - Future Neovim improvements
     - neoformat
     - Finish upgrade to Neovim 0.11
-        - [ ] Add borders to autocomplete and LSP popups
+        - [x] Add borders to autocomplete and LSP popups
+        - [x] Add buffer suggestions to Blink
         - [ ] Add PHP CS Fixer to Conform
-        - [ ] Add spelling suggestions to Blink
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
     - `fzf-tab` completion
