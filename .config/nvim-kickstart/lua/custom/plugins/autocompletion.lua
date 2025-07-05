@@ -28,6 +28,10 @@ return {
               require('luasnip.loaders.from_vscode').lazy_load()
             end,
           },
+
+          -- Custom sources
+          -- 'jdrupal-dev/css-vars.nvim',
+          -- 'mikavilpas/blink-ripgrep.nvim',
         },
       },
       'folke/lazydev.nvim',
@@ -76,9 +80,18 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev' },
+        default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+          buffer = {
+            opts = {
+              get_bufnrs = function()
+                return vim.tbl_filter(function(bufnr)
+                  return vim.bo[bufnr].buftype == ''
+                end, vim.api.nvim_list_bufs())
+              end,
+            },
+          },
         },
       },
 
