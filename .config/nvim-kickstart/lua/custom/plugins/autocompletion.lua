@@ -34,6 +34,7 @@ return {
           -- 'mikavilpas/blink-ripgrep.nvim',
         },
       },
+      'xzbdmw/colorful-menu.nvim',
       'folke/lazydev.nvim',
     },
     --- @module 'blink.cmp'
@@ -90,9 +91,18 @@ return {
           border = 'rounded',
           draw = {
             columns = {
-              { 'kind_icon', gap = 1 },
-              { 'label', 'label_description', gap = 1 },
-              { 'kind', gap = 1 },
+              { 'kind_icon', 'label', gap = 1 },
+              { 'kind' },
+            },
+            components = {
+              label = {
+                text = function(ctx)
+                  return require('colorful-menu').blink_components_text(ctx)
+                end,
+                highlight = function(ctx)
+                  return require('colorful-menu').blink_components_highlight(ctx)
+                end,
+              },
             },
           },
         },
