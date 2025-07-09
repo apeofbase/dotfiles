@@ -1,10 +1,13 @@
 return {
   {
-    'epwalsh/obsidian.nvim',
-    version = 'v3.7.*',
+    'obsidian-nvim/obsidian.nvim',
+    version = 'v3.11.*',
     ft = 'markdown',
     lazy = false,
     opts = {
+      completion = {
+        blink = true,
+      },
       event = {
         'BufReadPre ' .. vim.fn.expand '~' .. '/Vaults/**.md',
         'BufNewFile ' .. vim.fn.expand '~' .. '/Vaults/**.md',
