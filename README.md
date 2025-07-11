@@ -67,7 +67,8 @@
         - [x] Add borders to autocomplete and LSP popups
         - [x] Add buffer suggestions to Blink
         - [x] Add PHP CS Fixer to Conform
-        - [ ] Fix bug with tabbing in certain files (eg - .gitconfig)
+        - [x] Fix bug with tabbing in certain files (eg - .gitconfig)
+        - [x] Add stylelint for CSS and SCSS
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
     - `fzf-tab` completion
