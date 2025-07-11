@@ -71,6 +71,11 @@
         - [x] Add stylelint for CSS and SCSS
         - [ ] Add CodeCompanion telescope
         - [ ] Add more CodeCompanion shortcuts
+            - [ ] <C-s> to send to chat
+            - [ ] <C-c> to permanently close chat
+            - [ ] <leader>ag to generate commit message
+        - [ ] Add custom slash commands (see documentation)
+            - [ ] git_files
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
     - `fzf-tab` completion
