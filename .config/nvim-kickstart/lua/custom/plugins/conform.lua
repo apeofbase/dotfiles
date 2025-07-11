@@ -15,20 +15,20 @@ return {
     },
     opts = {
       notify_on_error = true,
-      format_on_save = function(bufnr)
-        -- Disable "format_on_save lsp_fallback" for languages that don't
-        -- have a well standardized coding style. You can add additional
-        -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true }
-        if disable_filetypes[vim.bo[bufnr].filetype] then
-          return nil
-        else
-          return {
-            timeout_ms = 500,
-            lsp_format = 'fallback',
-          }
-        end
-      end,
+      -- format_on_save = function(bufnr)
+      --   -- Disable "format_on_save lsp_fallback" for languages that don't
+      --   -- have a well standardized coding style. You can add additional
+      --   -- languages here or re-enable it for the disabled ones.
+      --   local disable_filetypes = { c = true, cpp = true }
+      --   if disable_filetypes[vim.bo[bufnr].filetype] then
+      --     return nil
+      --   else
+      --     return {
+      --       timeout_ms = 500,
+      --       lsp_format = 'fallback',
+      --     }
+      --   end
+      -- end,
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
@@ -37,10 +37,12 @@ return {
         -- You can use 'stop_after_first' to run the first available formatter from the list
         javascript = { 'prettier', stop_after_first = true },
         php = { 'phpcbf' },
+        scss = { 'stylelint' },
+        css = { 'stylelint' },
       },
       formatters = {
         -- Install composer dependencies in project
-        -- composer require --dev drupal/coder slevomat/coding-standard
+        --  `composer require --dev drupal/coder slevomat/coding-standard`
         phpcbf = {
           command = './vendor/bin/phpcbf',
           args = {
@@ -55,6 +57,15 @@ return {
           cwd = function()
             return vim.fn.getcwd()
           end,
+        },
+
+        -- Add .stylelintrc to project
+        -- Install npm dependencies
+        --  `npm install --save-dev stylelint stylelint-scss stylelint-config-standard-scss`
+        stylelint = {
+          command = 'stylelint',
+          args = { '--fix', '--stdin', '--stdin-filename', '$FILENAME' },
+          stdin = true,
         },
       },
     },
