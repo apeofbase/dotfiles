@@ -61,7 +61,7 @@ return {
 
         -- Add .stylelintrc to project
         -- Install npm dependencies
-        --  `npm install --save-dev stylelint stylelint-scss stylelint-config-standard-scss`
+        --  `npm install --save-dev --legacy-peer-deps stylelint stylelint-scss stylelint-config-standard-scss stylelint-config-drupal`
         stylelint = {
           command = 'stylelint',
           args = { '--fix', '--stdin', '--stdin-filename', '$FILENAME' },
