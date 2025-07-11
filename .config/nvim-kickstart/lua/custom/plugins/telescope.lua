@@ -109,13 +109,13 @@ return {
       -- Better default word grep
       vim.keymap.set('n', '<leader>ss', function()
         live_grep_args.live_grep_args {
-          default_text = '--hidden ',
+          default_text = '--hidden -F ',
         }
       end, { desc = '[S]earch [S]tring' })
 
       vim.keymap.set('n', '<leader>sS', function()
         live_grep_args.live_grep_args {
-          default_text = '--hidden --no-ignore ',
+          default_text = '--hidden --no-ignore -F ',
         }
       end, { desc = '[S]earch [S]tring (no ignore)' })
 

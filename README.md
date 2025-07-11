@@ -69,6 +69,8 @@
         - [x] Add PHP CS Fixer to Conform
         - [x] Fix bug with tabbing in certain files (eg - .gitconfig)
         - [x] Add stylelint for CSS and SCSS
+        - [ ] Add CodeCompanion telescope
+        - [ ] Add more CodeCompanion shortcuts
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
     - `fzf-tab` completion
