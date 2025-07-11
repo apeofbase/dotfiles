@@ -66,7 +66,7 @@
     - Finish upgrade to Neovim 0.11
         - [x] Add borders to autocomplete and LSP popups
         - [x] Add buffer suggestions to Blink
-        - [ ] Add PHP CS Fixer to Conform
+        - [x] Add PHP CS Fixer to Conform
         - [ ] Fix bug with tabbing in certain files (eg - .gitconfig)
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions

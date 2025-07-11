@@ -14,12 +14,12 @@ return {
       },
     },
     opts = {
-      notify_on_error = false,
+      notify_on_error = true,
       format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { php = true, c = true, cpp = true }
+        local disable_filetypes = { c = true, cpp = true }
         if disable_filetypes[vim.bo[bufnr].filetype] then
           return nil
         else
@@ -36,6 +36,26 @@ return {
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         javascript = { 'prettier', stop_after_first = true },
+        php = { 'phpcbf' },
+      },
+      formatters = {
+        -- Install composer dependencies in project
+        -- composer require --dev drupal/coder slevomat/coding-standard
+        phpcbf = {
+          command = './vendor/bin/phpcbf',
+          args = {
+            '--runtime-set',
+            'installed_paths',
+            vim.fn.getcwd() .. '/vendor/drupal/coder/coder_sniffer,' .. vim.fn.getcwd() .. '/vendor/slevomat/coding-standard',
+            '--standard=Drupal',
+            '--report=emacs',
+            '-',
+          },
+          stdin = true,
+          cwd = function()
+            return vim.fn.getcwd()
+          end,
+        },
       },
     },
   },
