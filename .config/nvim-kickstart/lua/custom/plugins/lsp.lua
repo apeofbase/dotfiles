@@ -400,6 +400,7 @@ return {
         'html-lsp',
         'intelephense',
         'json-lsp',
+        'phpactor',
         'phpcs',
         'prettier',
         'stylelint',
