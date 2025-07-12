@@ -30,4 +30,7 @@ return {
     'kevinhwang91/nvim-bqf',
     lazy = false,
   },
+
+  -- Relative / absolute auto line number toggle
+  { 'sitiom/nvim-numbertoggle' },
 }
