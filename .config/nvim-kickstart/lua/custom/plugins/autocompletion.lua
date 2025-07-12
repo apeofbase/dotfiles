@@ -31,7 +31,7 @@ return {
 
           -- Custom sources
           -- 'jdrupal-dev/css-vars.nvim',
-          -- 'mikavilpas/blink-ripgrep.nvim',
+          'mikavilpas/blink-ripgrep.nvim',
         },
       },
       'xzbdmw/colorful-menu.nvim',
@@ -103,14 +103,33 @@ return {
                   return require('colorful-menu').blink_components_highlight(ctx)
                 end,
               },
+              kind = {
+                text = function(ctx)
+                  -- Fix for "RipgrepRipgrep"
+                  if ctx.source_name == 'Ripgrep' then
+                    return 'rg'
+                  end
+                  return ctx.kind
+                end,
+              },
             },
           },
         },
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
+        default = { 'lsp', 'snippets', 'path', 'lazydev', 'buffer', 'ripgrep' },
+        per_filetype = {
+          codecompanion = { 'codecompanion' },
+        },
         providers = {
+          lsp = {
+            fallbacks = { }
+          },
+          ripgrep = {
+            module = 'blink-ripgrep',
+            name = 'Ripgrep',
+          },
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
           buffer = {
             opts = {
@@ -119,7 +138,10 @@ return {
                   return vim.bo[bufnr].buftype == ''
                 end, vim.api.nvim_list_bufs())
               end,
+              -- keyword_pattern = [[\k\+]],
+              -- keyword_length = 1,
             },
+            score_offset = -5
           },
         },
       },
