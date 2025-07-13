@@ -70,7 +70,7 @@
         - [x] Fix bug with tabbing in certain files (eg - .gitconfig)
         - [x] Add stylelint for CSS and SCSS
         - [x] Add ripgrep and buffer autocomplete
-        - [ ] Add LazyGit modal
+        - [x] Add LazyGit modal
         - [ ] Add CodeCompanion telescope
         - [ ] Add more CodeCompanion shortcuts
             - [ ] <C-s> to send to chat
