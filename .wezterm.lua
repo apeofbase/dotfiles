@@ -39,8 +39,13 @@ config = {
 
 
   -- Fonts
-  font = wezterm.font 'DankMono Nerd Font',
-  font_size = 15.0,
+  -- yay -S maplemono-nf-unhinted
+  -- brew install --cask font-maple-mono-nf
+  font = wezterm.font_with_fallback {
+    "Maple Mono NF",
+    "DankMono Nerd Font", -- fallback for icons
+  },
+  font_size = 14.0,
   line_height = 1.1,
   cell_width = 1.0,
   bold_brightens_ansi_colors = "BrightAndBold",
