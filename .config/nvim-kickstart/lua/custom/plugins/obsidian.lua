@@ -78,6 +78,10 @@ return {
           end,
           opts = { buffer = true, noremap = true, silent = false, desc = '[O]bsidian [T]oggle Checkbox' },
         },
+        ['<leader>of'] = {
+          action = ':ObsidianFollowLink<CR>',
+          opts = { buffer = true, noremap = true, silent = false, desc = '[O]bsidian [F]ollow Link' },
+        },
       },
     },
   },
