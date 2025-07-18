@@ -45,8 +45,8 @@ config = {
     "Maple Mono NF",
     "DankMono Nerd Font", -- fallback for icons
   },
-  font_size = 14.0,
-  line_height = 1.1,
+  font_size = 13.0,
+  line_height = 1.15,
   cell_width = 1.0,
   bold_brightens_ansi_colors = "BrightAndBold",
 
