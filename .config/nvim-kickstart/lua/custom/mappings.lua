@@ -83,3 +83,4 @@ end)
 
 -- Other
 vim.keymap.set('n', '<leader>cc', ':silent !ddev drush cr<CR>', { desc = 'DDEV Drush [C]lear [C]ache' })
+vim.keymap.set('n', '<leader>tc', ':close<CR>', { desc = '[T]oggle [C]lose' })

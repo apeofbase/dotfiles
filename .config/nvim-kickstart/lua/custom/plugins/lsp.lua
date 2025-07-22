@@ -297,6 +297,19 @@ return {
             },
           },
         },
+        -- Add one for yamlls that only applies to yml and yaml files
+        yamlls = {
+          filetypes = { 'yaml', 'yml' },
+          settings = {
+            yaml = {
+              schemas = {
+                ['https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/github-workflow.json'] = '.github/workflows/*',
+                ['https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/kustomization.json'] = 'kustomization.yaml',
+                ['https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/prettierrc.json'] = '.prettierrc',
+              },
+            },
+          },
+        },
         eslint = {
           -- npm install -g vscode-eslint-language-server
           capabilities = capabilities,
@@ -378,7 +391,6 @@ return {
         html = {},
         -- htmx = {}, -- Breaks Intelephense LSP
         jsonls = {},
-        yamlls = {},
       }
 
       -- Ensure the servers and tools above are installed
