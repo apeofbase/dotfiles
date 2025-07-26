@@ -69,6 +69,13 @@ vim.keymap.set('n', 'x', '"_x')
 -- Spell check toggle
 vim.keymap.set('n', '<leader>sc', ':set spell!<CR>', { desc = 'Toggle Spell Check' })
 
+-- Yank all text
+vim.keymap.set('n', 'yY', function ()
+  local pos = vim.api.nvim_win_get_cursor(0)
+  vim.cmd('normal! ggVGy')
+  vim.api.nvim_win_set_cursor(0, pos)
+end, { noremap = true, desc = 'All text in buffer' })
+
 -- Visual Block --
 -- Move text up and down
 vim.keymap.set('x', 'J', ":move '>+1<CR>gv-gv", { noremap = true, silent = false })
@@ -83,3 +90,4 @@ end)
 
 -- Other
 vim.keymap.set('n', '<leader>cc', ':silent !ddev drush cr<CR>', { desc = 'DDEV Drush [C]lear [C]ache' })
+vim.keymap.set('n', '<leader>tc', ':close<CR>', { desc = '[T]oggle [C]lose' })

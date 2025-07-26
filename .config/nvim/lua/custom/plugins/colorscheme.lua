@@ -22,6 +22,20 @@ return {
       vim.api.nvim_set_hl(0, '@markup.raw.markdown_inline', { link = 'CursorLineNr' })
       vim.api.nvim_set_hl(0, '@markup.link.markdown_inline', { link = 'Label' })
       vim.api.nvim_set_hl(0, 'NormalNC', { link = 'Normal' })
+
+      -- Default menu settings
+      vim.api.nvim_set_hl(0, 'Pmenu', { bg = '#3c3c3c', fg = '#c0c0c0' })
+      vim.api.nvim_set_hl(0, 'PmenuSel', { link = 'CursorLine' })
+      vim.api.nvim_set_hl(0, 'PmenuBorder', { link = 'LineNr' })
+
+      -- Blink.cmp autocompletion theming
+      vim.api.nvim_set_hl(0, 'BlinkCmpMenu', { link = 'VisualNC' })
+      vim.api.nvim_set_hl(0, 'BlinkCmpDoc', { link = 'VisualNC' })
+      vim.api.nvim_set_hl(0, 'BlinkCmpMenuSelection', { link = 'CursorLine' })
+      vim.api.nvim_set_hl(0, 'BlinkCmpDocCursorLine', { link = 'CursorLine' })
+      vim.api.nvim_set_hl(0, 'BlinkCmpMenuBorder', { link = 'Label' })
+      vim.api.nvim_set_hl(0, 'BlinkCmpDocBorder', { link = 'Label' })
+
       vim.cmd 'highlight SignColumn guibg=NONE ctermbg=NONE'
     end,
   },
