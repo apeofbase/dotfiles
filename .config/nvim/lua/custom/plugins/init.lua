@@ -1,5 +1,9 @@
 -- Simple plugin includes
 return {
+
+  -- Detect tabstop and shiftwidth automatically
+  'NMAC427/guess-indent.nvim',
+
   -- Detect tabstop and shiftwidth automatically
   -- https://github.com/tpope/vim-sleuth
   'tpope/vim-sleuth',
@@ -26,4 +30,7 @@ return {
     'kevinhwang91/nvim-bqf',
     lazy = false,
   },
+
+  -- Relative / absolute auto line number toggle
+  { 'sitiom/nvim-numbertoggle' },
 }
