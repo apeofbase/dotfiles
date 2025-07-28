@@ -129,7 +129,14 @@ fi
 # neovim
 if _has nvim; then
   alias vim='nvim'
-  alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
+
+  if [ -d "$HOME/.config/nvim-kickstart" ]; then
+    if _has bob; then
+      alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" bob run 0.11.2'
+    else
+      alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
+    fi
+  fi
   export EDITOR="nvim"
 fi
 

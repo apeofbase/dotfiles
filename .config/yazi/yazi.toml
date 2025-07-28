@@ -2,5 +2,5 @@
 [mgr]
 show_hidden = true
 sort_by = "natural"
-linemode = "size_and_mtime"
+linemode = "mtime"
 show_symlink = true

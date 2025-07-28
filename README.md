@@ -21,6 +21,7 @@
 
 #### Fonts
 
+- Install Maple Font: https://github.com/subframe7536/maple-font
 - Install Dank Mono v3 Nerd Font: `./fonts/DankMonoNerdFont-*-v3.otf`
 
 ## Overview
@@ -63,7 +64,6 @@
 
 - Future Neovim improvements
     - neoformat
-    - Add AI
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
     - `fzf-tab` completion

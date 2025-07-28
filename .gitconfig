@@ -1,14 +1,14 @@
 [user]
-	name = Justin Gable
-	email = justin@justingable.com
+  name = Justin Gable
+  email = justin@justingable.com
 [color]
-	status = auto
-	branch = auto
+  status = auto
+  branch = auto
   # Note: this option can make things slower in large repositories
   showUntrackedFiles = all
-	ui = true
+  ui = true
 [core]
-	excludesfile = ~/.global_gitignore
+  excludesfile = ~/.global_gitignore
 [alias]
   s = status
   b = branch
@@ -32,7 +32,9 @@
   # Normally you get two sections in a conflict, this provides a 3rd of the original before the merge
   conflictstyle = diff3
 [push]
-	default = matching
+  default = matching
+[pull]
+  rebase = true
 [pager]
   diff = diff-so-fancy | less --tabs=1,5 -RFX
   show = diff-so-fancy | less --tabs=1,5 -RFX

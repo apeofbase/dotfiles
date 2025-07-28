@@ -1,6 +1,7 @@
 return {
   {
     'olimorris/codecompanion.nvim',
+    version = '^16.0.0',
     opts = {
       strategies = {
         -- Change the default chat adapter
@@ -17,6 +18,12 @@ return {
         init = function()
           vim.g.copilot_enabled = 0
         end,
+      },
+      {
+        'MeanderingProgrammer/render-markdown.nvim',
+        ft = {
+          'codecompanion',
+        },
       },
     },
     config = function()
