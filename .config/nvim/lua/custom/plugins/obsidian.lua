@@ -1,10 +1,13 @@
 return {
   {
-    'epwalsh/obsidian.nvim',
-    version = 'v3.7.*',
+    'obsidian-nvim/obsidian.nvim',
+    version = 'v3.11.*',
     ft = 'markdown',
     lazy = false,
     opts = {
+      completion = {
+        blink = true,
+      },
       event = {
         'BufReadPre ' .. vim.fn.expand '~' .. '/Vaults/**.md',
         'BufNewFile ' .. vim.fn.expand '~' .. '/Vaults/**.md',
@@ -74,6 +77,10 @@ return {
             return require('obsidian').util.toggle_checkbox()
           end,
           opts = { buffer = true, noremap = true, silent = false, desc = '[O]bsidian [T]oggle Checkbox' },
+        },
+        ['<leader>of'] = {
+          action = ':ObsidianFollowLink<CR>',
+          opts = { buffer = true, noremap = true, silent = false, desc = '[O]bsidian [F]ollow Link' },
         },
       },
     },
