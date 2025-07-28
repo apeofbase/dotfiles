@@ -21,6 +21,7 @@
 
 #### Fonts
 
+- Install Maple Font: https://github.com/subframe7536/maple-font
 - Install Dank Mono v3 Nerd Font: `./fonts/DankMonoNerdFont-*-v3.otf`
 
 ## Overview
@@ -63,21 +64,6 @@
 
 - Future Neovim improvements
     - neoformat
-    - Finish upgrade to Neovim 0.11
-        - [x] Add borders to autocomplete and LSP popups
-        - [x] Add buffer suggestions to Blink
-        - [x] Add PHP CS Fixer to Conform
-        - [x] Fix bug with tabbing in certain files (eg - .gitconfig)
-        - [x] Add stylelint for CSS and SCSS
-        - [x] Add ripgrep and buffer autocomplete
-        - [x] Add LazyGit modal
-        - [ ] Add CodeCompanion telescope
-        - [ ] Add more CodeCompanion shortcuts
-            - [ ] <C-s> to send to chat
-            - [ ] <C-c> to permanently close chat
-            - [ ] <leader>ag to generate commit message
-        - [ ] Add custom slash commands (see documentation)
-            - [ ] git_files
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
     - `fzf-tab` completion
