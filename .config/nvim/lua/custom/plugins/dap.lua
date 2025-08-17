@@ -26,43 +26,71 @@ return {
       vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStopped', numhl = 'DapStopped' })
 
       -- Keymaps
+
+      --- Debug: Start/Continue
       vim.keymap.set('n', '<leader>dc', function()
         require('dap').continue()
       end, { noremap = true, desc = '[D]ebug [C]ontinue' })
 
+      vim.keymap.set('n', '<F5>', function()
+        require('dap').continue()
+      end, { desc = 'Debug: Start/Continue' })
+
+      --- Debug: Step Into
+      vim.keymap.set('n', '<F1>', function()
+        require('dap').step_into()
+      end, { desc = 'Debug: Step Into' })
+
+      --- Debug: Step Over
+      vim.keymap.set('n', '<F2>', function()
+        require('dap').step_over()
+      end, { desc = 'Debug: Step Over' })
+
+      --- Debug: Step Out
+      vim.keymap.set('n', '<F3>', function()
+        require('dap').step_out()
+      end, { desc = 'Debug: Step Out' })
+
+      --- Debug: Toggle Breakpoint
       vim.keymap.set('n', '<leader>b', function()
         require('dap').toggle_breakpoint()
       end, { noremap = true, desc = 'Debug Toggle [B]reakpoint' })
 
+      --- Debug: Clear Breakpoints
+      vim.keymap.set({ 'n', 'v' }, '<Leader>dB', ':DapClearBreakpoints<CR>', { desc = '[D]ebug Clear [B]reakpoints' })
+
+      --- Debug: Toggle UI
       vim.keymap.set({ 'n', 'v' }, '<Leader>du', function()
         require('dapui').toggle()
       end, { desc = '[D]ebug [U]I Toggle' })
 
-      vim.keymap.set('n', '<Leader>dr', function()
-        require('dap').repl.open()
-      end, { desc = '[D]ebug [R]epl' })
+      --- Debug: Reset UI
+      vim.keymap.set('n', '<leader>dr', function()
+        require('dapui').open { reset = true }
+      end, { desc = 'Reset DAP UI splits' })
 
       -- vim.keymap.set('n', '<Leader>df', ':Telescope dap frames<CR>', { desc = '[D]ebug [F]rames' })
-      --
-      -- vim.keymap.set('n', '<Leader>ds', function()
-      --   local widgets = require 'dap.ui.widgets'
-      --   widgets.centered_float(widgets.scopes)
-      -- end, { desc = '[D]ebug [S]copes' })
 
-      -- vim.keymap.set('n', '<Leader>dl', ':Telescope dap list_breakpoints<CR>', { desc = '[D]ebug [L]ist Breakpoints' })
+      --- Debug: Scopes widget
+      vim.keymap.set('n', '<Leader>ds', function()
+        local widgets = require 'dap.ui.widgets'
+        widgets.centered_float(widgets.scopes)
+      end, { desc = '[D]ebug [S]copes' })
 
+      --- Debug: Hover widget
       vim.keymap.set({ 'n', 'v' }, '<Leader>dh', function()
         require('dap.ui.widgets').hover()
       end, { desc = '[D]ebug [H]over' })
 
+      --- Debug: Preview widget
       vim.keymap.set({ 'n', 'v' }, '<Leader>dp', function()
         require('dap.ui.widgets').preview()
       end, { desc = '[D]ebug [P]review' })
 
+      --- Debug: Terminate
       vim.keymap.set({ 'n', 'v' }, '<Leader>dx', ':DapTerminate<CR>', { desc = '[D]ebug E[x]terminate session' })
 
-      vim.keymap.set({ 'n', 'v' }, '<Leader>dB', ':DapClearBreakpoints<CR>', { desc = '[D]ebug Clear [B]reakpoints' })
-
+      -- DAP Adapters
       dap.adapters.php = {
         type = 'executable',
         command = 'node',
@@ -85,30 +113,27 @@ return {
       -- Dap UI setup
       -- For more information, see |:help nvim-dap-ui|
       dapui.setup {
-        -- Set icons to characters that are more likely to work in every terminal.
-        --    Feel free to remove or use ones that you like more! :)
-        --    Don't feel like these are good choices.
-        icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
+        icons = { expanded = '', collapsed = '', current_frame = '' },
         controls = {
           icons = {
-            pause = '⏸',
-            play = '▶',
-            step_into = '⏎',
-            step_over = '⏭',
-            step_out = '⏮',
-            step_back = 'b',
-            run_last = '▶▶',
-            terminate = '⏹',
+            pause = '',
+            play = '',
+            step_into = '',
+            step_over = '',
+            step_out = '',
+            step_back = '',
+            run_last = '',
+            terminate = '',
             disconnect = '⏏',
           },
         },
         layouts = {
           {
             elements = {
-              { id = 'scopes', size = 0.25 },
-              { id = 'breakpoints', size = 0.25 },
-              { id = 'stacks', size = 0.25 },
               { id = 'watches', size = 0.25 },
+              { id = 'breakpoints', size = 0.25 },
+              { id = 'scopes', size = 0.5 },
+              -- { id = 'stacks', size = 0.25 },
             },
             size = 40, -- width of left panel
             position = 'left',

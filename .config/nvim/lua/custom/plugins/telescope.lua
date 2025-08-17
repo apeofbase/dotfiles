@@ -62,7 +62,7 @@ return {
             width = 0.90,
             height = 0.90,
             -- prompt_position = 'top',
-            preview_width = 0.5,
+            -- preview_width = 0.5,
           },
           -- sorting_strategy = 'ascending',
           scroll_strategy = 'limit',
