@@ -270,19 +270,6 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
-        -- rust_analyzer = {},
-        -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-        --
-        -- Some languages (like typescript) have entire language plugins that can be useful:
-        --    https://github.com/pmizio/typescript-tools.nvim
-        --
-        -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
-        --
-
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -310,6 +297,20 @@ return {
             },
           },
         },
+
+        ts_ls = {
+          -- npm install -g typescript-language-server
+          capabilities = capabilities,
+          cmd = { 'typescript-language-server', '--stdio' },
+          filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+          single_file_support = true,
+          root_dir = require('lspconfig.util').root_pattern('package.json', 'tsconfig.json', 'jsconfig.json', '.git'),
+          on_attach = function(client)
+            -- Disable tsserver formatting if you plan to use prettier
+            client.server_capabilities.document_formatting = false
+          end,
+        },
+
         eslint = {
           -- npm install -g vscode-eslint-language-server
           capabilities = capabilities,
@@ -338,14 +339,6 @@ return {
           end,
         },
 
-        ts_ls = {
-          -- npm install -g typescript-language-server
-          capabilities = capabilities,
-          cmd = { 'typescript-language-server', '--stdio' },
-          filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
-          single_file_support = true,
-        },
-
         stylelint_lsp = {
           capabilities = capabilities,
           filetypes = { 'css', 'scss' },
@@ -358,6 +351,13 @@ return {
           on_attach = function(client)
             client.server_capabilities.document_formatting = false
           end,
+        },
+
+        phpactor = {
+          -- Install: composer global require phpactor/phpactor
+          capabilities = capabilities,
+          filetypes = { 'php', 'phtml', 'module', 'inc', 'theme' },
+          root_dir = require('lspconfig.util').root_pattern('composer.json', '.git'),
         },
 
         intelephense = {
@@ -419,6 +419,7 @@ return {
         'stylelint-lsp',
         'stylua',
         'twiggy-language-server',
+        'typescript-language-server', -- ts_ls
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
