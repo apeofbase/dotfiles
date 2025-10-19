@@ -262,6 +262,8 @@ if _has fzf; then
   fi
 
   alias fvim="fzf | xargs -n 1 nvim"
+  # Select a process and kill it
+  alias fkill='ps -A | fzf -m | awk '\''{print $1}'\'' | xargs kill'
 
 else
   echo "fzf not installed: https://github.com/junegunn/fzf"
