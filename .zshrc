@@ -175,10 +175,6 @@ zinit light "zdharma-continuum/fast-syntax-highlighting"
 zinit ice nocompletions from"gh-r" bpick"*-musl*" \
   as"program" mv"bat-*/bat -> bat" pick"bat"
 zinit load sharkdp/bat
-  
-# fzf
-zinit ice from"gh-r" lbin"!fzf"
-zinit load junegunn/fzf
 
 zi for \
     https://github.com/junegunn/fzf/raw/master/shell/{'completion','key-bindings'}.zsh
@@ -186,10 +182,6 @@ zi for \
 # diff-so-fancy
 zinit ice as"program" pick"bin/git-dsf"
 zinit light zdharma-continuum/zsh-diff-so-fancy
-
-# lazygit
-zinit ice from="gh-r" as"program"
-zinit light jesseduffield/lazygit
 
 # bob
 zinit ice from="gh-r" as"program"
@@ -238,6 +230,10 @@ if _has gem; then
   done 
 fi
 
+if ! _has lazygit; then
+  echo "lazygit not installed"
+fi
+
 if _has fzf; then
   # Color scheme
   # - Tokyo Night
@@ -267,6 +263,12 @@ if _has fzf; then
 
 else
   echo "fzf not installed: https://github.com/junegunn/fzf"
+fi
+
+if _has opencode; then
+  path+=(~/.opencode/bin)
+else
+  echo "OpenCodeAI not installed https://opencode.ai"
 fi
 
 # -------

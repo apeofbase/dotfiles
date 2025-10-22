@@ -62,8 +62,7 @@
 
 ## TODO
 
-- Future Neovim improvements
-    - neoformat
+- Ditch zinit
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
     - `fzf-tab` completion
