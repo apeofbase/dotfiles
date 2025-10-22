@@ -1,4 +1,7 @@
 notARepository: 'quit'
+git:
+  paging:
+    pager: diff-so-fancy
 gui:
   mouseEvents: false
   theme:
