@@ -36,5 +36,4 @@ return {
 
   -- Relative / absolute auto line number toggle
   { 'sitiom/nvim-numbertoggle' },
-
 }

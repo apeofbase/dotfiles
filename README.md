@@ -34,6 +34,7 @@
 - **Terminal multiplexer:** [tmux](https://github.com/tmux/tmux)
 - **Plugin manager:** [zinit](https://github.com/zdharma-continuum/zinit)
 - **Font(s):** 
+  - [MapleFont](https://github.com/subframe7536/maple-font)
   - [DankMono](https://philpl.gumroad.com/l/dank-mono)
   - [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
 
@@ -57,7 +58,7 @@
 
 ## Compatable OS
 
-- Linux
+- Linux (Arch BTW)
 - MacOS
 
 ## TODO
@@ -71,7 +72,6 @@
         - https://github.com/nkoporec/drupal-lsp
     - (?) Resolve all missing components for neovim
       - `zinit` or `asdf` to install PHP, Composer, Cargo, [LuaRocks](https://luarocks.org/#quick-start)
-    - Use Markdown rendering for non Obsidian Vault markdown files
 - Write more cross platform scripts
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
