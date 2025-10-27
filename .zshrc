@@ -171,35 +171,6 @@ zinit light "zdharma-continuum/fast-syntax-highlighting"
 # if [[ `uname` == "Linux" ]]; then
 # fi
 
-# bat
-zinit ice nocompletions from"gh-r" bpick"*-musl*" \
-  as"program" mv"bat-*/bat -> bat" pick"bat"
-zinit load sharkdp/bat
-
-zi for \
-    https://github.com/junegunn/fzf/raw/master/shell/{'completion','key-bindings'}.zsh
-
-# diff-so-fancy
-zinit ice as"program" pick"bin/git-dsf"
-zinit light zdharma-continuum/zsh-diff-so-fancy
-
-# bob
-zinit ice from="gh-r" as"program"
-zinit light MordechaiHadad/bob 
-
-# glow (markdown TUI)
-zinit ice from"gh-r" as"program"
-zinit light charmbracelet/glow
-
-# asdf
-zinit ice wait lucid
-zinit load redxtech/zsh-asdf-direnv
-
-# fd
-zinit ice nocompletions from"gh-r" \
-  as"program" mv"fd*/fd -> fd" pick"fd"
-zinit light sharkdp/fd
-
 # -------
 # Utility settings
 # -------
