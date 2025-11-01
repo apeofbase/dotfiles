@@ -206,6 +206,15 @@ if ! _has lazygit; then
 fi
 
 if _has fzf; then
+
+  if [ -f ~/.fzf/shell/key-bindings.zsh ]; then
+    source ~/.fzf/shell/key-bindings.zsh
+  elif [ -f /usr/share/fzf/key-bindings.zsh ]; then
+    source /usr/share/fzf/key-bindings.zsh
+  elif [ -f /usr/local/opt/fzf/shell/key-bindings.zsh ]; then
+    source /usr/local/opt/fzf/shell/key-bindings.zsh
+  fi
+
   # Color scheme
   # - Tokyo Night
   local background="#151824"
