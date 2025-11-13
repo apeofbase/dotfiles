@@ -105,8 +105,13 @@ alias tk='tmux kill-session -t '
 ## OSX-like open command
 if _has nautilus; then
   alias open='nautilus'
-elif _has dolphin; then
-  alias open='dolphin'
+fi
+
+if _has dolphin; then
+open() {
+  local dir="${1:-.}"
+  dolphin "$dir" &
+}
 fi
 
 # bat: https://github.com/sharkdp/bat
