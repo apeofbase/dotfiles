@@ -8,6 +8,9 @@ return {
   -- https://github.com/tpope/vim-sleuth
   'tpope/vim-sleuth',
 
+  -- Simple Git commands
+  'tpope/vim-fugitive',
+
   -- Highlight todo, notes, etc in comments
   -- https://github.com/folke/todo-comments.nvim
   {

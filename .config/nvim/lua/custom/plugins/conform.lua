@@ -39,6 +39,7 @@ return {
         php = { 'phpcbf' },
         scss = { 'stylelint' },
         css = { 'stylelint' },
+        blade = { 'blade-formatter' },
       },
       formatters = {
         -- Install composer dependencies in project

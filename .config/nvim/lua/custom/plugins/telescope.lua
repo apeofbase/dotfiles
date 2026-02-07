@@ -56,11 +56,28 @@ return {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
+        defaults = {
+          layout_strategy = 'horizontal',
+          layout_config = {
+            width = 0.90,
+            height = 0.90,
+            -- prompt_position = 'top',
+            -- preview_width = 0.5,
+          },
+          -- sorting_strategy = 'ascending',
+          scroll_strategy = 'limit',
+          border = true,
+          -- path_display = { 'filename_first' },
+          dynamic_preview_title = true,
+          mappings = {
+            i = {
+              ['<C-h>'] = require('telescope.actions.layout').toggle_preview,
+            },
+            n = {
+              ['<C-h>'] = require('telescope.actions.layout').toggle_preview,
+            },
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
