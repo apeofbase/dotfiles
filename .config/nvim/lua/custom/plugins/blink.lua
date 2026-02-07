@@ -31,7 +31,6 @@ return {
 
           -- Custom sources
           -- 'jdrupal-dev/css-vars.nvim',
-          'mikavilpas/blink-ripgrep.nvim',
         },
       },
       'xzbdmw/colorful-menu.nvim',
@@ -103,32 +102,19 @@ return {
                   return require('colorful-menu').blink_components_highlight(ctx)
                 end,
               },
-              kind = {
-                text = function(ctx)
-                  -- Fix for "RipgrepRipgrep"
-                  if ctx.source_name == 'Ripgrep' then
-                    return 'rg'
-                  end
-                  return ctx.kind
-                end,
-              },
             },
           },
         },
       },
 
       sources = {
-        default = { 'lsp', 'snippets', 'path', 'lazydev', 'buffer', 'ripgrep' },
+        default = { 'lsp', 'snippets', 'path', 'lazydev', 'buffer' },
         per_filetype = {
           codecompanion = { 'codecompanion' },
         },
         providers = {
           lsp = {
             fallbacks = { }
-          },
-          ripgrep = {
-            module = 'blink-ripgrep',
-            name = 'Ripgrep',
           },
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
           buffer = {
@@ -155,7 +141,7 @@ return {
       -- the rust implementation via `'prefer_rust_with_warning'`
       --
       -- See :h blink-cmp-config-fuzzy for more information
-      fuzzy = { implementation = 'lua' },
+      fuzzy = { implementation = 'prefer_rust_with_warning' },
 
       -- Shows a signature help window while you type arguments for a function
       signature = { enabled = true },

@@ -105,8 +105,13 @@ alias tk='tmux kill-session -t '
 ## OSX-like open command
 if _has nautilus; then
   alias open='nautilus'
-elif _has dolphin; then
-  alias open='dolphin'
+fi
+
+if _has dolphin; then
+open() {
+  local dir="${1:-.}"
+  dolphin "$dir" &
+}
 fi
 
 # bat: https://github.com/sharkdp/bat
@@ -171,43 +176,6 @@ zinit light "zdharma-continuum/fast-syntax-highlighting"
 # if [[ `uname` == "Linux" ]]; then
 # fi
 
-# bat
-zinit ice nocompletions from"gh-r" bpick"*-musl*" \
-  as"program" mv"bat-*/bat -> bat" pick"bat"
-zinit load sharkdp/bat
-  
-# fzf
-zinit ice from"gh-r" lbin"!fzf"
-zinit load junegunn/fzf
-
-zi for \
-    https://github.com/junegunn/fzf/raw/master/shell/{'completion','key-bindings'}.zsh
-
-# diff-so-fancy
-zinit ice as"program" pick"bin/git-dsf"
-zinit light zdharma-continuum/zsh-diff-so-fancy
-
-# lazygit
-zinit ice from="gh-r" as"program"
-zinit light jesseduffield/lazygit
-
-# bob
-zinit ice from="gh-r" as"program"
-zinit light MordechaiHadad/bob 
-
-# glow (markdown TUI)
-zinit ice from"gh-r" as"program"
-zinit light charmbracelet/glow
-
-# asdf
-zinit ice wait lucid
-zinit load redxtech/zsh-asdf-direnv
-
-# fd
-zinit ice nocompletions from"gh-r" \
-  as"program" mv"fd*/fd -> fd" pick"fd"
-zinit light sharkdp/fd
-
 # -------
 # Utility settings
 # -------
@@ -238,7 +206,20 @@ if _has gem; then
   done 
 fi
 
+if ! _has lazygit; then
+  echo "lazygit not installed"
+fi
+
 if _has fzf; then
+
+  if [ -f ~/.fzf/shell/key-bindings.zsh ]; then
+    source ~/.fzf/shell/key-bindings.zsh
+  elif [ -f /usr/share/fzf/key-bindings.zsh ]; then
+    source /usr/share/fzf/key-bindings.zsh
+  elif [ -f /usr/local/opt/fzf/shell/key-bindings.zsh ]; then
+    source /usr/local/opt/fzf/shell/key-bindings.zsh
+  fi
+
   # Color scheme
   # - Tokyo Night
   local background="#151824"
@@ -262,9 +243,17 @@ if _has fzf; then
   fi
 
   alias fvim="fzf | xargs -n 1 nvim"
+  # Select a process and kill it
+  alias fkill='ps -A | fzf -m | awk '\''{print $1}'\'' | xargs kill'
 
 else
   echo "fzf not installed: https://github.com/junegunn/fzf"
+fi
+
+if _has opencode; then
+  path+=(~/.opencode/bin)
+else
+  echo "OpenCodeAI not installed https://opencode.ai"
 fi
 
 # -------

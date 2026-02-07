@@ -19,12 +19,6 @@ return {
           vim.g.copilot_enabled = 0
         end,
       },
-      {
-        'MeanderingProgrammer/render-markdown.nvim',
-        ft = {
-          'codecompanion',
-        },
-      },
     },
     config = function()
       local codecompanion = require 'codecompanion'
