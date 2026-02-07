@@ -15,6 +15,8 @@ apps=(
     "diff-so-fancy"
     "fd"
     "glow"
+    "glab"
+    "github-cli"
     # "zsh-completions"
     # "zsh-autosuggestions"
     # "zsh-syntax-highlighting"
