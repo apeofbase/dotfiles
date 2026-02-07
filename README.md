@@ -66,12 +66,16 @@
 - Ditch zinit
     - Script for Arch based package installs
     - Script for MacOS based install (Homebrew)
+- Other
+    - Add `gh` to package script
+    - Add `brewinstall` file for MacOS packages
 - Neovim
     - Add Drupal LSP
         - https://github.com/jdrupal-dev/drupal_ls
         - https://github.com/nkoporec/drupal-lsp
     - (?) Resolve all missing components for neovim
       - `zinit` or `asdf` to install PHP, Composer, Cargo, [LuaRocks](https://luarocks.org/#quick-start)
+    - Add opencode.nvim
 - Write more cross platform scripts
 - Add `fzf` extra functions for `**` support
     - `tmux` sessions
