@@ -245,7 +245,12 @@ else
   echo "fzf not installed: https://github.com/junegunn/fzf"
 fi
 
+# -------
+# OpenCodeAI
+# -------
 if _has opencode; then
+  alias oc="opencode --agent plan"
+  alias ocp="opencode --agent plan --port"
   path+=(~/.opencode/bin)
 else
   echo "OpenCodeAI not installed https://opencode.ai"
