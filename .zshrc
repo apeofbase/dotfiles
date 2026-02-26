@@ -167,6 +167,7 @@ fi
 
 # Load autocompletions after compinit
 # zinit load "zdharma-continuum/history-search-multi-word"
+zinit light "Aloxaf/fzf-tab"
 zinit light "zdharma-continuum/zinit-annex-binary-symlink" # for auto symlinks
 zinit light "zsh-users/zsh-autosuggestions"
 zinit light "zsh-users/zsh-completions"
