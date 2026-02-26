@@ -1,6 +1,6 @@
 [user]
   name = Justin Gable
-  email = justin@justingable.com
+  email = 333181+apeofbase@users.noreply.github.com
 [color]
   status = auto
   branch = auto
@@ -39,5 +39,5 @@
   diff = diff-so-fancy | less --tabs=1,5 -RFX
   show = diff-so-fancy | less --tabs=1,5 -RFX
 [credential "https://gitlab.com"]
-	helper = 
-	helper = !/usr/bin/glab auth git-credential
+  helper = 
+  helper = !/usr/bin/glab auth git-credential
