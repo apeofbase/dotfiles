@@ -9,7 +9,6 @@ then
   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 source "${ZINIT_HOME}/zinit.zsh"
-source "${HOME}/.env"
 
 # -------
 # Basic
@@ -50,6 +49,19 @@ export EDITOR='vim'
 # Pulled from https://github.com/statico/dotfiles -- .zshrc
 _has() {
   return $( whence $1 >/dev/null )
+}
+
+# Cache the output of an eval-style init command.
+# Usage: _cache_eval <cache_file> <binary_path> <cmd> [args...]
+# Regenerates cache if the binary is newer than the cache file.
+_cache_eval() {
+  local cache="$1" bin="$2"
+  shift 2
+  if [[ ! -f "$cache" || "$bin" -nt "$cache" ]]; then
+    mkdir -p "${cache:h}"
+    "$@" > "$cache"
+  fi
+  source "$cache"
 }
 
 # -------
@@ -151,7 +163,8 @@ if _has eza; then
   alias l='eza --icons=always'
   alias la='eza --icons=always --all'
   alias ll='eza --icons=always --all --oneline'
-  alias lah='eza --icons=always --long --all --total-size --header --group'
+  alias lah='eza --icons=always --long --all --header --group'
+  alias lahs='eza --icons=always --long --all --total-size --header --group'
   alias tree='eza --icons=always --tree'
 else
   echo 'You should install `eza`'
@@ -167,11 +180,11 @@ fi
 
 # Load autocompletions after compinit
 # zinit load "zdharma-continuum/history-search-multi-word"
-zinit light "Aloxaf/fzf-tab"
-zinit light "zdharma-continuum/zinit-annex-binary-symlink" # for auto symlinks
-zinit light "zsh-users/zsh-autosuggestions"
-zinit light "zsh-users/zsh-completions"
-zinit light "zdharma-continuum/fast-syntax-highlighting"
+zinit light "zdharma-continuum/zinit-annex-binary-symlink" # for auto symlinks (must load eagerly for annex to work)
+zinit ice wait lucid; zinit light "Aloxaf/fzf-tab"
+zinit ice wait lucid; zinit light "zsh-users/zsh-autosuggestions"
+zinit ice wait lucid; zinit light "zsh-users/zsh-completions"
+zinit ice wait lucid; zinit light "zdharma-continuum/fast-syntax-highlighting"
 
 # Linux specific
 # if [[ `uname` == "Linux" ]]; then
@@ -213,8 +226,8 @@ fi
 
 if _has fzf; then
 
-  # Setup key-bindings and fuzzy completion
-  source <(fzf --zsh)
+  # Setup key-bindings and fuzzy completion (cached to avoid spawning fzf each startup)
+  _cache_eval ~/.cache/zsh/fzf-init.zsh "$(whence fzf)" fzf --zsh
 
   # Color scheme
   # - Tokyo Night
@@ -278,14 +291,19 @@ if [ -e ~/.custom.zshrc ]; then
 fi
 
 # Starship prompt initialize: https://starship.rs
-eval "$(starship init zsh)"
+_cache_eval ~/.cache/zsh/starship-init.zsh "$(whence starship)" starship init zsh
 
-# Initialize completions
-autoload -U compinit; compinit
+# Initialize completions — only rescan $fpath if .zcompdump is older than 24h
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 
 # Initialize ajeetdsouza/zoxide
 if _has zoxide; then
-  eval "$(zoxide init zsh)"
+  _cache_eval ~/.cache/zsh/zoxide-init.zsh "$(whence zoxide)" zoxide init zsh
   alias cd='z'
 fi
 

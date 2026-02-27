@@ -66,6 +66,9 @@
 
 ## TODO
 
+- SPEED START-UP
+    - [ ] Initial speed up to load async
+    - Rewrite to remove zinit
 - Ditch (most of) zinit
     - Script for MacOS based install (Homebrew)
         - Add `brewinstall` file for MacOS packages
@@ -74,7 +77,7 @@
         - [ ] Remove code-companion
         - [ ] Install nvim-opencode
     - (?) Resolve all missing components for neovim
-      - `zinit` or `asdf` to install PHP, Composer, Cargo, [LuaRocks](https://luarocks.org/#quick-start)
+      - `asdf`, `brew` and or `pacman` to install PHP, Composer, Cargo, [LuaRocks](https://luarocks.org/#quick-start)
     - Add Drupal LSP
         - https://github.com/jdrupal-dev/drupal_ls
         - https://github.com/nkoporec/drupal-lsp
