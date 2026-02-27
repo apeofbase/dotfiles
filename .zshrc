@@ -1,4 +1,11 @@
 # -------
+# Startup timer (print elapsed time at end of .zshrc if ZSH_STARTUP_TIMER is set)
+# To enable: export ZSH_STARTUP_TIMER=1 in ~/.custom.zshrc
+# -------
+zmodload zsh/datetime
+_zsh_start_time=$EPOCHREALTIME
+
+# -------
 # zinit setup
 # https://github.com/zdharma-continuum/zinit/wiki/Recipes-for-popular-programs#fzf-completion-and-key-bindings
 # -------
@@ -313,3 +320,7 @@ fi
 
 export PATH
 
+if [[ -n "$ZSH_STARTUP_TIMER" ]]; then
+  print "Shell started in $(( int((EPOCHREALTIME - _zsh_start_time) * 1000) ))ms"
+fi
+unset _zsh_start_time
