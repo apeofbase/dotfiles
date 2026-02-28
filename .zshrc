@@ -308,6 +308,7 @@ if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
 else
   compinit -C
 fi
+zinit cdreplay -q  # replay compdef calls queued by turbo-mode plugins
 
 # Initialize ajeetdsouza/zoxide
 if _has zoxide; then
