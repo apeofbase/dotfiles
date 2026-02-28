@@ -67,8 +67,9 @@
 ## TODO
 
 - SPEED START-UP
-    - [ ] Initial speed up to load async
-    - Rewrite to remove zinit
+    - [x] Initial speed up to load async
+    - [x] Add startup timer
+    - [ ] Rewrite to remove zinit
 - Ditch (most of) zinit
     - Script for MacOS based install (Homebrew)
         - Add `brewinstall` file for MacOS packages

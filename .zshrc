@@ -194,8 +194,9 @@ zinit ice wait lucid; zinit light "zsh-users/zsh-completions"
 zinit ice wait lucid; zinit light "zdharma-continuum/fast-syntax-highlighting"
 
 # Linux specific
-# if [[ `uname` == "Linux" ]]; then
-# fi
+if [[ `uname` == "Linux" ]]; then
+  export VISUAL="nvim" # Issue with Garuda setting $VISUAL to `kate`
+fi
 
 # -------
 # Utility settings
