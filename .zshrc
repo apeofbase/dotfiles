@@ -33,6 +33,7 @@ zmodload zsh/parameter
 zmodload zsh/complist
 zmodload zsh/regex
 zmodload zsh/zle
+autoload -Uz add-zsh-hook
 
 # Allows cd-less directory navigation
 setopt auto_cd
@@ -312,7 +313,9 @@ if [ -e ~/.custom.zshrc ]; then
 fi
 
 # Starship prompt initialize: https://starship.rs
-_cache_eval ~/.cache/zsh/starship-init.zsh "$(whence starship)" starship init zsh
+if _has starship; then
+  _cache_eval ~/.cache/zsh/starship-init.zsh "$(whence starship)" starship init zsh
+fi
 
 # Initialize completions — only rescan $fpath if .zcompdump is older than 24h
 autoload -Uz compinit
