@@ -52,7 +52,7 @@ export EDITOR='vim'
 # Functions
 # -------
 
-# Returns whether the given command is executable or aliased.
+# Returns whether the given command is executable.
 # Pulled from https://github.com/statico/dotfiles -- .zshrc
 _has() {
   (( $+commands[$1] ))
@@ -61,12 +61,21 @@ _has() {
 # Cache the output of an eval-style init command.
 # Usage: _cache_eval <cache_file> <binary_path> <cmd> [args...]
 # Regenerates cache if the binary is newer than the cache file.
+# Writes to a temp file first and only replaces the cache on success,
+# to avoid leaving an empty/partial cache that breaks shell init.
 _cache_eval() {
   local cache="$1" bin="$2"
   shift 2
   if [[ ! -f "$cache" || "$bin" -nt "$cache" ]]; then
     mkdir -p "${cache:h}"
-    "$@" > "$cache"
+    local tmp="${cache}.tmp.$$"
+    if "$@" > "$tmp" && [[ -s "$tmp" ]]; then
+      mv "$tmp" "$cache"
+    else
+      rm -f "$tmp"
+      "$@"
+      return
+    fi
   fi
   source "$cache"
 }
