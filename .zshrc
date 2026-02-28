@@ -167,6 +167,7 @@ fi
 
 # Load autocompletions after compinit
 # zinit load "zdharma-continuum/history-search-multi-word"
+zinit light "Aloxaf/fzf-tab"
 zinit light "zdharma-continuum/zinit-annex-binary-symlink" # for auto symlinks
 zinit light "zsh-users/zsh-autosuggestions"
 zinit light "zsh-users/zsh-completions"
@@ -212,13 +213,8 @@ fi
 
 if _has fzf; then
 
-  if [ -f ~/.fzf/shell/key-bindings.zsh ]; then
-    source ~/.fzf/shell/key-bindings.zsh
-  elif [ -f /usr/share/fzf/key-bindings.zsh ]; then
-    source /usr/share/fzf/key-bindings.zsh
-  elif [ -f /usr/local/opt/fzf/shell/key-bindings.zsh ]; then
-    source /usr/local/opt/fzf/shell/key-bindings.zsh
-  fi
+  # Setup key-bindings and fuzzy completion
+  source <(fzf --zsh)
 
   # Color scheme
   # - Tokyo Night
@@ -250,7 +246,12 @@ else
   echo "fzf not installed: https://github.com/junegunn/fzf"
 fi
 
+# -------
+# OpenCodeAI
+# -------
 if _has opencode; then
+  alias oc="opencode --agent plan"
+  alias ocp="opencode --agent plan --port"
   path+=(~/.opencode/bin)
 else
   echo "OpenCodeAI not installed https://opencode.ai"
