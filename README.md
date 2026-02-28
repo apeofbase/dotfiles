@@ -66,11 +66,8 @@
 
 ## TODO
 
-- SPEED START-UP
-    - [x] Initial speed up to load async
-    - [x] Add startup timer
-    - [ ] Rewrite to remove zinit
-- Ditch (most of) zinit
+- Ditch zinit
+    - use scripts to install dependencies currently managed by zinit
     - Script for MacOS based install (Homebrew)
         - Add `brewinstall` file for MacOS packages
 - Neovim

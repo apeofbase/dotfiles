@@ -220,13 +220,17 @@ if _has bob; then
   path+=("$HOME/.local/share/bob/nvim-bin")
 fi
 
-# Include gem binaries
-if _has gem; then
-  IFS=':' read -rA GPATH <<< "$(gem env gempath)"
-  for i in "${GPATH[@]}"; do
-    path+=("$i/bin")
-  done 
-fi
+# Include gem binaries — lazy-loaded on first prompt to avoid spawning Ruby at startup
+_load_gem_path() {
+  if _has gem; then
+    IFS=':' read -rA GPATH <<< "$(gem env gempath)"
+    for i in "${GPATH[@]}"; do
+      path+=("$i/bin")
+    done
+  fi
+  unfunction _load_gem_path
+}
+add-zsh-hook precmd _load_gem_path
 
 if ! _has lazygit; then
   echo "lazygit not installed"
