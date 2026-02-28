@@ -1,0 +1,36 @@
+#!/usr/bin/env zsh
+# Clears all zsh caches managed by .zshrc.
+# Caches are regenerated automatically on the next shell start.
+
+local -a cleared=()
+
+_clear_file() {
+  local f="$1"
+  if [[ -f "$f" ]]; then
+    trash "$f" && cleared+=("$f")
+  fi
+}
+
+# _cache_eval caches
+_clear_file ~/.cache/zsh/fzf-init.zsh
+_clear_file ~/.cache/zsh/starship-init.zsh
+_clear_file ~/.cache/zsh/zoxide-init.zsh
+
+# compinit dump (glob to catch ~/.zcompdump-<hostname>-<version> variants)
+for f in ~/.zcompdump*(N); do
+  _clear_file "$f"
+done
+
+# Stale temp files from interrupted _cache_eval writes
+for f in ~/.cache/zsh/*.tmp.*(N); do
+  _clear_file "$f"
+done
+
+if (( ${#cleared[@]} == 0 )); then
+  print "Nothing to clear — no zsh cache files found."
+else
+  for f in "${cleared[@]}"; do
+    print "Cleared $f"
+  done
+  print "\nZsh caches cleared. Restart your shell to regenerate."
+fi
