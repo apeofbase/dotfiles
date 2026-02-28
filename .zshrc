@@ -55,7 +55,7 @@ export EDITOR='vim'
 # Returns whether the given command is executable or aliased.
 # Pulled from https://github.com/statico/dotfiles -- .zshrc
 _has() {
-  return $( whence $1 >/dev/null )
+  (( $+commands[$1] ))
 }
 
 # Cache the output of an eval-style init command.
