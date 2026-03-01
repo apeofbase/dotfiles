@@ -1,0 +1,5 @@
+- Neovim
+    - Add opencode.nvim
+        - [ ] Remove code-companion
+        - [ ] Install nvim-opencode
+    - Fix code-companion to use better models

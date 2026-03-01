@@ -1,0 +1,4 @@
+- Neovim
+    - Add Drupal LSP
+        - https://github.com/jdrupal-dev/drupal_ls
+        - https://github.com/nkoporec/drupal-lsp
