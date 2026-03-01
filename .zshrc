@@ -211,10 +211,10 @@ fi
 # -------
 # Utility settings
 # -------
-if [ -d "$HOME/.nvm" ]; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# `fnm` Rust replacement for NVM
+if _has fnm; then
+  _cache_eval ~/.cache/zsh/fnm-init.zsh "$(whence fnm)" fnm env --use-on-cd --shell zsh
 fi
 
 # User bin dir for custom scripts
