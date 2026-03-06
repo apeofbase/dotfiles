@@ -9,6 +9,7 @@ apps=(
     "eza"
     "fastfetch"
     "fd"
+    "fnm",
     "fzf"
     "git"
     "github-cli"
