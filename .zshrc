@@ -1,4 +1,11 @@
 # -------
+# Startup timer (print elapsed time at end of .zshrc if ZSH_STARTUP_TIMER is set)
+# To enable: export ZSH_STARTUP_TIMER=1 in ~/.custom.zshrc
+# -------
+zmodload zsh/datetime
+_zsh_start_time=$EPOCHREALTIME
+
+# -------
 # zinit setup
 # https://github.com/zdharma-continuum/zinit/wiki/Recipes-for-popular-programs#fzf-completion-and-key-bindings
 # -------
@@ -9,7 +16,6 @@ then
   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 source "${ZINIT_HOME}/zinit.zsh"
-source "${HOME}/.env"
 
 # -------
 # Basic
@@ -27,6 +33,7 @@ zmodload zsh/parameter
 zmodload zsh/complist
 zmodload zsh/regex
 zmodload zsh/zle
+autoload -Uz add-zsh-hook
 
 # Allows cd-less directory navigation
 setopt auto_cd
@@ -46,10 +53,32 @@ export EDITOR='vim'
 # Functions
 # -------
 
-# Returns whether the given command is executable or aliased.
+# Returns whether the given command is executable.
 # Pulled from https://github.com/statico/dotfiles -- .zshrc
 _has() {
-  return $( whence $1 >/dev/null )
+  (( $+commands[$1] ))
+}
+
+# Cache the output of an eval-style init command.
+# Usage: _cache_eval <cache_file> <binary_path> <cmd> [args...]
+# Regenerates cache if the binary is newer than the cache file.
+# Writes to a temp file first and only replaces the cache on success,
+# to avoid leaving an empty/partial cache that breaks shell init.
+_cache_eval() {
+  local cache="$1" bin="$2"
+  shift 2
+  if [[ ! -f "$cache" || "$bin" -nt "$cache" ]]; then
+    mkdir -p "${cache:h}"
+    local tmp="${cache}.tmp.$$"
+    if "$@" > "$tmp" && [[ -s "$tmp" ]]; then
+      mv "$tmp" "$cache"
+    else
+      rm -f "$tmp"
+      "$@"
+      return
+    fi
+  fi
+  source "$cache"
 }
 
 # -------
@@ -151,7 +180,8 @@ if _has eza; then
   alias l='eza --icons=always'
   alias la='eza --icons=always --all'
   alias ll='eza --icons=always --all --oneline'
-  alias lah='eza --icons=always --long --all --total-size --header --group'
+  alias lah='eza --icons=always --long --all --header --group'
+  alias lahs='eza --icons=always --long --all --total-size --header --group'
   alias tree='eza --icons=always --tree'
 else
   echo 'You should install `eza`'
@@ -167,23 +197,24 @@ fi
 
 # Load autocompletions after compinit
 # zinit load "zdharma-continuum/history-search-multi-word"
-zinit light "Aloxaf/fzf-tab"
-zinit light "zdharma-continuum/zinit-annex-binary-symlink" # for auto symlinks
-zinit light "zsh-users/zsh-autosuggestions"
-zinit light "zsh-users/zsh-completions"
-zinit light "zdharma-continuum/fast-syntax-highlighting"
+zinit light "zdharma-continuum/zinit-annex-binary-symlink" # for auto symlinks (must load eagerly for annex to work)
+zinit ice wait lucid; zinit light "Aloxaf/fzf-tab"
+zinit ice wait lucid; zinit light "zsh-users/zsh-autosuggestions"
+zinit ice wait lucid; zinit light "zsh-users/zsh-completions"
+zinit ice wait lucid; zinit light "zdharma-continuum/fast-syntax-highlighting"
 
 # Linux specific
-# if [[ `uname` == "Linux" ]]; then
-# fi
+if [[ `uname` == "Linux" ]]; then
+  export VISUAL="nvim" # Issue with Garuda setting $VISUAL to `kate`
+fi
 
 # -------
 # Utility settings
 # -------
-if [ -d "$HOME/.nvm" ]; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# `fnm` Rust replacement for NVM
+if _has fnm; then
+  _cache_eval ~/.cache/zsh/fnm-init.zsh "$(whence fnm)" fnm env --use-on-cd --shell zsh
 fi
 
 # User bin dir for custom scripts
@@ -199,13 +230,17 @@ if _has bob; then
   path+=("$HOME/.local/share/bob/nvim-bin")
 fi
 
-# Include gem binaries
-if _has gem; then
-  IFS=':' read -rA GPATH <<< "$(gem env gempath)"
-  for i in "${GPATH[@]}"; do
-    path+=("$i/bin")
-  done 
-fi
+# Include gem binaries — lazy-loaded on first prompt to avoid spawning Ruby at startup
+_load_gem_path() {
+  if _has gem; then
+    IFS=':' read -rA GPATH <<< "$(gem env gempath)"
+    for i in "${GPATH[@]}"; do
+      path+=("$i/bin")
+    done
+  fi
+  unfunction _load_gem_path
+}
+add-zsh-hook precmd _load_gem_path
 
 if ! _has lazygit; then
   echo "lazygit not installed"
@@ -213,8 +248,8 @@ fi
 
 if _has fzf; then
 
-  # Setup key-bindings and fuzzy completion
-  source <(fzf --zsh)
+  # Setup key-bindings and fuzzy completion (cached to avoid spawning fzf each startup)
+  _cache_eval ~/.cache/zsh/fzf-init.zsh "$(whence fzf)" fzf --zsh
 
   # Color scheme
   # - Tokyo Night
@@ -278,14 +313,22 @@ if [ -e ~/.custom.zshrc ]; then
 fi
 
 # Starship prompt initialize: https://starship.rs
-eval "$(starship init zsh)"
+if _has starship; then
+  _cache_eval ~/.cache/zsh/starship-init.zsh "$(whence starship)" starship init zsh
+fi
 
-# Initialize completions
-autoload -U compinit; compinit
+# Initialize completions — only rescan $fpath if .zcompdump is older than 24h
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
+zinit cdreplay -q  # replay compdef calls queued by turbo-mode plugins
 
 # Initialize ajeetdsouza/zoxide
 if _has zoxide; then
-  eval "$(zoxide init zsh)"
+  _cache_eval ~/.cache/zsh/zoxide-init.zsh "$(whence zoxide)" zoxide init zsh
   alias cd='z'
 fi
 
@@ -295,3 +338,7 @@ fi
 
 export PATH
 
+if [[ -n "$ZSH_STARTUP_TIMER" ]]; then
+  print "Shell started in $(( int((EPOCHREALTIME - _zsh_start_time) * 1000) ))ms"
+fi
+unset _zsh_start_time
