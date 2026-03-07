@@ -1,20 +1,17 @@
 #!/bin/bash
 
-# LG 4K 60hz (DP-3) Scale: 150%
-# LG 4K 120hz TV (HDMI-A-1) Scale: 100%
-# Acer Predator 2K 144hz (DP-1) Scale: 100%
+# 'LG Electronics HDR 4K' 60hz Pos: 0,0 (2 DP-3) Scale: 150%
+MONITOR_LG4K="DP-3"
 
-# Enable
-kscreen-doctor output.DP-1.disable output.DP-3.disable output.HDMI-A-1.enable
+# 'LG Electronics LG TV SSCR2' 120hz TV Pos: 2560,0 (3 HDMI-A-1) Scale: 100%
+MONITOR_LGTV="HDMI-A-1"
 
-# Set resolutions
-kscreen-doctor output.HDMI-A-1.mode.3840x2160@120
+# 'Acer Technologies XB271HU' 2K 144hz Pos: 6400,0 (1 DP-1) Scale: 100%
+MONITOR_ACER="DP-1"
 
-# Set positions
-kscreen-doctor output.HDMI-A-1.position.0,0
-
-# Set priority
-kscreen-doctor output.HDMI-A-1.primary
-
-# Set scale
-kscreen-doctor output.HDMI-A-1.scale.1
+kscreen-doctor \
+  output."${MONITOR_ACER}".disable output."${MONITOR_LG4K}".disable output."${MONITOR_LGTV}".enable \
+  output."${MONITOR_LGTV}".mode.3840x2160@120 \
+  output."${MONITOR_LGTV}".position.0,0 \
+  output."${MONITOR_LGTV}".priority.1 \
+  output."${MONITOR_LGTV}".scale.1
