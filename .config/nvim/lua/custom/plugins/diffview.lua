@@ -7,7 +7,7 @@ return {
       { '<leader>gd', '<cmd>DiffviewOpen<CR>',            desc = '[G]it [d]iff view' },
       { '<leader>gh', '<cmd>DiffviewFileHistory %<CR>',   desc = '[G]it file [h]istory' },
       { '<leader>gH', '<cmd>DiffviewFileHistory<CR>',     desc = '[G]it repo [H]istory' },
-      { '<leader>gc', '<cmd>DiffviewClose<CR>',           desc = '[G]it diff [c]lose' },
+      { '<leader>gq', '<cmd>DiffviewClose<CR>',           desc = '[G]it diff [q]uit' },
       { '<leader>gr', '<cmd>DiffviewRefresh<CR>',         desc = '[G]it diff [r]efresh' },
     },
     config = function()
